@@ -1,0 +1,22 @@
+<div class="{{ classInclude }} position-relative" [style.width]="width">
+    <div *ngIf="readOnly" class="mo-wb-readonly w-100 h-100 position-absolute mo-wb-top-0 mo-wb-left-0 mo-wb-z-index-1">
+    </div>
+    <div class="mo-wb-input-time-group d-flex align-items-center row"
+        [ngClass]="{'mo-wb-disable': disabled, 'mo-wb-border-none': readOnly}">
+        <div class="mo-wb-input-time d-flex col-3" >
+            <span class="mo-icn-set-time mo-wb-icon-time mo-wb-ml-8px"></span>
+        </div>
+        <input #refHour type="tel" [ngClass]="{'mo-wb-pointer-events-none': readOnly}" [value]="hours.value"
+            class="mo-wb-input-time mo-wb-pl-6px mo-wb-font-head-4  col-4" min="0" max="100" placeholder="hh"
+            (keyup)="onKeyHour(refHour)">
+        <div class="col-1">
+            <span>:</span>
+        </div>
+        <input type="tel" #refMinutes [ngClass]="{'mo-wb-pointer-events-none': readOnly}" [value]="minutes.value"
+            class="mo-wb-input-time mo-wb-font-head-4 mo-wb-pl-4px col-4" min="0" max="100" placeholder="mm"
+            (keyup)="onKeyMinutes(refMinutes)">
+    </div>
+</div>
+<div class="mo-wb-message-error mo-wb-ml-20px" *ngIf="errorHourMinutes">
+    {{ 'i18n_input_time' | translate }}
+</div>

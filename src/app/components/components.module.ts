@@ -29,12 +29,13 @@ import { MoWbTableModule } from './table/table.module';
 // import { MoWbScrollOverlayModule } from './scroll-overlay/scroll-overlay.module';
 // import { MoWbTagsModule } from './tags/tags.module';
 import { MoWbFileUploadV4Module } from './upload/file-upload-v4/file-upload.module';
-// import { MoWbDatePickerModule } from './date-picker/date-picker.module';
+import { MoWbDatePickerModule } from './date-picker/date-picker.module';
 
 // components
 import { MoWbDetectionComponent } from './detection.component';
 import { MoWbInputModule } from './input/input.module';
 import { MoWbTestModalTest1Component } from './test/modal/test1/test1.component';
+import { MoWbLabelModule } from './label/label.module';
 // import { MoWbLoginModule } from './login/login.module';
 // import { MoWbTestComponent } from './test/test.component';
 // import { MoWbTestModalTest1Component } from './test/modal/test1/test1.component';
@@ -64,8 +65,9 @@ import { MoWbTestModalTest1Component } from './test/modal/test1/test1.component'
     // MoWbSectionModule,
     MoWbMenuModule,
     // // MoWbAnimationModule,
-    // // MoWbDatePickerModule,
+    MoWbDatePickerModule,
     MoWbSelectModule,
+    MoWbLabelModule,
     MoWbHoverActionModule,
     MoWbFileUploadV4Module,
     MoWbTableModule,
@@ -100,7 +102,8 @@ import { MoWbTestModalTest1Component } from './test/modal/test1/test1.component'
     MoWbSliderModule,
     // MoWbPopupModule,
     MoWbRadioModule,
-    // // MoWbDatePickerModule,
+    MoWbDatePickerModule,
+    MoWbLabelModule,
     // MoWbSectionModule,
     MoWbMenuModule,
     // // MoWbAnimationModule,

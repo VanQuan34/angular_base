@@ -1,0 +1,62 @@
+.mo-wb-label-container {
+    overflow: auto;
+    padding-bottom: 4px;
+}
+
+.mo-wb-label-container-top {
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mo-wb-label-container-bottom {
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    padding-bottom: 4px;
+}
+
+.mo-wb-label-desc {
+    color: rgba(78, 78, 78, 0.5);
+}
+
+.mo-wb-label-container-left {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.mo-wb-label-container-left-limit {
+    width: 60%;
+}
+
+.mo-wb-label-container-decrypt {
+    width: calc(100% - 25px);
+}
+
+.mo-wb-label-has-not-required {
+    max-width: calc(100% - 155px);
+}
+
+.mo-wb-label-not-required {
+    margin-left: 0px;
+    font-size: 10px !important;
+    color: #999999;
+    line-height: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mo-wb-label-length-limit {
+    color: #999999;
+}
+
+.mo-wb-label-button {
+    margin-left: 12px;
+    cursor: pointer;
+    [class*='mo-icn-']:before {
+        color: #009cdb;
+    }
+}

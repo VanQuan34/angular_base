@@ -1,0 +1,84 @@
+<mo-wb-components-label *ngIf="label"
+  [label]="label"
+  [enable]="enable">
+</mo-wb-components-label>
+<ng-container *ngIf="displayFake">
+  <div [class]="'mo-wb-multi-date'"
+    [ngClass]="{'mo-wb-disable mo-wb-pointer-events-none': !enable,
+    'mo-wb-readonly mo-wb-pointer-events-none': readOnly,
+    'mo-wb-pr-12px': !hasResetDate,
+    'mo-wb-border-error-general':singleError.error}"
+    [style.width]="width"
+    [style.max-width]="maxWidth"
+    (click)="showDateRange($event)">
+    <div class="d-flex align-items-center">
+      <div class="mo-icn-lich"></div>
+      <div [ngClass]="{'mo-wb-multi-date-label': true,
+              'mo-wb-multi-date-label-default': !dateRange?.start || !dateRange?.end }">
+        <ng-container *ngIf="!dateRange?.start || !dateRange?.end">
+          {{defaultHolder}}
+        </ng-container>
+        <ng-container *ngIf="dateRange?.start && dateRange?.end">
+          <span *ngIf="!isLifetime">
+            {{ ((dateRange?.start | date:format) | multiDate:(dateRange?.end |
+            date:format):dateRange.dateTimeType:showDate:lang) | async }}
+          </span>
+          <span *ngIf="isLifetime">{{ labelOptionLifeTime | translate}}</span>
+        </ng-container>
+      </div>
+    </div>
+    <div class="mo-wb-multi-date-close"
+      *ngIf="hasResetDate && dateRange?.start && dateRange?.end"
+      (click)="handleOnResetClick($event)">
+      <span class="mo-icn-close-popup"></span>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="!displayFake">
+  <div [class]="'mo-wb-multi-date'"
+    [ngClass]="{'mo-wb-disable': !enable,
+    'mo-wb-readonly mo-wb-pointer-events-none': readOnly,
+    'mo-wb-pr-12px': !hasResetDate,
+    'mo-wb-border-error-general':singleError.error}"
+    #daterangepck
+    m-daterangepicker
+    [isDisableHideScroll]="isDisableHideScroll"
+    [style.width]="width"
+    [style.max-width]="maxWidth"
+    [zIndex]="zIndex ? zIndex : 6"
+    (onHover)="handleHover($event)"
+    [options]="datePickerOptions"
+    (onResetActiveRangeset)="handleResetActiveRangeset($event)"
+    (hideDaterangepicker)="removeDatePicker()"
+    (selected)="handleSelectedDate($event)">
+    <div class="d-flex align-items-center">
+      <div class="mo-icn-lich"></div>
+      <div [ngClass]="{'mo-wb-multi-date-label': true,
+              'mo-wb-multi-date-label-default': !dateRange?.start || !dateRange?.end }">
+        <ng-container *ngIf="!dateRange?.start || !dateRange?.end">
+          {{defaultHolder}}
+        </ng-container>
+        <ng-container *ngIf="dateRange?.start && dateRange?.end">
+          <span *ngIf="!isLifetime">
+            {{ ((dateRange?.start | date:format) | multiDate:(dateRange?.end |
+            date:format):dateRange.dateTimeType:showDate:lang) | async }}
+          </span>
+          <span *ngIf="isLifetime">{{ labelOptionLifeTime | translate}}</span>
+        </ng-container>
+      </div>
+    </div>
+    <div class="mo-wb-multi-date-close"
+      *ngIf="hasResetDate && dateRange?.start && dateRange?.end"
+      (click)="handleOnResetClick($event)">
+      <span class="mo-icn-close-popup"></span>
+    </div>
+  </div>
+</ng-container>
+<div class="clearfix"></div>
+
+<div *ngIf="singleError.error"
+  class="d-flex align-items-center mo-wb-line-height-normal mo-wb-mt-4px">
+  <i [class]="'mo-wb-color-ff5454 mo-icn-close-popup mo-wb-font-size-8px mo-wb-pr-4px'"></i>
+  <span class="mo-wb-color-ff5454 mo-wb-font-head-5"
+    [innerHtml]="singleError.error | translate:singleError.interpolateParams"></span>
+</div>

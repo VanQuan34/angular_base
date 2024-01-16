@@ -1,0 +1,64 @@
+
+
+:host ::ng-deep {
+  .mo-wb-date-picker-date_month {
+    overflow: hidden;
+    padding-left:3px;
+    padding-right:3px;
+    display: flex;
+    align-items: center;
+
+    .mo-wb-date-picker-date_month-dd {
+      overflow: auto;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+
+    .mo-wb-date-picker-date_month-dd:first-child {
+      margin-right: 12px;
+    }
+  }
+}
+
+.mo-wb-date-picker {
+  padding: 0px 12px;
+  height: 28px;
+  color: #4e4e4e;
+  background: #fff;
+  border: 1px solid #e6e8ed;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: fit-content;
+
+  .mo-wb-date-picker-label {
+      margin-left: 8px;
+      font-size: 12px;
+      line-height: 16px;
+      color: #333333;
+  }
+
+  .mo-wb-date-picker-label-default {
+      color: rgba(51, 51, 51, 0.5);
+  }
+}
+
+.mo-wb-date-picker-close {
+  font-size: 8px;
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  right: 8px;
+  padding: 5px;
+  border-radius: 10px;
+  &:hover {
+      background-color: #e6e8ed;
+  }
+  .mo-icn-close-popup::before {
+      color: #ff5454;
+  }
+}

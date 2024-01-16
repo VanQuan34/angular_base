@@ -1,0 +1,16 @@
+.row, [class*='col-'] {
+  padding: 0;
+  margin: 0;
+}
+
+.mo-wb-input-time-group {
+  border: solid 1px #e6e8ed;
+  border-radius: 4px;
+  height: 30px;
+  .mo-wb-input-time {
+    border: none;
+    outline: none;
+    color: #4e4e4e;
+  }
+}
+

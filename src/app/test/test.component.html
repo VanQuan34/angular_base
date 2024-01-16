@@ -10,14 +10,23 @@
 
   <div class="d-flex mo-wb-mt-30px mo-wb-mx-20px"
     style="gap: 40px">
-    <!-- <mo-wb-components-date_picker-date_time #datePicker
+    <mo-wb-components-date_picker-date_time #datePicker
       [dateUpPost]="dueDate"
       [positionCalendar]="'bottom'"
       [format]="'DD/MM/YYYY HH:mm:ss'"
       [ignoreMinDate]="true"
       [hasResetDate]="false"
       (onTimePick)="handleOnTimePick($event)">
-    </mo-wb-components-date_picker-date_time> -->
+    </mo-wb-components-date_picker-date_time>
+
+    <mo-wb-components-date_picker-multi_date
+    [zIndex]="99999"
+    [autoSelect]="true"
+    [width]="'100%'"
+    [maxWidth]="'auto'"
+    [minDate]="'1/1/1945'"
+    (onSelectTime)="handleSelectedTime($event)">
+  </mo-wb-components-date_picker-multi_date>
 
   </div>
 
@@ -354,7 +363,9 @@
   <div class="d-flex flex-wrap mo-wb-my-20px mo-wb-mx-20px"
     style="gap: 30px;">
     <div class="">
-      <mo-wb-components-select [type]="'singe'"
+      <mo-wb-components-select 
+        [type]="'singe'"
+        [items]="[{id: 1, name: 'Một'},{id: 2, name: 'Hai'}]"
         [classInclude]="'mo-wb-w-200px'">
       </mo-wb-components-select>
     </div>

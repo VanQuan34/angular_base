@@ -1,0 +1,57 @@
+<div
+    #calendar
+    clickOutside
+    (clickOutside)="hiddenCalendar($event)"
+    (mouseenter)="handleMouseEnter($event)"
+    (mouseleave)="handleMouseLeave($event)"
+    class="mo-wb-calender"
+    [style.top.px] = "top"
+    [style.left.px] = "left"
+    [ngClass]="{'top': positionCalendar === 'top',
+        'bottom': positionCalendar === 'bottom',
+        'right': positionCalendar === 'bottom' && arrowRight,
+        'left': positionCalendar === 'bottom' && arrowLeft,
+        'haveArrow': haveArrow === true}">
+    <select class="select-year" (change)="selectYearCalender($event)">
+        <option *ngFor="let item of listYear" [selected]="item === thisYear"> {{item}}</option>
+    </select>
+
+    <my-date-picker #mydate
+        [locale]="locale"
+        [options]="optionsDatetimePicker"
+        (onYearChanged)="onYearChanged($event)"
+        (dateChanged)="onDateChanged($event)"
+        [(ngModel)]="model" required></my-date-picker>
+
+    <div class="clearfix"></div>
+    <div class= "time-container"
+        *ngIf="!hiddenTime">
+        <div class="fake-hour">
+            <input #hoursInput type="text" [value]="time.hours" placeholder="0"
+                (keyup)="validateHours($event,hoursInput)">
+        </div>
+        <div class="separate_container">:</div>
+        <div class="fake-minute">
+            <input #minuteInput type="text" [value]="time.minute" placeholder="0"
+                (keyup)="validateMinute($event,minuteInput)">
+        </div>
+    </div>
+
+    <div class="button-container">
+        <mo-wb-components-button
+            (onClick)="selectDate($event)"
+            [classInclude]="'mo-wb-mr-10px'"
+            [label]="'i18n_agree'"
+            [type]="'pri'">
+        </mo-wb-components-button>
+        <mo-wb-components-button
+            (onClick)="hiddenCalendar($event)"
+            [label]="'i18n_closed'"
+            [type]="'third'">
+        </mo-wb-components-button>
+    </div>
+    <div
+        *ngIf="haveArrow === true"
+        [ngClass]="{'arrow':true, 'arrow-top':arrowtop,'arrow-bottom':arrowBottom,'arrow-left': arrowRight, 'arrow-right': arrowLeft}">
+    </div>
+</div>

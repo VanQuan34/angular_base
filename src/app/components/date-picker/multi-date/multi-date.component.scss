@@ -1,0 +1,49 @@
+.mo-wb-multi-date {
+  padding: 0px 8px 0px 12px;
+  height: 28px;
+  color: #4e4e4e;
+  background: #fff;
+  border: 1px solid #e6e8ed;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  float: left;
+  width: 100%;
+
+  .mo-wb-multi-date-label {
+    margin-left: 8px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #4e4e4e;
+  }
+
+  .mo-wb-multi-date-label-default {
+    color: rgba(78, 78, 78, 0.5);
+  }
+}
+
+.mo-wb-multi-date-close {
+  height: 18px;
+  width: 18px;
+  border-radius: 12px;
+  margin-left: 5px;
+  font-size: 8px;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    background-color: #e6e8ed;
+  }
+  .mo-icn-close-popup::before {
+    color: #ff5454;
+  }
+  .mo-icn-close-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

@@ -1,0 +1,97 @@
+<mo-wb-components-label *ngIf="label"
+    [label]="label"
+    [enable]="enable">
+</mo-wb-components-label>
+<ng-container *ngIf="format !== 'dd/mm' && format !== 'yyyy/mm' ">
+    <div #dateTimePicker
+        [class]="'mo-wb-date-picker position-relative ' + classInclude"
+        [style.width]="widthDatePicker"
+        [class.mo-wb-border-error-general]="error"
+        [class.mo-wb-readonly]="readonly"
+        [class.mo-wb-disable]="!enable"
+        [class.mo-wb-pointer-events-none]="!enable"
+        (click)="toggleCalendar($event)">
+        <div class="mo-icn-lich"></div>
+        <div
+            [ngClass]="{'mo-wb-color-29c7cc':useColorModeExist, 'mo-wb-date-picker-label': true, 'mo-wb-date-picker-label-default': !dateUpPost, 'mo-wb-mr-20px': dateUpPost && hasResetDate && !readonly }">
+            {{dateUpPost | labelTime:hiddenTime: keepFormat }}
+        </div>
+        <div class="mo-wb-date-picker-close"
+            *ngIf="dateUpPost && hasResetDate && !readonly"
+            (click)="handleOnResetClick($event)">
+            <span class="mo-icn-close-popup"></span>
+        </div>
+    </div>
+    <div *ngIf="error"
+        class="d-flex align-items-center mo-wb-line-height-normal mo-wb-mt-4px">
+        <i [class]="'mo-wb-color-ff5454 mo-icn-close-popup mo-wb-font-size-8px mo-wb-pr-4px'"></i>
+        <span class="mo-wb-color-ff5454 mo-wb-font-head-5"> {{(requiredErrorMessage ||
+            DefineConstants.ERROR_MESSAGE_EMPTY_VALID) | translate}}</span>
+    </div>
+</ng-container>
+
+<div *ngIf="format === 'dd/mm' || format === 'yyyy/mm'"
+    [class]="'mo-wb-date-picker-date_month ' + classInclude">
+    <!-- <mo-wb-components-drop_down #dYear
+        [style.display]="format === 'yyyy/mm' ? 'block' : 'none'"
+        class="mo-wb-date-picker-date_month-dd"
+        [selectedKeys]="yearSelectedKeys"
+        [enable]="enable"
+        [items]="yearItems"
+        [default]="'i18n_select_year'"
+        [hasSearchInput]="false"
+        [maxLine]="12"
+        [readOnly]="readonly"
+        [emptyValid]="true"
+        [ignoreEmptyMessage]="true"
+        [width]="99"
+        [minWidth]="99"
+        (click)="handleOnDropDownClick($event)"
+        (onHover)="handleHover($event)"
+        (onSelectedChange)="handleOnYearChange($event)">
+    </mo-wb-components-drop_down>
+
+    <mo-wb-components-drop_down #dMonth
+        [class]="'mo-wb-date-picker-date_month-dd ' + (format === 'dd/mm' ? 'mo-wb-mr-12px' : '')"
+        [selectedKeys]="monthSelectedKeys"
+        [enable]="enable && monthItems && monthItems.length"
+        [items]="monthItems"
+        [default]="pldMonthInput"
+        [hasSearchInput]="false"
+        [maxLine]="12"
+        [readOnly]="readonly"
+        [emptyValid]="true"
+        [ignoreEmptyMessage]="true"
+        [width]="109"
+        [minWidth]="109"
+        (onHover)="handleHover($event)"
+        (click)="handleOnDropDownClick($event)"
+        (onSelectedChange)="handleOnMonthChange($event)">
+    </mo-wb-components-drop_down>
+
+    <mo-wb-components-drop_down #dDay
+        [style.display]="format === 'dd/mm' ? 'block' : 'none'"
+        class="mo-wb-date-picker-date_month-dd"
+        [selectedKeys]="daySelectedKeys"
+        [enable]="monthSelectedKeys.length && enable"
+        [items]="dateItems"
+        [default]="pldDayInput"
+        [hasSearchInput]="false"
+        [maxLine]="15"
+        [readOnly]="readonly"
+        [emptyValid]="true"
+        [ignoreEmptyMessage]="true"
+        [width]="99"
+        [minWidth]="99"
+        (onHover)="handleHover($event)"
+        (click)="handleOnDropDownClick($event)"
+        (onSelectedChange)="handleOnDateChange($event)">
+    </mo-wb-components-drop_down> -->
+</div>
+<div class="clearfix"></div>
+<div *ngIf="enable && hasError"
+    class="d-flex align-items-center mo-wb-line-height-normal mo-wb-mt-4px">
+    <i [class]="'mo-wb-color-ff5454 mo-icn-close-popup mo-wb-font-size-8px mo-wb-pr-4px'"></i>
+    <span class="mo-wb-color-ff5454 mo-wb-font-head-5"> {{(requiredErrorMessage ||
+        DefineConstants.ERROR_MESSAGE_EMPTY_VALID) | translate}}</span>
+</div>

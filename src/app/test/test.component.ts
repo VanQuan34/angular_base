@@ -203,4 +203,8 @@ export class TestComponent extends MoWbDetectionComponent{
   handleOnTimePick(event: any) {
     console.log('date picker event:', event);
   }
+
+  handleSelectedTime(time: any){
+
+  }
 }

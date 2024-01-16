@@ -1,0 +1,33 @@
+<div class="mo-wb-pl-0 d-flex align-items-center mo-wb-mb-12px mo-wb-days-of-week" *ngFor="let date of dateData;let i = index;">
+  <div class="d-flex mo-wb-ml-20px" [ngClass]="{'mo-wb-disable': isDisabled}">
+      <mo-wb-components-drop_down
+          [items]="times"
+          [keyField]="keyField"
+          [width]="width"
+          [minWidth]="minWidth"
+          [maxLine]="maxLine"
+          [selectedKeys]="date.hour | CheckDayOfWeekBuildKey:date.minute"
+          [default]="date.placeholder"
+          (onSelectedChange)="onSelectedChangeHour($event,date)"
+      ></mo-wb-components-drop_down>
+  </div>
+  <div class="d-flex mo-wb-input mo-wb-ml-40px">
+      <ng-container *ngFor="let day of dayOfWeek; let last = last;">
+          <mo-wb-components-checkbox #cbDays
+              class="d-flex mo-wb-align-items-center mo-wb-cursor-pointer mo-wb-mr-40px mo-wb-p-1px"
+              [ngClass]="{'mo-wb-disable': isDisabled, 'mo-wb-mr-40px': !last, 'mo-wb-mr-20px': last}"
+              [label]="day.label"
+              [key]="day.id"
+              [checked]="day.id | CheckDayOfWeek:date.selectedDays"
+              (onChangeChecked)="onSelectedChangeCheckbox($event,date)">
+          </mo-wb-components-checkbox>
+      </ng-container>
+  </div>
+  <span class="mo-icn-remove-value mo-wb-hover-29c7cc mo-wb-cursor-pointer mo-wb-ml-40px"
+  [ngClass]="{'mo-disable': isDisabled, 'd-none': !dateData || dateData.length < 2}" (click)="removeDays($event,i)">
+  </span>
+</div>
+<div class="mo-wb-message-error mo-wb-font-head-5 mo-wb-mb-8px text-left mo-wb-ml-20px" *ngIf="isValidDayEmpty">{{messageErrorDay | translate}}</div>
+<div [ngClass]="{'mo-wb-pl-20px': true, 'mo-wb-mt-16px': true, 'mo-wb-disable': isDisabled, 'd-none': isHasAddTime}">
+  <span class="mo-wb-cursor-pointer mo-wb-hover-29c7cc mo-wb-color-009cdb" (click)="addDays($event)"><i class="mo-icn-add-new mo-wb-mr-8px"></i>{{ 'i18n_add_time' | translate }}</span>
+</div>

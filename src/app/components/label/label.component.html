@@ -1,0 +1,48 @@
+<div [class]="'mo-wb-label-container ' + classInclude">
+
+  <div class="mo-wb-label-container-top">
+    <div [class]="'mo-wb-label-container-left ' + ((limitLength || countCharacters) ? 'mo-wb-label-container-left-limit' : '')
+            + (configLabelRight ? 'mo-wb-label-container-decrypt' : '') ">
+      <mo-wb-components-button-toggle_button *ngIf="hasToggle" [disable]="disableToggle"
+        [class]="'mo-wb-mr-12px ' + classToggleInclude" [active]="toggleActive"
+        (onChangeToggle)="handleToggleChange($event)">
+      </mo-wb-components-button-toggle_button>
+      <mo-wb-components-tooltip [type]="'text'"
+        [classInclude]="classFontInclude + (notRequired ? ' mo-wb-label-has-not-required ' : '') + (isUpperCase ? ' text-uppercase ':'') "
+        [innerHTML]="text | translate">
+      </mo-wb-components-tooltip>
+      <mo-wb-components-tooltip *ngIf="tooltip || tooltipContent" [classInclude]="'mo-wb-ml-8px mo-wb-pr-1px'"
+        [width]="tooltip && tooltip.width || 200" [iconClass]="iconClass" [content]="tooltipContent || tooltip.content">
+      </mo-wb-components-tooltip>
+      <ng-container *ngIf="buttons && buttons.length">
+        <div *ngFor="let button of buttons; let i = index" [class]="'mo-wb-label-button ' + classButtonInclude"
+          [ngClass]="{'mo-wb-disable': !enable}" (click)="handleButtonClick($event,i)">
+          <div [class]="button.icon"></div>
+        </div>
+      </ng-container>
+      <span *ngIf="notRequired" class="mo-wb-label-not-required" [innerHTML]="'i18n_optional_label' | translate">
+      </span>
+    </div>
+    <div *ngIf="configLabelRight" (click)="handleButtonRight($event)">
+      <mo-wb-components-tooltip [classInclude]="configLabelRight.classInclude?configLabelRight.classInclude:''"
+        [width]="configLabelRight.width?configLabelRight.width:200"
+        [iconClass]="configLabelRight.iconClass?configLabelRight.iconClass:''"
+        [content]="configLabelRight.content?configLabelRight.content:''">
+        <span *ngIf="configLabelRight.label">{{configLabelRight.label | translate}}</span>
+      </mo-wb-components-tooltip>
+    </div>
+    <div *ngIf="limitLength && !countCharacters"
+      [class]="' mo-wb-label-container-right mo-wb-label-length-limit ' + (classLimitInclude ? classLimitInclude : ' mo-wb-font-head-5')">
+      {{characters}}/{{limitLength}}&nbsp;{{'i18n_character' | translate}}
+    </div>
+    <div *ngIf="!limitLength && countCharacters" [class]="'mo-wb-font-head-5 mo-wb-color-999999'">
+      {{characters}}&nbsp;{{'i18n_character' | translate}}
+    </div>
+  </div>
+
+  <div *ngIf="description"
+    [class]="'mo-wb-mt-4px ' + (classDescInclude ? classDescInclude : ' mo-wb-label-desc mo-wb-font-head-4 ')">
+    {{ description | translate }}
+  </div>
+
+</div>
