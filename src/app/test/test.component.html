@@ -1,1 +1,556 @@
-<p>test works!</p>
+<div class="mo-wb-bg-w h-100 w-100 mo-wb-overflow-auto mo-wb-px-20px mo-wb-pt-20px"
+  [style.paddingBottom]="'30vh'">
+
+
+  <!-- date picker -->
+
+  <div class="text-left mo-wb-mx-30px mo-wb-mt-30px">
+    <div class="mo-wb-f-dl ">{{'DATE PICKER'}}</div>
+  </div>
+
+  <div class="d-flex mo-wb-mt-30px mo-wb-mx-20px"
+    style="gap: 40px">
+    <!-- <mo-wb-components-date_picker-date_time #datePicker
+      [dateUpPost]="dueDate"
+      [positionCalendar]="'bottom'"
+      [format]="'DD/MM/YYYY HH:mm:ss'"
+      [ignoreMinDate]="true"
+      [hasResetDate]="false"
+      (onTimePick)="handleOnTimePick($event)">
+    </mo-wb-components-date_picker-date_time> -->
+
+  </div>
+
+  <!-- Button -->
+  <div class="text-left mo-wb-mx-30px mo-wb-mt-30px">
+    <div class="mo-wb-f-dl ">{{'Button'}}</div>
+  </div>
+
+  <div class="d-flex flex-wrap mo-wb-mt-20px mo-wb-px-20px"
+    style="gap: 20px;">
+    <mo-wb-components-button 
+      [label]="'Kiểu primary'"
+      [classIconLeft]="'mo-icn-add'"
+      [classIconRight]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button 
+      [label]="'Kiểu secondary'"
+      [type]="'sed'"
+      [classIconLeft]="'mo-icn-add'"
+      [classIconRight]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="true">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [label]="'Kiểu third'"
+      [type]="'third'"
+      [classIconLeft]="'mo-icn-add'"
+      [classIconRight]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [label]="'Kiểu outline'"
+      [type]="'outline'"
+      [classIconLeft]="'mo-icn-add'"
+      [classIconRight]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [label]="'Kiểu link'"
+      [type]="'link'"
+      [classIconLeft]="'mo-icn-add'"
+      [classIconRight]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="true">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [label]="'Kiểu red'"
+      [type]="'red'"
+      [classIconLeft]="'mo-icn-add'"
+      [classIconRight]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [label]="'Kiểu yellow'"
+      [type]="'yellow'"
+      [classIconLeft]="'mo-icn-add'"
+      [classIconRight]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [type]="'icon-pri'"
+      [size]="'s'"
+      [classIcon]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [type]="'icon-red'"
+      [size]="'s'"
+      [classIcon]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [type]="'icon-outline'"
+      [size]="'s'"
+      [classIcon]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [type]="'icon-sed'"
+      [size]="'s'"
+      [classIcon]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [type]="'icon-third'"
+      [size]="'s'"
+      [classIcon]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [type]="'icon-link'"
+      [size]="'s'"
+      [classIcon]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [type]="'icon-yellow'"
+      [size]="'s'"
+      [classIcon]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [type]="'text-pri'"
+      [label]="'kiểu no background'"
+      [classIconLeft]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false">
+    </mo-wb-components-button>
+
+
+
+
+
+
+  </div>
+
+  <!-- Checkbox -->
+  <div class="text-left mo-wb-mx-30px mo-wb-mt-30px">
+    <div class="mo-wb-f-dl ">{{'Checkbox'}}</div>
+  </div>
+
+  <div class=" mo-wb-mt-20px mo-wb-px-20px">
+
+    <div class="d-flex flex-wrap mo-wb-mb-20px"
+      style="gap: 20px;">
+      <mo-wb-components-checkbox [label]="'Text UnSelected' | translate"
+        [state]="'unselected'"
+        [type]="'pri'"
+        [disable]="false">
+      </mo-wb-components-checkbox>
+      <mo-wb-components-checkbox [label]="'Text selected' | translate"
+        [state]="'selected'"
+        [type]="'pri'"
+        [disable]="false">
+      </mo-wb-components-checkbox>
+      <mo-wb-components-checkbox [label]="'Text inactive' | translate"
+        [state]="'inactive'"
+        [type]="'pri'"
+        [disable]="false">
+      </mo-wb-components-checkbox>
+    </div>
+
+    <div class="d-flex flex-wrap mo-wb-mb-20px"
+      style="gap: 20px;">
+      <mo-wb-components-checkbox [label]="'Text UnSelected' | translate"
+        [state]="'unselected'"
+        [type]="'pri'"
+        [disable]="true">
+      </mo-wb-components-checkbox>
+      <mo-wb-components-checkbox [label]="'Text selected' | translate"
+        [state]="'selected'"
+        [type]="'pri'"
+        [helpText]="'Help text go here'"
+        [disable]="true">
+      </mo-wb-components-checkbox>
+      <mo-wb-components-checkbox [label]="'Text inactive' | translate"
+        [state]="'inactive'"
+        [type]="'pri'"
+        [tooltip]="{'content': 'hello 13123'}"
+        [disable]="true">
+      </mo-wb-components-checkbox>
+    </div>
+
+    <div class="d-flex flex-wrap mo-wb-mb-20px"
+      style="gap: 20px;">
+      <mo-wb-components-checkbox [label]="'Text UnSelected' | translate"
+        [state]="'unselected'"
+        [type]="'red'"
+        [disable]="false">
+      </mo-wb-components-checkbox>
+      <mo-wb-components-checkbox [label]="'Text selected' | translate"
+        [state]="'selected'"
+        [type]="'red'"
+        [disable]="false">
+      </mo-wb-components-checkbox>
+      <mo-wb-components-checkbox [label]="'Text inactive' | translate"
+        [state]="'inactive'"
+        [type]="'red'"
+        [disable]="false">
+      </mo-wb-components-checkbox>
+    </div>
+
+  </div>
+
+  <!-- RADIO -->
+  <div class="text-left mo-wb-mx-30px mo-wb-mt-30px">
+    <div class="mo-wb-f-dl ">{{'RADIO'}}</div>
+  </div>
+
+  <div class=" mo-wb-mt-20px mo-wb-px-20px">
+    <div class="d-flex flex-wrap mo-wb-mb-20px"
+      style="gap: 20px;">
+      <mo-wb-components-radio [label]="'Text UnSelected' | translate"
+        [isSelected]="false"
+        [disable]="false">
+      </mo-wb-components-radio>
+      <mo-wb-components-radio [label]="'Text selected' | translate"
+        [isSelected]="true"
+        [disable]="false">
+      </mo-wb-components-radio>
+    </div>
+  </div>
+
+  <!-- INPUT -->
+  <div class="text-left mo-wb-mx-30px mo-wb-mt-30px">
+    <div class="mo-wb-f-dl ">{{'INPUT'}}</div>
+  </div>
+
+  <div class="d-flex flex-wrap mo-wb-my-20px mo-wb-mx-20px"
+    style="gap: 30px;">
+    <div class="d-flex flex-column"
+      style="gap: 10px;">
+      <mo-wb-components-input [placeholder]="'Nhập nội dung'"
+        [classInclude]="'mo-wb-w-200px'">
+
+      </mo-wb-components-input>
+
+      <mo-wb-components-input [placeholder]="'Nhập nội dung'"
+        [classInclude]="'mo-wb-w-200px'"
+        [value]="'Nội dung'">
+      </mo-wb-components-input>
+
+      <mo-wb-components-input [placeholder]="'Read only'"
+        [classInclude]="'mo-wb-w-200px'"
+        [isReadonly]="true"
+        [value]="''">
+      </mo-wb-components-input>
+
+      <mo-wb-components-input [placeholder]="'Read only'"
+        [classInclude]="'mo-wb-w-200px'"
+        [isReadonly]="true"
+        [value]="'Read only'">
+      </mo-wb-components-input>
+
+
+      <mo-wb-components-input [placeholder]="'Nội dung disabled'"
+        [classInclude]="'mo-wb-w-200px'"
+        [enable]="false"
+        [value]="'Nội dung disabled'">
+      </mo-wb-components-input>
+
+    </div>
+
+    <div class="d-flex flex-column mo-wb-ml-30px"
+      style="gap: 10px;">
+      <mo-wb-components-input [placeholder]="'Tìm theo'"
+        [classInclude]="'mo-wb-w-200px'"
+        [isSearchInput]="true">
+      </mo-wb-components-input>
+
+      <mo-wb-components-input [placeholder]="'Tìm theo'"
+        [classInclude]="'mo-wb-w-200px'"
+        [isSearchInput]="true"
+        [value]="'Value'">
+      </mo-wb-components-input>
+
+      <mo-wb-components-input [placeholder]="'Tìm theo'"
+        [classInclude]="'mo-wb-w-250px'"
+        [isSearchInput]="true"
+        [value]="'Value'"
+        [maxLength]="50">
+      </mo-wb-components-input>
+
+    </div>
+
+    <div class="d-flex flex-column mo-wb-ml-30px"
+      style="gap: 10px;">
+      <mo-wb-components-input [placeholder]="'Tìm theo'"
+        [classInclude]="'mo-wb-w-200px'"
+        [isMultiple]="true">
+      </mo-wb-components-input>
+
+    </div>
+
+    <div class="d-flex flex-column mo-wb-ml-30px"
+      style="gap: 10px;">
+
+      <mo-wb-components-input-number [classInclude]="'mo-wb-w-100px'"
+        [unit]="''">
+      </mo-wb-components-input-number>
+
+      <mo-wb-components-input-number [classInclude]="'mo-wb-w-100px'"
+        [value]="100">
+      </mo-wb-components-input-number>
+
+      <mo-wb-components-input-number [classInclude]="'mo-wb-w-100px'"
+        [value]="100"
+        [hasStepper]="true">
+      </mo-wb-components-input-number>
+
+      <mo-wb-components-input-number [classInclude]="'mo-wb-w-100px'"
+        [value]="100"
+        [hasStepper]="true"
+        [enable]="false">
+      </mo-wb-components-input-number>
+
+    </div>
+  </div>
+
+  <!-- DROP DOWN -->
+  <div class="text-left mo-wb-mx-30px mo-wb-mt-30px">
+    <div class="mo-wb-f-dl ">{{'DROP DOWN'}}</div>
+  </div>
+
+  <div class="d-flex flex-wrap mo-wb-my-20px mo-wb-mx-20px"
+    style="gap: 30px;">
+    <div class="">
+      <mo-wb-components-select [type]="'singe'"
+        [classInclude]="'mo-wb-w-200px'">
+      </mo-wb-components-select>
+    </div>
+    <div class="">
+      <mo-wb-components-select [type]="'tree'"
+        [classInclude]="'mo-wb-w-250px'"
+        [selectedIds]="['1', '3', '5', '4', '6', '10', '12']">
+      </mo-wb-components-select>
+    </div>
+  </div>
+
+  <!-- HOVER ACTION -->
+  <div class="text-left mo-wb-mx-30px mo-wb-mt-30px">
+    <div class="mo-wb-f-dl ">{{'HOVER ACTION'}}</div>
+  </div>
+
+  <div class="d-flex flex-wrap mo-wb-my-20px mo-wb-mx-20px"
+    style="gap: 30px;">
+    <div>
+      <div #itemEl
+        *ngFor="let t of testEls"
+        class="d-flex align-items position-relative mo-wb-border-general"
+        style="width: 900px; height: 60px;">
+        <div class="w-100 h-100"
+          style="background-color: aqua;"></div>
+        <div class="w-100 h-100"
+          style="background-color:#fff;"></div>
+        <div class="w-100 h-100"
+          style="background-color: #fff"></div>
+        <div class="w-100 h-100"
+          style="background-color:#fff"></div>
+        <mo-wb-components-hover_action [parentEl]="itemEl"
+          [fixedShow]="false">
+          <div class="position-center-ver d-flex align-items-center mo-wb-right-60px justify-content-end mo-wb-w-300px">
+            <mo-wb-components-button [label]="'Chỉnh sửa'"
+              [type]="'third'"
+              [classIconLeft]="'mo-icn-edit'"
+              [classInclude]="'mo-wb-mr-12px'"
+              [isPending]="false"
+              [disable]="false">
+            </mo-wb-components-button>
+
+            <mo-wb-components-button [label]="'Dashboard'"
+              [type]="'third'"
+              [classIconLeft]="'mo-icn-dashboard-outline'"
+              [classInclude]="'selected'"
+              [isPending]="false"
+              [disable]="false">
+            </mo-wb-components-button>
+
+          </div>
+
+        </mo-wb-components-hover_action>
+
+        <mo-wb-components-select-menu [items]="menuItems"
+          [parentEl]="itemEl"
+          [classInclude]="'position-center-ver mo-wb-right-20px'"
+          (onSelectItem)="handleOnSelectMenuItem($event)">
+        </mo-wb-components-select-menu>
+      </div>
+    </div>
+
+    <div #itemEl1
+      class="d-flex align-items position-relative mo-wb-border-general"
+      style="width: 150px; height: 60px;">
+      <div class="full-screen"></div>
+      <mo-wb-components-select-menu [items]="menu2Items"
+        [parentEl]="itemEl1"
+        [menuIcon]="'mo-icn-more-horizontal mo-wb-rotate-90deg'"
+        [width]="160"
+        [classInclude]="'position-center-ver mo-wb-right-10px'"
+        (onSelectItem)="handleOnSelectMenuItem($event)">
+      </mo-wb-components-select-menu>
+    </div>
+  </div>
+
+
+  <!-- TOGGLE SELECT -->
+  <div class="text-left mo-wb-mx-30px mo-wb-mt-30px">
+    <div class="mo-wb-f-dl ">{{'TOGGLE SELECT'}}</div>
+  </div>
+
+  <div class="d-flex flex-wrap mo-wb-my-20px mo-wb-mx-20px"
+    style="gap: 30px;">
+    <mo-wb-components-select-toggle #selectToggle
+      [templateSelect]="select"
+      [templateContent]="content">
+
+      <ng-template #select
+        let-value>
+        <mo-wb-components-button [label]="'Tạo Landing Page'"
+          [classIconLeft]="'mo-icn-add'"
+          [classInclude]="value ? 'selected' : ''"
+          [isPending]="false"
+          [disable]="false">
+        </mo-wb-components-button>
+      </ng-template>
+
+      <ng-template #content
+        let-value>
+        <div class="mo-wb-bg-w mo-wb-w-400px mo-wb-border-radius-4px mo-wb-py-4px">
+          <div *ngFor="let item of toggleContentItems; let i = index;"
+            class="d-flex align-items-center mo-wb-px-16px mo-wb-py-4px mo-wb-bg-hover-bg mo-wb-cursor-pointer"
+            (click)="handleOnToggleItemClick(item);">
+            <i class="{{item.icon}} mo-wb-color-main-txt mo-wb-font-size-24px mo-wb-mr-8px"></i>
+            <div>
+              <div class="mo-wb-f-b1">{{item.title}}</div>
+              <div class="mo-wb-f-c3 mo-wb-mt-2px mo-wb-color-cap-txt">{{item.sub}}</div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+    </mo-wb-components-select-toggle>
+  </div>
+
+  <!-- MODAL -->
+  <div class="text-left mo-wb-mx-30px mo-wb-mt-30px">
+    <div class="mo-wb-f-dl ">{{'MODAL'}}</div>
+  </div>
+
+  <div class="d-flex mo-wb-mt-30px mo-wb-mx-20px">
+    <mo-wb-components-button [label]="'Mở Modal'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false"
+      (click)="handleOnOpenModal1Click($event)">
+    </mo-wb-components-button>
+  </div>
+
+
+  <!-- file upload -->
+  <div class="text-left mo-wb-mx-30px mo-wb-mt-30px">
+    <div class="mo-wb-f-dl ">{{'FILE UPLOAD'}}</div>
+  </div>
+
+  <div class="d-flex mo-wb-mt-30px mo-wb-mx-20px">
+    <mo-wb-components-file-upload-v4 #upload
+      [classInclude]="'mo-wb-w-500px'"
+      [minHeight]="224"
+      [type]="'FILE'"
+      [multiple]="false"
+      [hasInfo]="false"
+      [validRequired]="validRequired">
+    </mo-wb-components-file-upload-v4>
+  </div>
+
+  <!-- confirm modal -->
+
+  <div class="text-left mo-wb-mx-30px mo-wb-mt-30px">
+    <div class="mo-wb-f-dl ">{{'MODAL CONFIRM'}}</div>
+  </div>
+
+  <div class="d-flex mo-wb-mt-30px mo-wb-mx-20px">
+    <mo-wb-components-button [label]="'Kiểu success'"
+      [classIconLeft]="'mo-icn-add'"
+      [classIconRight]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false"
+      (onClick)="handleShowModal($event, 'SUCCESS')">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [label]="'Kiểu error'"
+      [type]="'red'"
+      [classIconLeft]="'mo-icn-add'"
+      [classIconRight]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false"
+      (onClick)="handleShowModal($event, 'ERROR')">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [label]="'Kiểu warning 1'"
+      [type]="'yellow'"
+      [classIconLeft]="'mo-icn-add'"
+      [classIconRight]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false"
+      (onClick)="handleShowModal($event, 'WARNING1')">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button [label]="'Kiểu warning 2'"
+      [type]="'yellow'"
+      [classIconLeft]="'mo-icn-add'"
+      [classIconRight]="'mo-icn-add'"
+      [classInclude]="'mo-wb-mr-12px'"
+      [isPending]="false"
+      [disable]="false"
+      (onClick)="handleShowModal($event, 'WARNING2')">
+    </mo-wb-components-button>
+  </div>
+
+
+
+
+
+</div>

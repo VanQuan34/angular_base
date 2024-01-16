@@ -1,6 +1,6 @@
 
-// import { MoWbRadioModule } from './radio/radio.module';
-// import { MoWbCheckboxModule } from './checkbox/checkbox.module';
+import { MoWbRadioModule } from './radio/radio.module';
+import { MoWbCheckboxModule } from './checkbox/checkbox.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MoWbButtonModule } from './button/button.module';
@@ -34,6 +34,7 @@ import { MoWbFileUploadV4Module } from './upload/file-upload-v4/file-upload.modu
 // components
 import { MoWbDetectionComponent } from './detection.component';
 import { MoWbInputModule } from './input/input.module';
+import { MoWbTestModalTest1Component } from './test/modal/test1/test1.component';
 // import { MoWbLoginModule } from './login/login.module';
 // import { MoWbTestComponent } from './test/test.component';
 // import { MoWbTestModalTest1Component } from './test/modal/test1/test1.component';
@@ -46,10 +47,10 @@ import { MoWbInputModule } from './input/input.module';
     // MoWbDropDownModule,
     MoWbToggleModule,
     MoWbSpinnerModule,
-    // MoWbCheckboxModule,
+    MoWbCheckboxModule,
     // MoWbCategoryModule,
     // MoWbMenuDropDownModule,
-    // MoWbModalModule,
+    MoWbModalModule,
     MoWbColorModule,
     // MoWbTabModule,
     MoWbTogglePanelModule,
@@ -59,7 +60,7 @@ import { MoWbInputModule } from './input/input.module';
     // // MoWbColorModule,
     MoWbSliderModule,
     // MoWbPopupModule,
-    // MoWbRadioModule,
+    MoWbRadioModule,
     // MoWbSectionModule,
     MoWbMenuModule,
     // // MoWbAnimationModule,
@@ -76,7 +77,7 @@ import { MoWbInputModule } from './input/input.module';
   declarations: [
     MoWbDetectionComponent,
     // MoWbTestComponent,
-    // MoWbTestModalTest1Component
+    MoWbTestModalTest1Component
   ],
   exports: [
     MoWbDetectionComponent,
@@ -85,7 +86,7 @@ import { MoWbInputModule } from './input/input.module';
     // MoWbDropDownModule,
     MoWbToggleModule,
     MoWbSpinnerModule,
-    // MoWbCheckboxModule,
+    MoWbCheckboxModule,
     // MoWbCategoryModule,
     // MoWbMenuDropDownModule,
     MoWbModalModule,
@@ -98,7 +99,7 @@ import { MoWbInputModule } from './input/input.module';
     // // MoWbColorModule,
     MoWbSliderModule,
     // MoWbPopupModule,
-    // MoWbRadioModule,
+    MoWbRadioModule,
     // // MoWbDatePickerModule,
     // MoWbSectionModule,
     MoWbMenuModule,
