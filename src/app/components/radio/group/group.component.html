@@ -1,0 +1,22 @@
+<div class="mo-wb-radio-group"
+    [ngClass]="{'d-flex align-items-center': horizontal}">
+    <ng-container *ngFor="let item of items; let i=index; let last = last">
+        <mo-wb-components-radio #radioItem
+            [label]="item.label"
+            [isSelected]="item.active"
+            [key]="item.key"
+            [disable]="disable || item.disable"
+            [classLabelInclude]="classLabelInclude + (item.disable ? ' mo-wb-disable' : '')"
+            [classRadio]="classRadio"
+            [classInclude]="!last ? (horizontal ? classPaddingRight : classPaddingBottom) : ''"
+            [ngClass]="{'col-12': showTextBottom}"
+            [tooltip]="item.tooltip"
+            [clickExactly]="clickExactly"
+            (onSelectedChange)="handleItemSelectedChanged($event, i)">
+            <!-- (onActiveChanged)="handleItemActiveChanged($event)" -->
+        </mo-wb-components-radio>
+        <div [innerHtml]="item.text"
+            [class]="'radio-group-text ' + classTextBottomInclude"
+            *ngIf="showTextBottom && !!item.text"></div>
+    </ng-container>
+</div>

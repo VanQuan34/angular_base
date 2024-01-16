@@ -1,0 +1,44 @@
+<div *ngIf="isShow || fixedShow"
+  #menuToggleEl
+  class="mo-wb-menu-toggle mo-wb-h-28px mo-wb-w-28px mo-wb-border-radius-4px mo-wb-cursor-pointer 
+    d-flex align-items-center justify-content-center mo-wb-cursor-pointer {{ classInclude }} "
+  [ngClass]="{'selected mo-wb-bg-pri-l5': isOpen , 'mo-wb-bg-hover-pri-l1': !isOpen}"
+  (click)="handleOnMenuToggleClick($event, menuToggleEl);">
+
+  <i class="mo-wb-menu-icon {{icon ? icon : 'mo-wb-rotate-90deg mo-icn-dots'}} mo-wb-font-size-15px mo-wb-cursor-pointer"></i>
+
+  <div *ngIf="isOpen"
+    class="mo-wb-menu-overlay"
+    (click)="handleOnOverlayClick($event);">
+    <div #menuPopup 
+      class="mo-wb-menu-container mo-wb-bg-w mo-wb-border-radius-4px
+         position-fixed mo-wb-shadow-lg mo-wb-py-4px "
+      [style.width]="width + 'px'"
+      [style.height]="'auto'"
+      [style.top]="top+'px'"
+      [style.left]="left+'px'"
+      (click)="handleOnMenuClick($event);">
+
+      <ng-container *ngIf="!isActionMenu">
+        <ng-container *ngFor="let item of items; let i = index;">
+          <div *ngIf="item.isDivider" class="mo-wb-border-bottom-general"></div> 
+          <div *ngIf="!item.isDivider"
+            class="d-flex align-items-center mo-wb-px-14px mo-wb-menu-item mo-wb-cursor-pointer
+              mo-wb-cursor-pointer mo-wb-bg-hover-bg mo-wb-hover-pri"
+            [style.height]="itemHeight+'px'"
+            (click)="handleOnItemClick($event, item);">
+            <i *ngIf="item.icon"
+              class="{{item.icon}} menu-wb-item-icon mo-wb-mr-8px mo-wb-font-size-12px"></i>
+            <div class="mo-wb-f-b2 mo-wb-hover-pri">{{item.name}}</div>
+          </div> 
+        </ng-container>
+      </ng-container>
+
+      <ng-content>
+        
+      </ng-content>
+      
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,208 @@
+<div class="mo-upload-file-wrapper {{classInclude}}">
+  <div *ngIf="hasLabel"
+    class="d-flex align-items-center mo-wb-mb-8px">
+    <div class="mo-wb-f-c2 mo-wb-color-btn-txt">
+      {{fieldLabel}}
+    </div>
+    <span *ngIf="isRequire"
+      class="mo-wb-color-r mo-wb-ml-4px">*</span>
+    <mo-wb-components-tooltip *ngIf="hasTooltip"
+      [content]="tooltipContent | translate"
+      [width]="250"
+      [maxWidth]="300"
+      [classInclude]="'mo-wb-ml-8px'">
+    </mo-wb-components-tooltip>
+  </div>
+  <!-- radio select type from upload -->
+  <div *ngIf="fromMedia"
+    class="d-flex flex-wrap mo-wb-mb-8px"
+    style="gap: 42px;">
+    <mo-wb-components-radio [label]="'Tải file mới' | translate"
+      [isSelected]="mode === 'UPLOAD' ? true : false"
+      [key]="'UPLOAD'"
+      [disable]="false"
+      (onSelectedChange)="handleSelectedChange($event, 'UPLOAD')">
+    </mo-wb-components-radio>
+    <mo-wb-components-radio [label]="'Chọn từ thư viện Media' | translate"
+      [isSelected]="mode === 'FILE' ? true : false"
+      [key]="'FILE'"
+      [disable]="false"
+      (onSelectedChange)="handleSelectedChange($event, 'FILE')">
+    </mo-wb-components-radio>
+  </div>
+  <div class="mo-wb-import-file {{ hasError || isErrorLimitFile || isEmptyError ? 'mo-wb-import-file-limit' : ''}}"
+    #upload
+    [ngClass]="{'mo-wb-import-file-disable mo-wb-bg-bg mo-wb-pointer-events-none': disable}">
+    <!-- IMAGE -->
+    <div *ngIf="type==='IMAGE'"
+      class="mo-wb-content-inner d-flex">
+      <div class="d-flex align-items-center mo-wb-mr-20px">
+        <svg width="26"
+          height="31"
+          viewBox="0 0 26 31"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M8.46952 0.197998L15.8001 0.197999C16.1184 0.197999 16.4236 0.324427 16.6486 0.549471L25.0486 8.94947C25.2737 9.17451 25.4001 9.47974 25.4001 9.798V22.7285C25.4001 23.8617 25.4001 24.7848 25.3389 25.5343C25.2756 26.3088 25.141 27.003 24.8115 27.6495C24.2938 28.6656 23.4677 29.4917 22.4516 30.0094C21.8051 30.3389 21.1109 30.4735 20.3364 30.5368C19.5869 30.598 18.6639 30.598 17.5307 30.598H8.46945C7.33632 30.598 6.41325 30.598 5.66383 30.5368C4.88926 30.4735 4.19513 30.3389 3.54855 30.0094C2.53247 29.4917 1.70638 28.6656 1.18866 27.6495C0.859216 27.003 0.72459 26.3088 0.661305 25.5343C0.600074 24.7848 0.600085 23.8617 0.600098 22.7286V8.06742C0.600085 6.93426 0.600074 6.01117 0.661305 5.26173C0.72459 4.48716 0.859216 3.79303 1.18866 3.14645C1.70638 2.13038 2.53247 1.30428 3.54855 0.786564C4.19513 0.457117 4.88926 0.32249 5.66383 0.259206C6.41327 0.197974 7.33636 0.197985 8.46952 0.197998ZM5.85927 2.65124C5.23312 2.70239 4.88998 2.79665 4.63813 2.92498C4.07364 3.2126 3.6147 3.67154 3.32708 4.23603C3.19875 4.48788 3.10449 4.83102 3.05333 5.45717C3.00103 6.09732 3.0001 6.92209 3.0001 8.118V22.678C3.0001 23.8739 3.00103 24.6987 3.05333 25.3388C3.10449 25.965 3.19875 26.3081 3.32708 26.56C3.6147 27.1245 4.07364 27.5834 4.63813 27.871C4.88998 27.9993 5.23312 28.0936 5.85927 28.1448C6.49942 28.1971 7.32419 28.198 8.5201 28.198H17.4801C18.676 28.198 19.5008 28.1971 20.1409 28.1448C20.7671 28.0936 21.1102 27.9993 21.3621 27.871C21.9266 27.5834 22.3855 27.1245 22.6731 26.56C22.8014 26.3081 22.8957 25.965 22.9469 25.3388C22.9992 24.6987 23.0001 23.8739 23.0001 22.678V10.9981L17.9998 10.9981C17.6425 10.9981 17.3059 10.9982 17.0229 10.975C16.7152 10.9499 16.3668 10.8916 16.0197 10.7147C15.5305 10.4654 15.1328 10.0677 14.8835 9.57847C14.7066 9.23137 14.6483 8.883 14.6232 8.57533C14.6 8.29231 14.6001 7.95569 14.6001 7.59842L14.6001 2.598H8.5201C7.32419 2.598 6.49942 2.59893 5.85927 2.65124ZM17.0001 4.29505L21.3031 8.5981H18.0401C17.6283 8.5981 17.3916 8.59716 17.2183 8.58301C17.1498 8.57741 17.1112 8.5709 17.0933 8.56722C17.0682 8.55134 17.0469 8.53003 17.031 8.50485C17.0273 8.48696 17.0208 8.44841 17.0152 8.3799C17.001 8.20665 17.0001 7.96994 17.0001 7.5581V4.29505ZM12.1516 14.5495C12.6202 14.0808 13.38 14.0808 13.8486 14.5495L18.0486 18.7495C18.5173 19.2181 18.5173 19.9779 18.0486 20.4465C17.58 20.9152 16.8202 20.9152 16.3516 20.4465L14.2001 18.2951V23.798C14.2001 24.4607 13.6628 24.998 13.0001 24.998C12.3374 24.998 11.8001 24.4607 11.8001 23.798V18.2951L9.64863 20.4465C9.18 20.9152 8.4202 20.9152 7.95157 20.4465C7.48294 19.9779 7.48294 19.2181 7.95157 18.7495L12.1516 14.5495Z" />
+        </svg>
+      </div>
+      <div>
+        <div *ngIf="mode === 'UPLOAD'"
+          class="text-color mo-wb-color-cap-txt mo-wb-f-c2 mo-wb-mb-4px">Kéo file vào đây để tải lên hoặc <span
+            class="text-colori"
+            [ngClass]="{'mo-wb-color-disable': disable, 'mo-wb-color-pr': !disable}">Chọn file</span></div>
+        <div *ngIf="mode === 'FILE'"
+          class="mo-wb-f-c2 mo-wb-mb-4px"
+          [ngClass]="{'mo-wb-color-disabled': disable, 'mo-wb-color-pri': !disable}">Chọn file từ thư viện Media</div>
+
+        <div class="text-color mo-wb-color-cap-txt mo-wb-f-c4">{{imageNote | translate}}</div>
+      </div>
+    </div>
+    <!-- FILE -->
+    <div *ngIf="type==='FILE'"
+      class="mo-wb-content-inner d-flex">
+      <div class="d-flex align-items-center mo-wb-mr-20px">
+        <svg width="26"
+          height="31"
+          viewBox="0 0 26 31"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M8.46952 0.197998L15.8001 0.197999C16.1184 0.197999 16.4236 0.324427 16.6486 0.549471L25.0486 8.94947C25.2737 9.17451 25.4001 9.47974 25.4001 9.798V22.7285C25.4001 23.8617 25.4001 24.7848 25.3389 25.5343C25.2756 26.3088 25.141 27.003 24.8115 27.6495C24.2938 28.6656 23.4677 29.4917 22.4516 30.0094C21.8051 30.3389 21.1109 30.4735 20.3364 30.5368C19.5869 30.598 18.6639 30.598 17.5307 30.598H8.46945C7.33632 30.598 6.41325 30.598 5.66383 30.5368C4.88926 30.4735 4.19513 30.3389 3.54855 30.0094C2.53247 29.4917 1.70638 28.6656 1.18866 27.6495C0.859216 27.003 0.72459 26.3088 0.661305 25.5343C0.600074 24.7848 0.600085 23.8617 0.600098 22.7286V8.06742C0.600085 6.93426 0.600074 6.01117 0.661305 5.26173C0.72459 4.48716 0.859216 3.79303 1.18866 3.14645C1.70638 2.13038 2.53247 1.30428 3.54855 0.786564C4.19513 0.457117 4.88926 0.32249 5.66383 0.259206C6.41327 0.197974 7.33636 0.197985 8.46952 0.197998ZM5.85927 2.65124C5.23312 2.70239 4.88998 2.79665 4.63813 2.92498C4.07364 3.2126 3.6147 3.67154 3.32708 4.23603C3.19875 4.48788 3.10449 4.83102 3.05333 5.45717C3.00103 6.09732 3.0001 6.92209 3.0001 8.118V22.678C3.0001 23.8739 3.00103 24.6987 3.05333 25.3388C3.10449 25.965 3.19875 26.3081 3.32708 26.56C3.6147 27.1245 4.07364 27.5834 4.63813 27.871C4.88998 27.9993 5.23312 28.0936 5.85927 28.1448C6.49942 28.1971 7.32419 28.198 8.5201 28.198H17.4801C18.676 28.198 19.5008 28.1971 20.1409 28.1448C20.7671 28.0936 21.1102 27.9993 21.3621 27.871C21.9266 27.5834 22.3855 27.1245 22.6731 26.56C22.8014 26.3081 22.8957 25.965 22.9469 25.3388C22.9992 24.6987 23.0001 23.8739 23.0001 22.678V10.9981L17.9998 10.9981C17.6425 10.9981 17.3059 10.9982 17.0229 10.975C16.7152 10.9499 16.3668 10.8916 16.0197 10.7147C15.5305 10.4654 15.1328 10.0677 14.8835 9.57847C14.7066 9.23137 14.6483 8.883 14.6232 8.57533C14.6 8.29231 14.6001 7.95569 14.6001 7.59842L14.6001 2.598H8.5201C7.32419 2.598 6.49942 2.59893 5.85927 2.65124ZM17.0001 4.29505L21.3031 8.5981H18.0401C17.6283 8.5981 17.3916 8.59716 17.2183 8.58301C17.1498 8.57741 17.1112 8.5709 17.0933 8.56722C17.0682 8.55134 17.0469 8.53003 17.031 8.50485C17.0273 8.48696 17.0208 8.44841 17.0152 8.3799C17.001 8.20665 17.0001 7.96994 17.0001 7.5581V4.29505ZM12.1516 14.5495C12.6202 14.0808 13.38 14.0808 13.8486 14.5495L18.0486 18.7495C18.5173 19.2181 18.5173 19.9779 18.0486 20.4465C17.58 20.9152 16.8202 20.9152 16.3516 20.4465L14.2001 18.2951V23.798C14.2001 24.4607 13.6628 24.998 13.0001 24.998C12.3374 24.998 11.8001 24.4607 11.8001 23.798V18.2951L9.64863 20.4465C9.18 20.9152 8.4202 20.9152 7.95157 20.4465C7.48294 19.9779 7.48294 19.2181 7.95157 18.7495L12.1516 14.5495Z" />
+        </svg>
+      </div>
+      <div>
+        <div *ngIf="mode === 'UPLOAD'"
+          class="text-color mo-wb-color-cap-txt mo-wb-f-c2 mo-wb-mb-4px">Kéo file vào đây để tải lên hoặc <span
+            class="text-color mo-wb-color-pri">Chọn file</span></div>
+        <div *ngIf="mode === 'FILE'"
+          class="mo-wb-f-c2 mo-wb-mb-4px"
+          [ngClass]="{'mo-wb-color-disabled': disable, 'mo-wb-color-pri': !disable}">Chọn file từ thư viện Media</div>
+        <div class="text-color mo-wb-color-cap-txt mo-wb-f-c4">{{fileNote | translate}}</div>
+      </div>
+    </div>
+    <!-- ALL -->
+    <div *ngIf="type==='ALL'"
+      class="mo-wb-content-inner d-flex">
+      <div class="d-flex align-items-center mo-wb-mr-20px">
+        <svg width="26"
+          height="31"
+          viewBox="0 0 26 31"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M8.46952 0.197998L15.8001 0.197999C16.1184 0.197999 16.4236 0.324427 16.6486 0.549471L25.0486 8.94947C25.2737 9.17451 25.4001 9.47974 25.4001 9.798V22.7285C25.4001 23.8617 25.4001 24.7848 25.3389 25.5343C25.2756 26.3088 25.141 27.003 24.8115 27.6495C24.2938 28.6656 23.4677 29.4917 22.4516 30.0094C21.8051 30.3389 21.1109 30.4735 20.3364 30.5368C19.5869 30.598 18.6639 30.598 17.5307 30.598H8.46945C7.33632 30.598 6.41325 30.598 5.66383 30.5368C4.88926 30.4735 4.19513 30.3389 3.54855 30.0094C2.53247 29.4917 1.70638 28.6656 1.18866 27.6495C0.859216 27.003 0.72459 26.3088 0.661305 25.5343C0.600074 24.7848 0.600085 23.8617 0.600098 22.7286V8.06742C0.600085 6.93426 0.600074 6.01117 0.661305 5.26173C0.72459 4.48716 0.859216 3.79303 1.18866 3.14645C1.70638 2.13038 2.53247 1.30428 3.54855 0.786564C4.19513 0.457117 4.88926 0.32249 5.66383 0.259206C6.41327 0.197974 7.33636 0.197985 8.46952 0.197998ZM5.85927 2.65124C5.23312 2.70239 4.88998 2.79665 4.63813 2.92498C4.07364 3.2126 3.6147 3.67154 3.32708 4.23603C3.19875 4.48788 3.10449 4.83102 3.05333 5.45717C3.00103 6.09732 3.0001 6.92209 3.0001 8.118V22.678C3.0001 23.8739 3.00103 24.6987 3.05333 25.3388C3.10449 25.965 3.19875 26.3081 3.32708 26.56C3.6147 27.1245 4.07364 27.5834 4.63813 27.871C4.88998 27.9993 5.23312 28.0936 5.85927 28.1448C6.49942 28.1971 7.32419 28.198 8.5201 28.198H17.4801C18.676 28.198 19.5008 28.1971 20.1409 28.1448C20.7671 28.0936 21.1102 27.9993 21.3621 27.871C21.9266 27.5834 22.3855 27.1245 22.6731 26.56C22.8014 26.3081 22.8957 25.965 22.9469 25.3388C22.9992 24.6987 23.0001 23.8739 23.0001 22.678V10.9981L17.9998 10.9981C17.6425 10.9981 17.3059 10.9982 17.0229 10.975C16.7152 10.9499 16.3668 10.8916 16.0197 10.7147C15.5305 10.4654 15.1328 10.0677 14.8835 9.57847C14.7066 9.23137 14.6483 8.883 14.6232 8.57533C14.6 8.29231 14.6001 7.95569 14.6001 7.59842L14.6001 2.598H8.5201C7.32419 2.598 6.49942 2.59893 5.85927 2.65124ZM17.0001 4.29505L21.3031 8.5981H18.0401C17.6283 8.5981 17.3916 8.59716 17.2183 8.58301C17.1498 8.57741 17.1112 8.5709 17.0933 8.56722C17.0682 8.55134 17.0469 8.53003 17.031 8.50485C17.0273 8.48696 17.0208 8.44841 17.0152 8.3799C17.001 8.20665 17.0001 7.96994 17.0001 7.5581V4.29505ZM12.1516 14.5495C12.6202 14.0808 13.38 14.0808 13.8486 14.5495L18.0486 18.7495C18.5173 19.2181 18.5173 19.9779 18.0486 20.4465C17.58 20.9152 16.8202 20.9152 16.3516 20.4465L14.2001 18.2951V23.798C14.2001 24.4607 13.6628 24.998 13.0001 24.998C12.3374 24.998 11.8001 24.4607 11.8001 23.798V18.2951L9.64863 20.4465C9.18 20.9152 8.4202 20.9152 7.95157 20.4465C7.48294 19.9779 7.48294 19.2181 7.95157 18.7495L12.1516 14.5495Z" />
+        </svg>
+      </div>
+      <div>
+        <div *ngIf="mode === 'UPLOAD'"
+          class="text-color mo-wb-color-cap-txt mo-wb-f-c2 mo-wb-mb-4px">Kéo file vào đây để tải lên hoặc <span
+            class="text-color mo-wb-color-pri">Chọn file</span></div>
+        <div *ngIf="mode === 'FILE'"
+          class="mo-wb-f-c2 mo-wb-mb-4px"
+          [ngClass]="{'mo-wb-color-disabled': disable, 'mo-wb-color-pri': !disable}">Chọn file từ thư viện Media</div>
+        <div class="text-color mo-wb-color-cap-txt mo-wb-f-c4 mo-wb-mb-4px">{{imageNote | translate}}</div>
+        <div class="text-color mo-wb-color-cap-txt mo-wb-f-c4">{{fileNote | translate}}</div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="hasError && !isErrorLimitFile || isEmptyError"
+    class="msg-error mo-wb-color-r mo-wb-f-c4 mo-wb-mt-8px">{{msgError | translate}}</div>
+  <div *ngIf="isErrorLimitFile"
+    class="msg-error mo-wb-color-r mo-wb-f-c4 mo-wb-mt-8px">{{msgErrorLimitFile | translate}}</div>
+  <div *ngIf="showHelpText"
+    class="mo-wb-color-cap-text mo-wb-f-c4 mo-wb-mt-8px">{{helpText | translate}}</div>
+
+
+
+  <ng-container *ngIf="fileList.length && displayType === 'LIST'">
+    <div #filelist
+      class="file-list-container mo-wb-mt-12px">
+      <div *ngFor="let item of fileList; let i=index;">
+        <div class="file-list-item mo-wb-mt-8px mo-wb-h-50px"
+          (click)="handleOnFileItemClick($event);"
+          [ngClass]="{'error mo-wb-border-r'  : item.isError}">
+          <!-- file info -->
+          <div class="left d-flex align-items-center"
+            [ngClass]="{'loading' : item.uploading}">
+            <div class="mo-wb-h-32px mo-wb-w-32px mo-wb-mr-12px d-flex align-items-center justify-content-center">
+              <img *ngIf="item?.thumbnail || item?.url" 
+                [ngClass]="{'mo-wb-opacity-5'  : item.isError}"
+                style="width: 100%; height: 100%; border-radius: 4px; object-fit: cover;"
+                src="{{item?.thumbnail || item?.url}}" />
+            </div>
+            <div>
+              <mo-wb-components-tooltip
+                [maxWidth]="300"
+                [maxHeight]="100"
+                [content]="item.name"
+                [allowHover]="true"
+                [noContentPadding]="false"
+                [type]="'other'">
+                <div class="name mo-wb-f-c2 mo-wb-color-main-txt mo-wb-mb-4px wrap-text"
+                  [ngClass]="{'mo-wb-color-btn-txt' : item.isError}">{{item.name}}</div>
+              </mo-wb-components-tooltip>
+              <div class="mo-wb-f-c4 mo-wb-color-cap-text">{{item.size}}</div>
+            </div>
+          </div>
+
+          <div class="right d-flex align-items-center">
+            <!-- progress bar -->
+            <!-- <mo-wb-components-progress 
+              *ngIf="item.uploading"
+              [wrapWidth]="120"
+              [wrapHeight]="4"
+              [isFinish]="item.uploaded">            
+            </mo-wb-components-progress> -->
+
+            <div class="d-flex align-items-center mo-wb-pl-8px" 
+              [ngClass]="{'loading' : item.uploading}">
+              <mo-wb-components-button *ngIf="item.type === 'IMAGE' && !ignoreEditFile && !item.isError"
+                [type]="'icon'"
+                [classIcon]="'mo-icn-menu-sua icon mo-wb-font-size-12px'"
+                [isPending]="false"
+                [disable]="false"
+                (onClick)="handleOnEditFileClick($event, item)">
+              </mo-wb-components-button>
+              <mo-wb-components-button 
+                [type]="'icon'"
+                [classIcon]="'mo-icn-close mo-wb-font-size-10px'"
+                [isPending]="false"
+                [disable]="false"
+                (onClick)="handleOnRemoveFileClick($event, item)">
+              </mo-wb-components-button>
+            </div>
+            
+          </div>
+        </div>
+        <div *ngIf="item.msgError"
+          class="mo-wb-f-c4 mo-wb-color-r mo-wb-mt-8px">{{item.msgError | translate}}</div>
+
+      </div>
+    </div>
+  </ng-container>
+  
+  
+  <input *ngIf="multiple"
+    #uploadInput
+    id="upload-input"
+    class="upload-input"
+    style="display:none;"
+    type="file"
+    name="files[]"
+    multiple
+    accept="{{accessFiles}}" />
+
+  <input *ngIf="!multiple"
+    #uploadInput
+    id="upload-input"
+    class="upload-input"
+    style="display:none;"
+    type="file"
+    name="files[]"
+    accept="{{accessFiles}}" />
+
+</div>

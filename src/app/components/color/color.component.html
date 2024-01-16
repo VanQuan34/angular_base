@@ -1,0 +1,22 @@
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0 mo-wb-z-index-3500" 
+  (click)="handleOverlayClick()">
+</div>
+<div 
+  [style.top]="top+'px'"
+  [style.left]="left+'px'"
+  class="position-absolute index-99999">
+  <color-sketch
+    [color]="colorFont" 
+    [presetColors]="presetColors"
+    [width]="width ? width:  240"
+    (onChange)="handleChange($event)">
+  </color-sketch>
+  <div class="d-flex justify-content-end">
+    <mo-wb-components-button
+      [type]="'pri'"
+      [classInclude]="'mo-wb-mt-10px'"
+      [label]="'Xác nhận'"
+      (onClick)="handleChangeColor($event)">
+    </mo-wb-components-button>
+  </div>
+</div>

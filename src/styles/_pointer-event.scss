@@ -1,0 +1,7 @@
+$pointer-events:none all fill none painted stroke visible visibleFill visiblePainted visibleStroke initial inherit unset;
+
+@each $val in $pointer-events {
+  .#{$prefixCss}pointer-events-#{$val} {
+    pointer-events: $val !important;
+  }
+}

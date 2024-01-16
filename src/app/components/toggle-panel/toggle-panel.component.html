@@ -1,0 +1,14 @@
+<div class="mo-wb-web_builder-toggle_panel {{classInclude}}">
+  <div class="mo-wb-web_builder-toggle_panel-header d-flex align-items-center mo-wb-cursor-pointer "
+    (click)="handleOnToggleOpenContent($event);">
+    <i class="arrow-icon  mo-wb-ml-12px mo-wb-font-size-10px
+      {{!isOpen ? 'mo-icn-down-arrow' : 'mo-icn-up-arrow'}}"></i>
+    <div class="mo-wb-ml-8px mo-wb-f-h5">{{ label | translate}}</div>
+  </div>
+  <div class=" mo-wb-bg-w {{isOpen ? 'd-block' : 'd-none'}}"
+    [ngClass]="{'mo-wb-pt-16px mo-wb-pb-16px mo-wb-pl-20px mo-wb-pr-20px' : !noPadding}">
+    <ng-content>
+
+    </ng-content>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<div [ngClass]="{'mo-wb-toggle-container':true, 'mo-wb-disable mo-wb-pointer-events-none':disable}" 
+  (click)="handleOnToggleClick($event)">
+  <div [ngClass]="{'mo-wb-toggle-bar':true, 'mo-wb-toggle-bar-active':active}"></div>
+  <div [ngClass]="{'mo-wb-toggle-circle mo-wb-shadow':true, 'mo-wb-toggle-circle-active':active}"></div>
+</div>

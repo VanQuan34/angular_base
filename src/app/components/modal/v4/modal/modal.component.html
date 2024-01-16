@@ -1,0 +1,71 @@
+<div class="mo-wb-modal-container position-fixed mo-wb-top-0 mo-wb-left-0 mo-wb-right-0 mo-wb-bottom-0"
+  [style.display]="isShow ? 'flex' : 'none' "
+  [style.z-index]="zIndex">
+  <!-- backdrop -->
+  <div class="mo-wb-modal-backdrop full-screen"></div>
+  
+  <div class="mo-wb-modal mo-wb-shadow-lg"
+    [style.width]="width"
+    [style.maxWidth]="maxWidth"
+    [style.minWidth]="minWidth"
+    
+    >
+    <!-- header -->
+    <div *ngIf="hasHeader"
+      class="d-flex align-items-center justify-content-between mo-wb-pl-40px mo-wb-pr-35px mo-wb-h-52px 
+        mo-wb-h-52px mo-wb-border-bottom-general">
+      <div class="mo-wb-f-h2">{{title | translate}}</div>
+      <mo-wb-components-button
+        [type]="'icon'"
+        [classIcon]="'mo-icn-close mo-wb-font-size-18px'"
+        [isPending]="false" 
+        [disable]="false"
+        (click)="handleOnCloseClick($event)">
+      </mo-wb-components-button>
+    </div>
+
+    <!-- body -->
+    <div *ngIf="content" 
+      [style.height]="height"
+      [style.maxHeight]="fixMaxHeight+'px'" 
+      class="mo-wb-modal-body {{classInclude}}" 
+      [innerHtml]="content | translate"></div>
+    <div *ngIf="!content" #container
+      [style.height]="height"
+      [style.maxHeight]="fixMaxHeight+'px'" 
+      class="mo-wb-modal-body {{classInclude}}"
+      (scroll)="handleOnScroll($event)">
+      <ng-content >
+
+      </ng-content>
+    </div>
+
+    <!-- footer -->
+    <div *ngIf="hasFooter"
+      class="d-flex align-items-center justify-content-end mo-wb-px-40px mo-wb-h-52px 
+        mo-wb-h-52px mo-wb-border-top-general">
+        <mo-wb-components-button
+          *ngIf="isButtonCancel"
+          [label]="'Huỷ bỏ' | translate"
+          [type]="'third'"
+          [classInclude]="'mo-wb-mr-16px'"
+          [isPending]="false" 
+          [disable]="false"
+          (click)="handleOnCancelClick($event)">
+        </mo-wb-components-button>
+
+        <mo-wb-components-button
+          [label]="label | translate"
+          [classInclude]="''"
+          [isPending]="isPending" 
+          [disable]="disable"
+          [type]="type"
+          [classIconLeft]="classIconLeft"
+          [classIconRight]="classIconRight"
+          (onClick)="handleOnOkClick($event)">
+        </mo-wb-components-button>
+    </div>
+  </div>
+
+
+</div>  

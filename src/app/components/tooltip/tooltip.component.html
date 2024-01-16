@@ -1,0 +1,18 @@
+<ng-content>
+    
+</ng-content>
+
+<div #icon 
+    *ngIf="type==='icon'"
+    [class]="'mo-wb-tooltip-icon ' + (clickAction ? ' mo-wb-tooltip-pointer ' : ' ') + iconClass + ' ' + classInclude">
+</div>
+
+<div #icon 
+    *ngIf="contentAI && contentAI.body && type === 'ai'"
+    [class]="'mo-wb-tooltip-icon-ai ' + (!contentAI.undo ? ' mo-icn-AI mo-wb-color-00baa4 mo-wb-tooltip-icon-ai-large ' : 'mo-icn-revert' ) + ' ' + classInclude" >
+</div>
+
+<img *ngIf="type==='image'"
+    #image
+    [src]="imageSrc" 
+    [class]="'mo-wb-tooltip-image ' + (clickAction ? ' mo-wb-tooltip-pointer ' : ' ') + classInclude"/>

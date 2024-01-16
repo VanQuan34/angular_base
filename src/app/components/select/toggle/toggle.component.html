@@ -1,0 +1,5 @@
+<div #selectEl
+  (click)="handleOnToggleSelect($event)"
+  (mousedown)="handleOnMousedown($event)">
+  <ng-container *ngTemplateOutlet="templateSelect; context: {$implicit: isShow}"></ng-container>
+</div>

@@ -1,0 +1,16 @@
+$lineHeights: 100 125 150;
+
+@each $lineHeight in $lineHeights { 
+  .#{$prefixCss}lineHeight-#{$lineHeight} {
+    line-height: #{"#{$lineHeight}% !important;;"};
+  } 
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.sketch-swatches .sketch-wrap {
+  width: 20px !important;
+  height: 20px !important;
+}

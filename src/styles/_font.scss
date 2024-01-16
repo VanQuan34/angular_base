@@ -1,0 +1,170 @@
+
+@font-face {
+  font-family: SVN-Poppins;
+  src: url(../assets/fonts/SVN-Poppins.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: SVN-Poppins-Medium;
+  src: url(../assets/fonts/SVN-Poppins-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: SVN-Poppins-Semibold;
+  src: url(../assets/fonts/SVN-Poppins-SemiBold.ttf) format("truetype");
+}
+
+$SVN-Poppins: SVN-Poppins, Arial, Helvetica, sans-serif;
+$SVN-Poppins-Medium: SVN-Poppins-Medium, Arial, Helvetica, sans-serif;
+$SVN-Poppins-Semibold: SVN-Poppins-Semibold, Arial, Helvetica, sans-serif;
+
+$fontSize: 2px 3px 4px 5px 6px 8px 9px 10px 11px 12px 13px 14px 15px 16px 17px 18px 19px 20px 21px 22px 24px 25px 26px 28px 30px 32px
+  35px 36px 40px 46px 50px 60px 64px 75px 80px 85px 88px 100px 118px 120px 140px 143px 150px 160px 190px 218px;
+$line-heights: normal 12px 15px 16px 18px 20px 24px 27px 30px 36px;
+$fontWeight: 300 400 500 600 700 900;
+
+
+@each $val in $fontSize {
+  .#{$prefixCss}font-size-#{$val} {
+    font-size: $val !important;
+  }
+
+  .#{$prefixCss}font-size-before-#{$val} {
+    &:before {
+      font-size: $val !important;
+    }
+  }
+}
+
+@each $val in $line-heights {
+  .#{$prefixCss}line-height-#{$val} {
+    line-height: $val !important;
+  }
+}
+
+@each $val in $fontWeight {
+  .#{$prefixCss}font-weight-#{$val} {
+    font-weight: $val !important;
+  }
+}
+
+.#{$prefixCss}f-dl {
+  font-size: 30px !important;
+  font-family: $SVN-Poppins-Semibold !important;
+  line-height: 46px;
+  font-weight: 600 !important;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-dm {
+  font-size: 20px !important;
+  font-family: $SVN-Poppins-Semibold !important;
+  line-height: 32px;
+  font-weight: 600 !important;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-h1 {
+  font-size: 16px !important;
+  font-family: $SVN-Poppins-Semibold !important;
+  line-height: 26px;
+  font-weight: 600 !important;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-h2 {
+  font-size: 16px !important;
+  font-family: $SVN-Poppins-Medium !important;
+  line-height: 26px;
+  font-weight: 500 !important;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-h3 {
+  font-size: 16px !important;
+  font-family: $SVN-Poppins !important;
+  line-height: 26px;
+  font-weight: 400 !important;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-h4 {
+  font-size: 13px !important;
+  font-family: $SVN-Poppins-Semibold !important;
+  line-height: 22px;
+  font-weight: 600 !important;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-h5 {
+  font-size: 13px !important;
+  font-family: $SVN-Poppins-Medium !important;
+  line-height: 22px;
+  font-weight: 500 !important;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-h6 {
+  font-size: 13px !important;
+  font-family: $SVN-Poppins !important;
+  line-height: 22px !important;
+  font-weight: 400;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-b1 {
+  font-size: 12px !important;
+  font-family: $SVN-Poppins-Medium !important;
+  line-height: 18px;
+  font-weight: 500 !important;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-b2 {
+  font-size: 12px !important;
+  font-family: $SVN-Poppins !important;
+  line-height: 18px !important;
+  font-weight: 400;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-c1 {
+  font-size: 11px !important;
+  font-family: $SVN-Poppins-Semibold !important;
+  line-height: 16px;
+  font-weight: 600 !important;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-c2 {
+  font-size: 11px !important;
+  font-family: $SVN-Poppins-Medium !important;
+  line-height: 16px;
+  font-weight: 600 !important;
+  letter-spacing: 0.005em;
+}
+
+.#{$prefixCss}f-c3 {
+  font-size: 11px !important;
+  font-family: $SVN-Poppins !important;
+  line-height: 16px;
+  font-weight: 400 !important;
+  letter-spacing: 0.005em !important;
+}
+
+.#{$prefixCss}f-c4 {
+  font-size: 10px !important;
+  font-family: $SVN-Poppins !important;
+  line-height: 14px;
+  font-weight: 400 !important;
+  letter-spacing: 0.005em !important;
+  color: var(--cap-txt);
+}
+
+.#{$prefixCss}f-i {
+  font-style: italic;
+}
+
+body {
+  font-family: $SVN-Poppins;
+}

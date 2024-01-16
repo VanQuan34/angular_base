@@ -1,0 +1,26 @@
+<mo-wb-components-modal #modal
+  [title]="label | translate"
+  [width]="modalDeleteWidth + 'px'"
+  [height]="modalDeleteHeight + 'px'"
+  [zIndex]="zIndex"
+  [ignoreButtonClose]="false">
+  <div class="large-container d-flex flex-column mo-icon-setting-container h-100">
+    <div class="mo-wb-pl-40px mo-wb-pr-40px">
+      <div class="mo-wb-mt-12px mo-wb-mb-4px mo-wb-f-b1">{{'i18n_you_select' | translate}} {{selectedIds &&
+        selectedIds.length}} {{nameTypeDelete | translate}}</div>
+      <div class="mo-wb-f-b2">{{ contentDeleteMsg | translate}}</div>
+    </div>
+  </div>
+  <div class="footer-container">
+    <mo-wb-components-button 
+      label="{{'i18n_delete'| translate}}"
+      [type]="'red'"
+      (onClick)="handleOnDeleteIcon()">
+    </mo-wb-components-button>
+    <mo-wb-components-button 
+      [type]="'third'"
+      label="i18n_cancel"
+      (onClick)="handleOnCancelModalDelete()">
+    </mo-wb-components-button>
+  </div>
+</mo-wb-components-modal>

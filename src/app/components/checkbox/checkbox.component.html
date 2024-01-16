@@ -1,0 +1,44 @@
+<div [class]="'mo-wb-checkbox d-flex align-items-start ' + classInclude"
+  [ngClass]="{'mo-wb-ck-disable': disable, 'mo-wb-cursor-pointer': (!disable && state !== 'inactive')}"
+  (click)="handleOnCheckboxClick($event)">
+  <div 
+    class="mo-wb-ck d-flex mo-wb-border-radius-4px 
+      align-items-center justify-content-center mo-wb-my-2px"
+    [ngClass]="{
+      'mo-wb-ck-red' : type === 'red',
+      'mo-wb-ck-selected': state === 'selected',
+      'mo-wb-ck-inactive': state === 'inactive',
+      'mo-wb-ck-unselected': state === 'unselected'
+      }">
+    <i *ngIf="state==='selected'" 
+      class="mo-icn-ck_checked">
+    </i>
+
+    <div *ngIf="state==='inactive'" 
+      class="mo-wb-ck-inactive-inner">
+    </div>
+
+  </div>
+
+  <div class="mo-wb-ml-8px" *ngIf="label">
+    <div class="d-flex align-items-center">
+      <mo-wb-components-tooltip 
+        [type]="'text'"
+        [hasTooltip]="hasTooltip"
+        [classInclude]="'mo-wb-ck-label mo-wb-f-b2' + classLabelInclude ">
+        {{ label | translate }}
+      </mo-wb-components-tooltip>
+      
+      <mo-wb-components-tooltip *ngIf="tooltip"
+        [content]="tooltip.content"
+        [width]="tooltip.width"
+        [maxWidth]="tooltip.maxWidth"
+        [classInclude]="'mo-wb-ml-8px'"
+        [iconClass]="tooltip.iconClass"
+        [direction]="tooltip.direction">
+      </mo-wb-components-tooltip>
+    </div>
+    <div *ngIf="helpText" class="mo-wb-f-c4 mo-wb-mt-2px">{{ helpText | translate }}</div>
+  </div>
+  
+</div>

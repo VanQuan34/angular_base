@@ -1,0 +1,16 @@
+
+<div class="d-flex align-items-center {{classInclude}}"
+  [ngClass]="{'mo-wb-disable': !enable}">
+  <div class="mo-wb-h-28px mo-wb-pl-12px mo-wb-pr-12px d-flex align-items-center justify-content-center btn-on
+    mo-wb-f-b1 mo-wb-cursor-pointer {{ state === 'ON' ? 'mo-wb-bg-pri mo-wb-color-w' : 'mo-wb-color-pri'}}"
+    (click)="handleOnButtonClick($event,'ON');"
+    [style.width]="width ? width +'px': 'auto'">
+    {{ textOn }}
+  </div>
+  <div class="mo-wb-h-28px mo-wb-pl-12px mo-wb-pr-12px d-flex align-items-center justify-content-center btn-off
+    mo-wb-f-b1 mo-wb-cursor-pointer {{ state === 'OFF' ? 'mo-wb-bg-pri mo-wb-color-w' : 'mo-wb-color-pri'}}"
+    (click)="handleOnButtonClick($event,'OFF');"
+    [style.width]="width ? width +'px': 'auto'">
+    {{ textOff}}
+  </div>
+ </div> 

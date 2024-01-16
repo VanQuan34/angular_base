@@ -1,0 +1,45 @@
+<div class="mo-wb-upload">
+  <div class="mo-wb-f-b1">{{ title |translate }}</div>
+  <div class="mo-wb-f-b2 mo-wb-mt-4px mo-wb-mb-4px">{{ desc | translate }}</div>
+  <div #upload
+    [style.min-height]="minHeight + 'px'"
+    class="mo-media-upload"
+    [ngClass]="{
+      'mo-wb-disable mo-wb-pointer-events-none': disable,
+      'error-file': onError
+    }">
+    <div class="content-container">
+      <ng-container *ngIf="!isFile">
+        <div class="mo-icn-Upload upload-icon"
+          [style.margin-top]="
+            !fileList.length ? (minHeight - 78) / 2 + 'px' : '40px'
+          "></div>
+        <div class="mo-wb-font-family-regular mo-wb-color-btn-txt">
+          {{'i18n_drag_and_drop_file_or_click_to_add_file' | translate}}
+        </div>
+      </ng-container>
+      <ng-container *ngIf="isFile">
+        <div class="mo-icn-edit_html_code upload-icon"></div>
+        <div class="d-flex align-items-center justify-content-between file-list-item"
+          (click)="handleOnFileItemClick($event)">
+          <span class="mo-wb-f-b2">{{ fileName ? fileName : "" }}</span>
+          <div class="close-file-btn">
+            <i class="mo-icn-close-popup"
+              (click)="handleOnRemoveFileClick($event)"></i>
+          </div>
+        </div>
+      </ng-container>
+
+      <input #uploadInput
+        id="upload-input"
+        class="upload-input"
+        style="display: none"
+        type="file"
+        name="files[]"
+        multiple
+        accept="{{ '.png' }}" />
+    </div>
+  </div>
+  <div class="title-error"
+    *ngIf="onError">{{'i18n_please_choose_file_upload' | translate}}</div>
+</div>

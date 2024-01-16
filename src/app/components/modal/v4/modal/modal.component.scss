@@ -1,0 +1,35 @@
+.mo-wb-modal-backdrop {
+  background-color: var(--menu-bg);
+  opacity: 0.5;
+  backdrop-filter: blur(8px);
+}
+
+@keyframes mo-wb-modal-slide-down {
+  0% {
+    transform: translate(0, -3rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.mo-wb-modal-container {
+  transition: all 0.25s;
+}
+
+.mo-wb-modal {
+  position: relative;
+  margin: auto;
+  animation: mo-wb-modal-slide-down 0.15s;
+  background-color: #fff;
+  border-radius: 8px;
+  
+}
+
+.mo-wb-modal-body {
+  padding: 20px 40px;
+  overflow: auto;
+}

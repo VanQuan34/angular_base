@@ -1,0 +1,53 @@
+<div class="{{classInclude}}">
+  <!-- header -->
+  <ng-container *ngIf="templateHeader">
+    <ng-container *ngTemplateOutlet="templateHeader; context: {$implicit: columnSetting}"></ng-container>
+  </ng-container>
+    <!-- body -->
+  <div #container class="mo-wb-overflow-y-auto position-relative mo-wb-bg-w {{containerClassInclude}} "
+    [style.height]="!maxHeight ? 'calc(100% - '+headerHeight+')' : 'auto'"
+    [style.maxHeight]="maxHeight ? maxHeight+'px' : 'auto'"
+    (scroll)="handleOnTableScroll($event)">
+
+      <div [ngClass]="{'d-none' : !items || !items.length}">
+        <div class="{{bodyClassInclude}}" style="overflow: hidden !important;">
+          <ng-container *ngFor="let item of items; let i = index;"> 
+            <ng-container *ngTemplateOutlet="templateRow; context: {rowItem: item,  rowIndex: i, rowLength: items.length}"></ng-container>
+          </ng-container>
+
+          <div class="d-flex w-100 mo-wb-h-80px justify-content-center align-items-center position-relative"
+            *ngIf="isLoadingMore">
+            <mo-wb-components-spinner
+              [size]="spinnerSize">
+            </mo-wb-components-spinner>
+          </div>
+        </div>
+      </div>
+
+    <div *ngIf="!items || !items.length && !loading"
+     class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center mo-wb-bg-w">
+        <!-- no data -->
+        <ng-container *ngIf="!fetchParam.search">
+          <div class="d-flex flex-column align-items-center">
+            <img class="mo-wb-w-64px mo-wb-h-64px" src="./assets/images/no-result.png" />
+            <div class="mo-wb-mt-20px mo-wb-color-cap-txt">{{noneDataMsg | translate}}</div>
+          </div>
+        </ng-container>
+
+        <!-- no search -->
+        <ng-container *ngIf="fetchParam.search">
+          <div class="d-flex flex-column align-items-center">
+            <img class="mo-wb-w-64px mo-wb-h-64px" src="./assets/images/no-data.png" />
+            <div class="mo-wb-mt-20px mo-wb-color-cap-txt">{{notFoundMsg | translate}}</div>
+          </div>
+        </ng-container>
+    </div>
+
+    <mo-wb-components-spinner
+      *ngIf="loading"
+      [size]="spinnerSize">
+    </mo-wb-components-spinner>
+    
+  </div>
+  
+</div>

@@ -1,0 +1,38 @@
+<div [class]="'mo-wb-radio d-flex align-items-start ' + classInclude"
+  [ngClass]="{'mo-wb-rad-disable': disable, 'mo-wb-cursor-pointer': (!disable && !isSelected)}"
+  (click)="handleOnRadioClick($event)">
+
+  <div 
+    class="mo-wb-rad d-flex
+      align-items-center justify-content-center mo-wb-my-2px"
+    [ngClass]="{
+      'mo-wb-rad-selected': isSelected,
+      'mo-wb-rad-unselected': !isSelected
+      }">
+      <div *ngIf="isSelected" 
+        class="mo-wb-rad-inner">
+      </div>
+  </div>
+
+  <div class="mo-wb-ml-10px" *ngIf="label">
+    <div class="d-flex align-items-center">
+      <mo-wb-components-tooltip 
+        [type]="'text'"
+        [hasTooltip]="hasTooltip"
+        [classInclude]="'mo-wb-rad-label mo-wb-f-b2 ' + classLabelInclude ">
+        {{ label | translate }}
+      </mo-wb-components-tooltip>
+      
+      <mo-wb-components-tooltip *ngIf="tooltip"
+        [content]="tooltip.content"
+        [width]="tooltip.width"
+        [maxWidth]="tooltip.maxWidth"
+        [classInclude]="'mo-wb-ml-8px'"
+        [iconClass]="tooltip.iconClass"
+        [direction]="tooltip.direction">
+      </mo-wb-components-tooltip>
+    </div>
+    <div *ngIf="helpText" class="mo-wb-f-c4 mo-wb-mt-2px">{{ helpText | translate }}</div>
+  </div>
+  
+</div>

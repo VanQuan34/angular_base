@@ -1,0 +1,16 @@
+<div *ngIf="isOpen || isFixShow"
+  class="{{ classInclude }}">
+  <div #selectMenu>
+    <mo-wb-components-button
+      [label]="''" 
+      [type]="'icon-grey'"
+      [classIcon]="menuIcon"
+      [classInclude]="''"
+      [disable]="false"
+      (click)="handleOnButtonClick($event)">
+    </mo-wb-components-button>
+  </div>
+  
+  
+
+</div>

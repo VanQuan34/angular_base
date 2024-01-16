@@ -1,0 +1,65 @@
+<!-- child -->
+<div *ngIf="!item[childKey]" 
+  class="d-flex align-items-center mo-wb-px-10px"
+  [style.height]="itemHeight+'px'"
+  [ngClass]="{'mo-wb-disabled': item['classes'] === 'selected'}">
+  <mo-wb-components-radio 
+    *ngIf="!isSelectMultiple"
+    [label]="item[keyName]"
+    [isSelected]="selectedIds.includes(item[key]) ? true : false"
+    (onSelectedChange)="handleOnSelectItem($event, item)">
+  </mo-wb-components-radio>
+  <mo-wb-components-checkbox *ngIf="isSelectMultiple"
+    [label]="item[keyName]"
+    [state]="selectedIds.includes(item[key]) ? 'selected' : 'unselected'"
+    (onCheckedChange)="handleOnSelectItem($event, item)">
+  </mo-wb-components-checkbox>
+</div>
+
+<!-- parent view -->
+<div *ngIf="item[childKey]" 
+  class="d-flex align-items-center mo-wb-px-10px mo-wb-cursor-pointer"
+  [style.height]="itemHeight+'px'"
+  (click)="handleOnSelectParent($event)">
+  <!-- arrow -->
+  <div class="d-flex align-items-center justify-content-center mo-wb-w-12px mo-wb-h-12px">
+    <i class="mo-icn-down-arrow mo-wb-color-btn-txt mo-wb-font-size-6px"
+      [ngClass]="{'mo-wb-rotate-270deg' : !isOpen}"></i>
+  </div>
+  <div class="mo-wb-f-b2 mo-wb-pl-10px d-flex mo-wb-calc-w-12px">
+    <mo-wb-components-tooltip
+      [content]="item[keyName]"
+      [type]="'text'"
+      [hasTooltip]="true"
+      [acceptDynamicDirection]="true"
+    >
+      {{item[keyName]}}
+    </mo-wb-components-tooltip>
+  </div>
+</div>
+<!-- not found result -->
+<div *ngIf="item[childKey] && !item[childKey].length"
+  [class]="'mo-wb-mx-32px '"
+  [style.height]="itemHeight + 'px'"
+  [style.display]="isOpen ? 'block' : 'none'">
+  <div *ngIf="searchValue" class="mo-wb-f-b2 mo-wb-color-cap-txt">{{'Không có kết quả'}}</div>
+  <div *ngIf="!searchValue" class="mo-wb-f-b2 mo-wb-color-cap-txt">{{'Chưa có dữ liệu'}}</div>
+</div>
+
+<!-- child container view -->
+<div *ngIf="item[childKey] && item[childKey].length"
+  class="mo-wb-ml-16px mo-wb-border-left-general mo-wb-pl-8px"
+  [style.display]="isOpen ? 'block' : 'none'">
+  <mo-wb-components-select-dropdown-tree_view
+    *ngFor="let childItem of item[childKey]; let i = index;"
+    [item]="childItem"
+    [itemHeight]="itemHeight"
+    [selectedIds]="selectedIds"
+    [isSelectMultiple]="isSelectMultiple"
+    [searchValue]="searchValue"
+    [key]="childItemKey"
+    [keyName]="childItemName"
+    (onSelectedItem)="handleOnChildItemSelect($event)"
+    (onToggleOpen)="handleOnToggleOpen($event)">
+  </mo-wb-components-select-dropdown-tree_view>
+</div>

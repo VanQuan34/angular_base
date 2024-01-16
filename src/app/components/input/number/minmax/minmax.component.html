@@ -1,0 +1,53 @@
+
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0 mo-wb-cursor-pointer"
+  [style.zIndex]="zIndex"
+  [style.display]="isShow ? 'block' : 'none'">
+
+  <div class="{{classInclude}} mo-wb-z-index-100 mo-wb-border-radius-4px
+    position-absolute mo-wb-bg-w mo-wb-shadow-lg mo-wb-px-20px mo-wb-pt-20px mo-wb-pb-12px"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'">
+
+    <div class="d-flex align-items-center mo-wb-mb-12px">
+      <mo-wb-components-input-number
+        [title]="'Tối thiểu'"
+        [unit]="min.unit"
+        [units]="units"
+        [value]="min.value"
+        [classInclude]="'mo-wb-w-100px mo-wb-mr-20px'"
+        (onUnitChange)="handleOnMinUnitChange($event);"
+        (onValueChanged)="handleOnMinValueChange($event);">
+      </mo-wb-components-input-number>
+
+      <mo-wb-components-input-number
+        [title]="'Tối đa'"
+        [unit]="max.unit"
+        [units]="units"
+        [value]="max.value"
+        [classInclude]="'mo-wb-w-100px'"
+        (onUnitChange)="handleOnMaxUnitChange($event);"
+        (onValueChanged)="handleOnMaxValueChange($event);">
+      </mo-wb-components-input-number>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-end ">
+      <mo-wb-components-button
+        [label]="'Lưu'"
+        [classInclude]="''"
+        (click)="handleOnSave()">
+      </mo-wb-components-button>
+    </div>
+    
+
+    <mo-wb-components-button
+      [type]="'icon'"
+      [classInclude]="'position-absolute mo-wb-top-5px mo-wb-right-5px'"
+      [classIcon]="'mo-icn-close mo-wb-font-size-16px'"
+      [isPending]="false" 
+      [disable]="false"
+      (click)="handleOnCloseClick($event)">
+    </mo-wb-components-button>
+
+  </div>
+
+</div>

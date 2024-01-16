@@ -1,0 +1,25 @@
+<div class="mo-wb-inspect-section w-100 mo-wb-bg-color-w  
+  none-selection {{ hasHeader ? '' : 'mo-wb-pb-12px'}}">
+  <!-- Header -->
+  <div 
+    *ngIf="hasHeader"
+    class="mo-wb-h-40px mo-wb-bg-border w-100 align-items-center
+    justify-content-between d-flex mo-wb-pl-20px mo-wb-pr-20px mo-wb-cursor-pointer"
+    (click)="handleOnToggleClick($event);">
+    <div class="d-flex align-items-center">
+      <div class="{{ isOpen ? 'mo-icn-up-arrow' : 'mo-icn-down-arrow' }} mo-wb-mr-8px mo-wb-font-size-12px"></div>
+      <div class="mo-wb-f-h5">{{title.toUpperCase()}}</div>
+    </div>
+  </div>
+
+  <div *ngIf="!hasHeader" class="mo-wb-f-b2 mo-wb-mb-8px mo-wb-mt-12px" (click)="handleOnToggleClick($event);">{{ title | translate }}</div>
+  <!-- Content -->
+  <div class=" {{hasContentPadding && hasHeader ? 'mo-wb-p-20px' : ''}} {{classInclude}}
+    {{ isOpen ? 'd-block' : 'd-none'}}">
+    <ng-content>
+
+    </ng-content> 
+  </div>
+
+</div>
+ 

@@ -1,0 +1,51 @@
+<div class='mo-wb-modal' [style.display]="isOpen?'':'nones'" [style.zIndex]="fixZIndex" 
+	(click)="handleOnClickClosePopup($event)" >
+	<div class="mo-wb-modal-wrapper" #viewContainerRef [style.width]="(width)?width:'calc(100vw - 100px)'"
+		[style.height]="(height)?height:'calc(100vh - 100px)'" [style.max-width]="maxWidth" [style.max-height]="maxHeight"
+		[ngClass]="{'mo-wb-border-radius-none': ignoreBorderRadius}"
+		(click)="handleOnClickInside($event)">
+		<!-- header -->
+		<div class="mo-wb-modal-header" [ngClass]="headerConfig?.ngClass" [ngStyle]="headerConfig?.ngStyle">
+			<span *ngIf="hasCollapseBtn" (click)="hiddenOrShowContent($event)"
+				[class]="'mo-wb-cursor-pointer mo-wb-ml-20px mo-wb-mr-8px mo-wb-font-size-14px mo-wb-color-ffffff ' + (isCollapse ? 'mo-icn-down-arrow' : 'mo-icn-up-arrow')">
+			</span>
+			<span *ngIf="title"
+				[class]="'w-100 d-flex align-items-center mo-wb-f-b1 ' + (hasCollapseBtn ? '' : classTitleInclude ? classTitleInclude : 'mo-wb-ml-40px')">
+				<mo-wb-components-button *ngIf="hasBackButton" classInclude="mo-wb-mr-8px" type="text-dark"
+					[classIconLeft]="'mo-icn-back-filter'" (onClick)="onHandleBackButtonClick($event)">
+				</mo-wb-components-button>
+				{{title | translate}}
+			</span>
+			<ng-content select="div.header-content"></ng-content>
+			<span class="mo-icn-close-popup mo-wb-cursor-pointer {{classIconClose ? classIconClose : 'mo-wb-mr-40px'}}"
+				[ngClass]="{'mo-wb-disable': disableButtonClose, 'd-none': ignoreButtonClose}" (click)="close($event)"></span>
+		</div>
+		<!-- content -->
+		<div *ngIf="!content" [ngClass]="{'mo-wb-modal-content':true,'mo-wb-modal-content-inner':isHeightAutoSize}"
+			[style.height]="(ignoreFooter)?'calc(100% - 52px)':'calc(100% - 104px)'">
+			<ng-content select="div.large-container"></ng-content>
+		</div>
+		<div class="mo-wb-modal-content mo-wb-modal-content-inner" #elContent [style.display]="'none'">
+		</div>
+		<!-- footer -->
+		<div *ngIf="!ignoreFooter" class="mo-wb-modal-footer">
+			<ng-content *ngIf="!defaultFooter" select="div.footer-container"></ng-content>
+			<div class="footer-content" *ngIf="content">
+				<mo-wb-components-button *ngFor="let item of buttons;" [type]="item.type" [label]="item.label"
+					[disable]="item.disable" [classLabel]="item.classLabel" [classInclude]="item.classInclude"
+					[classIconLeft]="item.classIconLeft" [classIconRight]="item.classIconRight"
+					(onClick)="onHandleButtonClick($event,item)">
+				</mo-wb-components-button>
+				<mo-wb-components-button *ngIf="buttons.length === 0" [label]="'label_btn_agree'"
+					(onClick)="onHandleCancelButtonClick()">
+				</mo-wb-components-button>
+			</div>
+			<div class="footer-content" *ngIf="defaultFooter">
+				<mo-wb-components-button [label]="'i18n_agree'" (onClick)="onHandleButtonAgreeClick($event)">
+				</mo-wb-components-button>
+				<mo-wb-components-button [type]="'third'" [label]="'i18n_close'" (onClick)="onHandleCancelButtonClick()">
+				</mo-wb-components-button>
+			</div>
+		</div>
+	</div>
+</div>

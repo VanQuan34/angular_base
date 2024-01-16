@@ -1,0 +1,126 @@
+<div class="mo-wb-select-dropdown mo-wb-shadow-lg position-fixed
+  mo-wb-bg-w mo-wb-border-radius-4px"
+  [ngClass]="{classInclude}"
+  [ngClass]="{'mo-wb-select-singe' : (type === 'singe' || !selectedIds.length) }"
+  [style.display]="opacity"
+  [style.zIndex]="zIndex"
+  [style.top]="top+'px'"
+  [style.left]="left+'px'"
+  [style.width]="width+'px'"
+  (mousedown)="handleOnDropdownMousedown($event)"
+  (click)="handleOnDropdownClick($event)">
+
+  <!-- search input -->
+  <div *ngIf="hasSearch" class="mo-wb-select-dropdown-search d-flex 
+    align-items-center mo-wb-border-bottom-general mo-wb-h-32px mo-wb-border-radius-top-4px mo-wb-pl-16px">
+    <i class="mo-icn-search-input mo-wb-color-cap-txt mo-wb-font-size-12px mo-wb-mr-8px"></i>
+    <!-- input -->
+    <input #input
+      class="mo-wb-select-dropdown-search-input mo-wb-f-b2 mo-wb-lineHeight-100 flex-grow-1"
+      [placeholder]="searchPlaceholder | translate"
+      spellcheck="false"
+      type="'text'"
+      value="{{searchValue}}"
+      [style.maxWidth]="inputMaxWidth"
+      (keyup)="handleOnInputSearchKeyUp($event);" 
+      />
+    <!-- clear input -->
+    <i *ngIf="searchValue" 
+      class="mo-icn-clear mo-wb-ml-8px mo-wb-cursor-pointer mo-wb-color-cap-txt
+        mo-wb-color-disabled mo-wb-font-size-12px"
+      (click)="handleOnClearSearchClick($event)"></i>
+  </div>
+
+  <!-- list items -->
+  <div #container
+    class="mo-wb-overflow-y-auto mo-wb-border-radius-top-4px"
+    [style.height]="isHeightAuto ? 'auto' : height+'px'"
+    [style.max-height]="isHeightAuto ? 'auto' : height+'px'"
+    (scroll)="handleOnScroll($event)">
+
+    <ng-container *ngIf="type==='singe'">
+      <ng-container *ngIf="displayItems.length && !templateItem">
+        <div *ngFor="let item of displayItems; let i = index;"
+          class="d-flex align-items-center justify-content-between mo-wb-px-16px"
+          [ngClass]="{'mo-wb-bg-hover-bg mo-wb-cursor-pointer': !selectedIds.includes(item[key]),
+            'mo-wb-bg-pri-l3': selectedIds.includes(item[key])}"
+          [style.height]="isHeightAuto ? 'auto' : itemHeight + 'px'"
+          (click)="handleOnItemSelect(item)"> 
+          <!-- 'mo-wb-disable': disableSelectedIds.length !== 0 && disableSelectedIds.includes(item[key]) -->
+          <div *ngIf="!isHtmlItem" class="mo-wb-f-b2 mo-wb-lineHeight-100 w-100">
+            <mo-wb-components-tooltip
+              [classInclude]="'d-block'"
+              [content]="item[keyName] | translate"
+              [type]="'text'"
+              [hasTooltip]="true"
+              [acceptDynamicDirection]="true">{{item[keyName] | translate}}</mo-wb-components-tooltip>
+          </div>
+          <div *ngIf="isHtmlItem" class="mo-wb-f-b2 w-100" [innerHtml]="item.html | safeHtml"></div>
+          <i *ngIf="selectedIds.includes(item[key])" 
+            class="mo-icn-ck_checked mo-wb-font-size-12px mo-wb-color-pri"></i>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="displayItems.length && templateItem">
+        <ng-container *ngFor="let item of displayItems; let i = index;"> 
+          <ng-container *ngTemplateOutlet="templateItem; context: {$implicit: item, index: i}"></ng-container>
+        </ng-container>
+      </ng-container>
+  
+      <!-- not found search -->
+      <div *ngIf="!displayItems.length && searchValue" class="mo-wb-ml-16px mo-wb-mt-6px mo-wb-f-b2 mo-wb-color-cap-txt">{{'Không có kết quả' | translate}}</div>
+      <div *ngIf="!displayItems.length && !searchValue" class="mo-wb-ml-16px mo-wb-mt-6px mo-wb-f-b2 mo-wb-color-cap-txt">{{'Chưa có dữ liệu' | translate}}</div>
+    </ng-container>
+
+    <div #itemTree  *ngIf="type === 'tree' || type === 'group'">
+      <mo-wb-components-select-dropdown-tree_view
+        *ngFor="let item of displayItems; let i = index;"
+        [item]="item"
+        [itemHeight]="itemHeight"
+        [isSelectMultiple]="isSelectMultiple"
+        [selectedIds]="selectedIds"
+        [searchValue]="searchValue"
+        [key]="key"
+        [keyName]="keyName"
+        [childKey]="childKey"
+        [childItemKey]="childItemKey"
+        [childItemName]="childItemName"
+        (onSelectedItem)="handleOnSelectedItem($event)"
+        (onToggleOpen)="handleOnToggleOpen($event)">
+      </mo-wb-components-select-dropdown-tree_view>
+    </div>
+
+    <mo-wb-components-spinner 
+      *ngIf="loading" [size]="'m'">
+    </mo-wb-components-spinner>
+
+  </div>
+
+  <!-- add button -->
+  <div *ngIf="hasAddButton" 
+    class="mo-wb-h-32px mo-wb-border-top-general d-flex align-items-center">
+    <mo-wb-components-button
+      [label]="addButtonLabel" 
+      [type]="'link'"
+      [classIconLeft]="'mo-icn-add'"
+      [classInclude]="'mo-wb-ml-12px'" 
+      [isPending]="false"
+      [disable]="false"
+      (click)="handleOnAddClick($event)">
+    </mo-wb-components-button>
+  </div>
+
+  <!-- remove button -->
+  <div *ngIf="hasRemoveButton" 
+    class="mo-wb-h-32px mo-wb-border-top-general d-flex align-items-center">
+    <mo-wb-components-button
+      [label]="'Bỏ gía trị đang chọn'" 
+      [type]="'link-red'"
+      [classIconLeft]="'mo-icn-close'"
+      [classInclude]="'mo-wb-ml-12px'" 
+      [isPending]="false"
+      [disable]="!selectedIds.length"
+      (click)="handleOnRemoveAllSelected($event)">
+    </mo-wb-components-button>
+  </div>
+</div>

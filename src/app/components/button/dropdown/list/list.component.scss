@@ -1,0 +1,21 @@
+$SFUIText-Semibold: SFUIText-Semibold,Arial,Helvetica,sans-serif;
+.mo-wb-button-dropdow-list{
+  z-index: 2000;
+  max-height: 299px;
+  overflow: auto;
+  ul{
+    list-style: none;
+    &:last-child{
+        li{
+            border-bottom: none;
+        }
+    }
+    li{
+        border-bottom: 1px solid  #e6e8ed;
+        font-size: 12px;
+        span{
+          font-family: $SFUIText-Semibold;
+        }
+    }
+  }
+}

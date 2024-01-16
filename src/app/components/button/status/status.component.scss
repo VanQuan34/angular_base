@@ -1,0 +1,49 @@
+.mo-button-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 13px;
+    cursor: text;
+    width: max-content;
+
+    span {
+        line-height: normal;
+        color: white;
+
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    &.mo-button-status-success {
+        background-color: #6fd100;
+    }
+
+    &.mo-button-status-finished {
+        background-color: #4cb7ff;
+    }
+
+    &.mo-button-status-wait {
+        background-color: #fbb107;
+    }
+
+    &.mo-button-status-delete {
+        background-color: #ff5454;
+    }
+
+    &.mo-button-status-draft {
+        background-color: var(--btn-txt);
+    }
+
+    &.mo-button-status-cancel {
+        background-color: #c1c1c1;
+    }
+
+    &.mo-button-status-processing {
+        background-color: #fb7c1a;
+    }
+}

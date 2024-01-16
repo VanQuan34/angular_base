@@ -1,0 +1,10 @@
+<div *ngIf="isOpen"
+  #popupEl
+  class="mo-wb-toggle-popup position-fixed mo-wb-shadow-lg mo-wb-bg-w
+    mo-wb-bg-w mo-wb-border-radius-4px"
+  [style.zIndex]="zIndex"
+  [style.top]="top+'px'"
+  [style.left]="left+'px'"
+  (mousedown)="handleOnPopupMousedown($event)">
+  <ng-container *ngTemplateOutlet="templateContent; context: {$implicit: ''}"></ng-container>
+</div>

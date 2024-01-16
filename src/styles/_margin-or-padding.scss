@@ -1,0 +1,94 @@
+$margin-or-padding: auto -95px -70px -28px -30px -20px -15px -12px -10px -8px -6px -4px -2px -1px 0 1px 2px 3px 4px 5px 6px 7px 8px 9px 10px 11px 12px 13px
+                    14px 15px 16px 17px 18px 20px 21px 22px 23px 24px 25px 26px 27px 28px 29px 30px 32px 33px 34px 35px 36px 37px 38px 40px
+                    42px 43px 44px 45px 46px 47px 48px 49px 50px 52px 54px 55px 56px 58px 60px 64px 65px 66px 68px 70px 72px 79px
+                    80px 81px 82px 86px 88px 90px 93px 95px 100px 103px 113px 117px 120px 124px 137px 149px 164px 172px 198px 226px 252px 308px 350px 400px 472px;
+
+@each $val in $margin-or-padding {
+    .#{$prefixCss}m-#{$val}{
+      margin: $val !important;
+    }
+
+    .#{$prefixCss}mr-#{$val}{
+      margin-right: $val !important;
+    }
+
+    .#{$prefixCss}ml-#{$val}{
+      margin-left: $val !important;
+    }
+
+    .#{$prefixCss}mb-#{$val}{
+      margin-bottom: $val !important;
+    }
+
+    .#{$prefixCss}mt-#{$val}{
+      margin-top: $val !important;
+    }
+
+    .#{$prefixCss}mx-#{$val}{
+      margin-left: $val !important;
+      margin-right: $val !important;
+    }
+
+    .#{$prefixCss}my-#{$val}{
+      margin-top: $val !important;
+      margin-bottom: $val !important;
+    }
+
+    .#{$prefixCss}p-#{$val}{
+      padding: $val !important;
+    }
+
+    .#{$prefixCss}px-#{$val}{
+       padding-left: $val !important;
+       padding-right: $val !important;
+    }
+
+    .#{$prefixCss}py-#{$val}{
+        padding-top: $val !important;
+        padding-bottom: $val !important;
+    }
+
+    .#{$prefixCss}pr-#{$val}{
+      padding-right: $val !important;
+    }
+
+    .#{$prefixCss}pl-#{$val}{
+      padding-left: $val !important;
+    }
+
+    .#{$prefixCss}pb-#{$val}{
+      padding-bottom: $val !important;
+    }
+
+    .#{$prefixCss}pt-#{$val}{
+      padding-top: $val !important;
+    }
+}
+
+.#{$prefixCss}m-auto{
+    margin: auto !important;
+}
+
+.#{$prefixCss}mx-auto{
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.#{$prefixCss}my-auto{
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+.#{$prefixCss}p-auto{
+    padding: auto !important;
+}
+
+.#{$prefixCss}px-auto{
+  padding-left: auto !important;
+  padding-right: auto !important;
+}
+
+.#{$prefixCss}py-auto{
+  padding-top: auto !important;
+  padding-bottom: auto !important;
+}

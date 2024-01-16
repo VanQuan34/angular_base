@@ -1,0 +1,27 @@
+<div class="d-flex mo-wb-mt-4px">
+  <div *ngIf="title" class="mo-wb-w-45px text-right mo-wb-mr-12px">
+    <span class="{{classStyleTitle}}">{{title}}</span>
+  </div>
+  <div class="content-container"
+    #upload>
+    <ng-container>
+      <span class="mo-wb-f-b2 mo-wb-color-pri mo-wb-cursor-pointer">{{buttonTriggerClick}}</span>
+      <input #uploadFileInput
+        id="upload-input"
+        class="upload-input"
+        style="display:none;"
+        type="file"
+        name="files[]"
+        accept="{{ '.ttf,.otf,.woff' }}" />
+    </ng-container>
+  </div>
+  <ng-container *ngIf="isFile">
+    <div>
+      <span class="mo-wb-f-b2 mo-wb-color-btn-txt mo-wb-ml-8px">{{ fileName ? fileName : "" }}</span>
+    </div>
+    <div class="close-file-btn">
+      <i class="mo-icn-close-popup"
+        (click)="handleOnRemoveFileClick($event)"></i>
+    </div>
+  </ng-container>
+</div>

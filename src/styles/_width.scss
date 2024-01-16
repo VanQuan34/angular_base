@@ -1,0 +1,128 @@
+$widths: auto 100vw 1px 4px 5px 6px 8px 10px 12px 14px 15px 16px 18px 20px 22px 23px 24px 25px 28px 30px 32px 34px 35px 36px 38px
+  40px 44px 45px 48px 50px 52px 54px 56px 58px 60px 63px 65px 70px 72px 75px 80vw 80px 82px 84px 85px 86px 90px 90vw 96px 100px 104px 110px
+  114px 120px 125px 128px 130px 131px 135px 138px 139px 140px 145px 147px 150px 151px 156px 158px 160px 165px 167px 170px 176px 180px
+  190px 192px 194px 200px 204px 205px 211px 214px 216px 220px 226px 228px 229px 230px 238px 240px 244px 245px 248px 249px 250px 255px 260px 265px 268px 272px 276px 277px 280px
+  282px 284px 290px 300px 302px 303px 304px 306px 309px 310px 320px 330px 334px 338px 348px 350px 356px 360px 364px 367px 370px 375px 379px 380px 384px 386px 387px
+  396px 398px 400px 410px 412px 416px 419px 426px 432px 440px 444px 450px 460px 464px 470px 490px 500px 503px 510px 520px
+  524px 532px 540px 543px 549px 555px 588px 600px 604px 610px 624px 640px 643px 647px 657px 681px 700px 732px 756px 762px 770px
+  795px 800px 832px 838px 890px 1066px 1086px;
+
+$max-min-widths: auto 100vw 24px 30px 35px 52px 75px 100px 104px 110px 130px 140px 145px 156px 160px 168px 170px 172px 187px 188px 200px 203px 220px 240px
+  250px 255px 257px 260px 262px 290px 300px 302px 310px 320px 348px 375px 395px 400px 408px 440px 450px 503px 540px 577px
+  588px 600px 624px 640px 670px 708px 720px 726px 756px 800px 823px 830px 832px 878px 894px 900px 981px 1000px 1066px 1072px
+  1092px 1152px 1336px 1366px 1632px;
+
+$calcWidth: 0px 1px 2px 5px 10px 12px 14px 18px 20px 22px 28px 32px 34px 35px 36px 40px 42px 45px 50px 55px 60px 64px 70px 75px 80px
+  90px 96px 100px 104px 110px 115px 120px 130px 135px 145px 150px 151px 159px 176px 180px 200px 220px 222px 225px 236px 240px 247px
+  250px 272px 276px 288px 300px 306px 318px 320px 330px 350px 375px 396px 398px 410px 416px 419px 426px 432px 450px 490px 510px 531px 540px 547px
+  550px 561px;
+
+$calcPer: 100 70 60 50 45 40 33 30 25 20 15 10 5;
+
+@each $val in $widths {
+  .#{$prefixCss}w-#{$val} {
+    width: $val !important;
+  }
+}
+
+@each $val in $max-min-widths {
+  .#{$prefixCss}max-width-#{$val} {
+    max-width: $val !important;
+  }
+
+  .#{$prefixCss}min-width-#{$val} {
+    min-width: $val !important;
+  }
+}
+
+@each $val in $calcWidth {
+  .#{$prefixCss}calc-w-#{$val} {
+    width: calc(100#{"% - "}#{$val}) !important;
+  }
+
+  .#{$prefixCss}calc-vw-#{$val} {
+    width: calc(100#{"vw - "}#{$val}) !important;
+  }
+
+  .#{$prefixCss}max-calc-w-#{$val} {
+    max-width: calc(100#{"% - "}#{$val}) !important;
+  }
+
+  .#{$prefixCss}max-calc-vw-#{$val} {
+    max-width: calc(100#{"vw - "}#{$val}) !important;
+  }
+
+  .#{$prefixCss}min-calc-w-#{$val} {
+    min-width: calc(100#{"% - "}#{$val}) !important;
+  }
+
+  .#{$prefixCss}min-calc-vw-#{$val} {
+    min-width: calc(100#{"vw - "}#{$val}) !important;
+  }
+}
+
+@each $per in $calcPer { 
+  .#{$prefixCss}calc-w-#{$per} {
+    width: calc(#{$per}#{"% - 0px"}) !important;
+  }
+
+  .#{$prefixCss}calc-vw-#{$per} {
+    width: calc(#{$per}#{"vw - 0px"}) !important;
+  }
+
+  .#{$prefixCss}max-calc-w-#{$per} {
+    max-width: calc(#{$per}#{"% - 0px"}) !important;
+  }
+
+  .#{$prefixCss}max-calc-vw-#{$per} {
+    max-width: calc(#{$per}#{"vw - 0px"}) !important;
+  }
+
+  .#{$prefixCss}min-calc-w-#{$per} {
+    min-width: calc(#{$per}#{"% - 0px"}) !important;
+  }
+
+  .#{$prefixCss}min-calc-vw-#{$per} {
+    min-width: calc(#{$per}#{"vw - 0px"}) !important;
+  }
+
+  @each $val in $calcWidth {
+    .#{$prefixCss}calc-w-#{$per}-#{$val} {
+      width: calc(#{$per}#{"% - "}#{$val}) !important;
+    }
+  
+    .#{$prefixCss}calc-vw--#{$per}-#{$val} {
+      width: calc(#{$per}#{"vw - "}#{$val}) !important;
+    }
+  
+    .#{$prefixCss}max-calc-w-#{$per}-#{$val} {
+      max-width: calc(#{$per}#{"% - "}#{$val}) !important;
+    }
+  
+    .#{$prefixCss}max-calc-vw-#{$per}-#{$val} {
+      max-width: calc(#{$per}#{"vw - "}#{$val}) !important;
+    }
+  
+    .#{$prefixCss}min-calc-w-#{$per}-#{$val} {
+      min-width: calc(#{$per}#{"% - "}#{$val}) !important;
+    }
+  
+    .#{$prefixCss}min-calc-vw-#{$per}-#{$val} {
+      min-width: calc(#{$per}#{"vw - "}#{$val}) !important;
+    }
+  }
+}
+
+
+
+.#{$prefixCss}width-max-content {
+  width: max-content !important;
+  width: -moz-max-content !important;
+  width: -webkit-max-content !important;
+}
+
+.#{$prefixCss}width-min-content {
+  width: min-content !important;
+  width: -moz-min-content !important;
+  width: -webkit-min-content !important;
+}

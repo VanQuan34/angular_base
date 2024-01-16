@@ -1,0 +1,2070 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?g185fh');
+  src:  url('fonts/icomoon.eot?g185fh#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?g185fh') format('truetype'),
+    url('fonts/icomoon.woff?g185fh') format('woff'),
+    url('fonts/icomoon.svg?g185fh#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="mo-icn-"], [class*=" mo-icn-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mo-icn-in-cubic:before {
+  content: "\e976";
+}
+.mo-icn-in-out-cubic:before {
+  content: "\e977";
+}
+.mo-icn-in-out-quad:before {
+  content: "\e978";
+}
+.mo-icn-in-out-quart:before {
+  content: "\e979";
+}
+.mo-icn-in-out-sine:before {
+  content: "\e97a";
+}
+.mo-icn-in-quad:before {
+  content: "\e97b";
+}
+.mo-icn-in-quart:before {
+  content: "\e97c";
+}
+.mo-icn-in-sine:before {
+  content: "\e97d";
+}
+.mo-icn-line:before {
+  content: "\e97e";
+}
+.mo-icn-out-cubic:before {
+  content: "\e97f";
+}
+.mo-icn-out-quad:before {
+  content: "\e980";
+}
+.mo-icn-out-quart:before {
+  content: "\e981";
+}
+.mo-icn-out-sine:before {
+  content: "\e982";
+}
+.mo-icn-union:before {
+  content: "\e975";
+  color: #6a7383;
+}
+.mo-icn-text-font:before {
+  content: "\e974";
+}
+.mo-icn-text-scale:before {
+  content: "\e91d";
+}
+.mo-icn-open-lib:before {
+  content: "\e973";
+}
+.mo-icn-horizontal-center-align:before {
+  content: "\e970";
+}
+.mo-icn-horizontal-left-align:before {
+  content: "\e971";
+}
+.mo-icn-horizontal-right-align:before {
+  content: "\e972";
+}
+.mo-icn-vertical-align-bottom:before {
+  content: "\e96d";
+}
+.mo-icn-vertical-align-middle:before {
+  content: "\e96e";
+}
+.mo-icn-vertical-align-top:before {
+  content: "\e96f";
+}
+.mo-icn-border-style:before {
+  content: "\e96b";
+}
+.mo-icn-color-fill:before {
+  content: "\e96c";
+}
+.mo-icn-split-cells:before {
+  content: "\e96a";
+}
+.mo-icn-merge-cells:before {
+  content: "\e969";
+}
+.mo-icn-web:before {
+  content: "\e968";
+}
+.mo-icn-refresh-left-square:before {
+  content: "\e967";
+}
+.mo-icn-alert-triangle-outline:before {
+  content: "\e94d";
+}
+.mo-icn-download-outline:before {
+  content: "\e94e";
+}
+.mo-icn-dashboard-outline:before {
+  content: "\e94f";
+}
+.mo-icn-editor-color-text:before {
+  content: "\e950";
+}
+.mo-icn-eye-outline:before {
+  content: "\e951";
+}
+.mo-icn-checkbox-selected:before {
+  content: "\e952";
+}
+.mo-icn-checkbox-unselected:before {
+  content: "\e953";
+}
+.mo-icn-add:before {
+  content: "\e954";
+}
+.mo-icn-remove:before {
+  content: "\e955";
+}
+.mo-icn-copy:before {
+  content: "\e957";
+}
+.mo-icn-arrow-left:before {
+  content: "\e958";
+}
+.mo-icn-report:before {
+  content: "\e959";
+}
+.mo-icn-edit:before {
+  content: "\e95a";
+}
+.mo-icn-profile-outline:before {
+  content: "\e95b";
+}
+.mo-icn-check-double:before {
+  content: "\e95c";
+}
+.mo-icn-more-horizontal:before {
+  content: "\e95d";
+}
+.mo-icn-sort-solid:before {
+  content: "\e95e";
+}
+.mo-icn-move-to-folder:before {
+  content: "\e95f";
+}
+.mo-icn-arrow-right:before {
+  content: "\e960";
+}
+.mo-icn-web-push-outline:before {
+  content: "\e961";
+}
+.mo-icn-close:before {
+  content: "\e962";
+}
+.mo-icn-back-square:before {
+  content: "\e963";
+}
+.mo-icn-firstline:before {
+  content: "\e964";
+}
+.mo-icn-folder-cloud:before {
+  content: "\e965";
+}
+.mo-icn-folder:before {
+  content: "\e966";
+}
+.mo-icn-arrow_down:before {
+  content: "\e94b";
+  color: #6a7383;
+}
+.mo-icn-arrow-up:before {
+  content: "\e94c";
+  color: #6a7383;
+}
+.mo-icn-clear:before {
+  content: "\e949";
+  color: #cdd0d6;
+}
+.mo-icn-search-input:before {
+  content: "\e94a";
+  color: #9ca2ad;
+}
+.mo-icn-ck_checked:before {
+  content: "\e941";
+  color: #fff;
+}
+.mo-icn-top-bottom:before {
+  content: "\e947";
+}
+.mo-icn-left-right-line:before {
+  content: "\e956";
+}
+.mo-icn-align-hor:before {
+  content: "\e93c";
+}
+.mo-icn-shape:before {
+  content: "\e93b";
+}
+.mo-icn-b-box:before {
+  content: "\e93a";
+}
+.mo-icn-pop-up:before {
+  content: "\e936";
+}
+.mo-icn-page:before {
+  content: "\e937";
+}
+.mo-icn-gallery:before {
+  content: "\e938";
+}
+.mo-icn-carousel:before {
+  content: "\e939";
+}
+.mo-icn-paragraph:before {
+  content: "\e935";
+}
+.mo-icn-grid:before {
+  content: "\e934";
+}
+.mo-icn-stack:before {
+  content: "\e933";
+}
+.mo-icn-hide:before {
+  content: "\e932";
+}
+.mo-icn-broom-found:before {
+  content: "\e930";
+}
+.mo-icn-broom-normal:before {
+  content: "\e931";
+}
+.mo-icn-top:before {
+  content: "\e92f";
+}
+.mo-icn-unlink:before {
+  content: "\e92a";
+}
+.mo-icn-web-link:before {
+  content: "\e92b";
+}
+.mo-icn-anchor:before {
+  content: "\e92c";
+}
+.mo-icn-popup:before {
+  content: "\e92d";
+}
+.mo-icn-phone:before {
+  content: "\e92e";
+}
+.mo-icn-none-link:before {
+  content: "\e929";
+}
+.mo-icn-animation-icon:before {
+  content: "\e928";
+}
+.mo-icn-line-height:before {
+  content: "\e927";
+}
+.mo-icn-letter-spacing:before {
+  content: "\e926";
+}
+.mo-icn-strikethrough:before {
+  content: "\e925";
+}
+.mo-icn-comp-select:before {
+  content: "\e900";
+}
+.mo-icn-vouch-hop-le:before {
+  content: "\61";
+}
+.mo-icn-extract_data:before {
+  content: "\e901";
+}
+.mo-icn-identification_info:before {
+  content: "\e902";
+}
+.mo-icn-popup_button_template:before {
+  content: "\e903";
+}
+.mo-icn-popup_form_set_padding:before {
+  content: "\e904";
+}
+.mo-icn-popup_form_template:before {
+  content: "\e905";
+}
+.mo-icn-sound_off_notification:before {
+  content: "\e906";
+}
+.mo-icn-font-com:before {
+  content: "\e907";
+}
+.mo-icn-popup-com:before {
+  content: "\e908";
+}
+.mo-icn-landing-page:before {
+  content: "\e909";
+}
+.mo-icn-rotation-com:before {
+  content: "\e90a";
+}
+.mo-icn-device-com:before {
+  content: "\e90b";
+}
+.mo-icn-link-com:before {
+  content: "\e90c";
+}
+.mo-icn-layer-com:before {
+  content: "\e91b";
+}
+.mo-icn-command-com1:before {
+  content: "\e90d";
+}
+.mo-icn-device-pairing:before {
+  content: "\e90e";
+}
+.mo-icn-corner-bottom-left:before {
+  content: "\e90f";
+}
+.mo-icn-inspect-com:before {
+  content: "\e910";
+}
+.mo-icn-upload-com:before {
+  content: "\e911";
+}
+.mo-icn-warning-error:before {
+  content: "\e912";
+}
+.mo-icn-zoom-com:before {
+  content: "\e913";
+}
+.mo-icn-text-edit:before {
+  content: "\e914";
+}
+.mo-icn-command-com:before {
+  content: "\e915";
+}
+.mo-icn-corner-bottom-left1:before {
+  content: "\e916";
+}
+.mo-icn-align-start:before {
+  content: "\e917";
+}
+.mo-icn-align-top:before {
+  content: "\e918";
+}
+.mo-icn-align-end:before {
+  content: "\e919";
+}
+.mo-icn-align-center:before {
+  content: "\e91a";
+}
+.mo-icn-align-middle:before {
+  content: "\e924";
+}
+.mo-icn-align-bottom:before {
+  content: "\e91c";
+}
+.mo-icn-align-center-com:before {
+  content: "\e91e";
+}
+.mo-icn-align-left-com:before {
+  content: "\e91f";
+}
+.mo-icn-symbol-com:before {
+  content: "\e920";
+}
+.mo-icn-design-com:before {
+  content: "\e921";
+}
+.mo-icn-style-com:before {
+  content: "\e922";
+}
+.mo-icn-layout-com:before {
+  content: "\e923";
+}
+.mo-icn-preview:before {
+  content: "\e9d2";
+}
+.mo-icn-redo:before {
+  content: "\e9d3";
+}
+.mo-icn-undo:before {
+  content: "\e9d4";
+}
+.mo-icn-desktop_view:before {
+  content: "\e9d5";
+}
+.mo-icn-phone_view:before {
+  content: "\e9d6";
+}
+.mo-icn-refresh:before {
+  content: "\e9d7";
+}
+.mo-icn-export_as_html:before {
+  content: "\e9d8";
+}
+.mo-icn-toast_info:before {
+  content: "\e9d9";
+}
+.mo-icn-upload_post_photo:before {
+  content: "\e9da";
+}
+.mo-icn-transaction-activity:before {
+  content: "\e9db";
+}
+.mo-icn-forward-message:before {
+  content: "\e9dc";
+}
+.mo-icn-reply:before {
+  content: "\e9dd";
+}
+.mo-icn-Enterprise:before {
+  content: "\e9de";
+}
+.mo-icn-Corporate:before {
+  content: "\e9df";
+}
+.mo-icn-Transaction-History:before {
+  content: "\e9e0";
+}
+.mo-icn-Card-management:before {
+  content: "\e9e1";
+}
+.mo-icn-Profile-group:before {
+  content: "\e9e2";
+}
+.mo-icn-cmt_in_photo:before {
+  content: "\e9e3";
+}
+.mo-icn-doi_soat_email:before {
+  content: "\e9e4";
+}
+.mo-icn-manage_partner:before {
+  content: "\e9e5";
+}
+.mo-icn-manage_tenant:before {
+  content: "\e9e6";
+}
+.mo-icn-tenant_operate:before {
+  content: "\e9e7";
+}
+.mo-icn-gen_gift_code:before {
+  content: "\e9e8";
+}
+.mo-icn-partner_commission:before {
+  content: "\e9e9";
+}
+.mo-icn-tenant_transaction:before {
+  content: "\e9ea";
+}
+.mo-icn-social_filter:before {
+  content: "\e9eb";
+}
+.mo-icn-sent:before {
+  content: "\e9ec";
+}
+.mo-icn-login_id:before {
+  content: "\e9ee";
+}
+.mo-icn-signup_refer:before {
+  content: "\e9ef";
+}
+.mo-icn-signup_brand:before {
+  content: "\e9f0";
+}
+.mo-icn-signup_password:before {
+  content: "\e9f1";
+}
+.mo-icn-signup_industry:before {
+  content: "\e9f2";
+}
+.mo-icn-translate:before {
+  content: "\e9f3";
+}
+.mo-icn-new_language:before {
+  content: "\e9f4";
+}
+.mo-icn-category:before {
+  content: "\e9f5";
+}
+.mo-icn-open_in_new_page:before {
+  content: "\e9f6";
+}
+.mo-icn-marketplace:before {
+  content: "\e9f7";
+}
+.mo-icn-zoom_out:before {
+  content: "\e9f8";
+}
+.mo-icn-zoom_in:before {
+  content: "\e9f9";
+}
+.mo-icn-mkt_expand:before {
+  content: "\e9fa";
+}
+.mo-icn-mkt_collpased:before {
+  content: "\e9fb";
+}
+.mo-icn-ads_distribution_schedueled:before {
+  content: "\e9fe";
+}
+.mo-icn-cat_collapse:before {
+  content: "\e9ff";
+}
+.mo-icn-cat_expand:before {
+  content: "\ea00";
+}
+.mo-icn-manufacturerer:before {
+  content: "\ea01";
+}
+.mo-icn-vib_app:before {
+  content: "\ea03";
+}
+.mo-icn-drag_fields:before {
+  content: "\ea04";
+}
+.mo-icn-upload_post_text:before {
+  content: "\ea05";
+}
+.mo-icn-upload_post_video:before {
+  content: "\ea06";
+}
+.mo-icn-error_user_block:before {
+  content: "\ea07";
+}
+.mo-icn-setting_personalized_fields:before {
+  content: "\ea08";
+}
+.mo-icn-vib_offer:before {
+  content: "\ea09";
+}
+.mo-icn-activity_log:before {
+  content: "\ea0a";
+}
+.mo-icn-something_wrong:before {
+  content: "\ea0b";
+}
+.mo-icn-Tag_system_VIB:before {
+  content: "\ea0c";
+}
+.mo-icn-iCheck_chat:before {
+  content: "\ea0d";
+}
+.mo-icn-dynamic_event:before {
+  content: "\ea0e";
+}
+.mo-icn-send_message_social:before {
+  content: "\ea0f";
+}
+.mo-icn-like_fb:before {
+  content: "\ea10";
+}
+.mo-icn-liked_fb:before {
+  content: "\ea11";
+}
+.mo-icn-like_insta:before {
+  content: "\ea12";
+}
+.mo-icn-liked_insta:before {
+  content: "\ea13";
+}
+.mo-icn-comment:before {
+  content: "\ea14";
+}
+.mo-icn-forward_comment_mess:before {
+  content: "\ea15";
+}
+.mo-icn-live_chat_info:before {
+  content: "\ea16";
+}
+.mo-icn-already_messaged:before {
+  content: "\ea17";
+}
+.mo-icn-star:before {
+  content: "\ea18";
+}
+.mo-icn-edit_html_code:before {
+  content: "\ea54";
+}
+.mo-icn-tablet_view:before {
+  content: "\ea55";
+}
+.mo-icn-Team:before {
+  content: "\ea56";
+}
+.mo-icn-notification_bell:before {
+  content: "\ea57";
+}
+.mo-icn-Tenant:before {
+  content: "\ea58";
+}
+.mo-icn-upsell_cross_sell:before {
+  content: "\ea59";
+}
+.mo-icn-reward_message:before {
+  content: "\ea5a";
+}
+.mo-icn-noti_loyalty_status:before {
+  content: "\ea5b";
+}
+.mo-icn-ab_test_message:before {
+  content: "\ea5c";
+}
+.mo-icn-customer_review_product:before {
+  content: "\ea5d";
+}
+.mo-icn-park_map:before {
+  content: "\ea5e";
+}
+.mo-icn-image_frame:before {
+  content: "\ea5f";
+}
+.mo-icn-area:before {
+  content: "\ea60";
+}
+.mo-icn-active_status:before {
+  content: "\ea61";
+}
+.mo-icn-Admin:before {
+  content: "\ea62";
+}
+.mo-icn-CMS:before {
+  content: "\ea63";
+}
+.mo-icn-set_account_policy:before {
+  content: "\ea64";
+}
+.mo-icn-Marketing:before {
+  content: "\ea65";
+}
+.mo-icn-Home:before {
+  content: "\ea66";
+}
+.mo-icn-bank:before {
+  content: "\ea67";
+}
+.mo-icn-sort_list:before {
+  content: "\ea68";
+}
+.mo-icn-on_hold:before {
+  content: "\ea69";
+}
+.mo-icn-search_not_found:before {
+  content: "\ea6a";
+}
+.mo-icn-not_hold:before {
+  content: "\ea6b";
+}
+.mo-icn-product_order:before {
+  content: "\ea6c";
+}
+.mo-icn-unidentified_profile:before {
+  content: "\ea6d";
+}
+.mo-icn-identified_profile:before {
+  content: "\ea6e";
+}
+.mo-icn-voucher_code_distributed:before {
+  content: "\ea6f";
+}
+.mo-icn-voucher_code_remain:before {
+  content: "\ea70";
+}
+.mo-icn-voucher_code_added:before {
+  content: "\ea71";
+}
+.mo-icn-enlarge_popup:before {
+  content: "\ea72";
+}
+.mo-icn-minimize_popup:before {
+  content: "\ea73";
+}
+.mo-icn-expand_col3:before {
+  content: "\ea74";
+}
+.mo-icn-collapse_col3:before {
+  content: "\ea75";
+}
+.mo-icn-toast_warning:before {
+  content: "\ea76";
+}
+.mo-icn-toast_error:before {
+  content: "\ea77";
+}
+.mo-icn-toast_success:before {
+  content: "\ea78";
+}
+.mo-icn-blank_survey:before {
+  content: "\ea79";
+}
+.mo-icn-dashboard_no_widget:before {
+  content: "\ea7a";
+}
+.mo-icn-card_code_distributed:before {
+  content: "\ea7b";
+}
+.mo-icn-card_code_remain:before {
+  content: "\ea7c";
+}
+.mo-icn-empty_card_list:before {
+  content: "\ea7d";
+}
+.mo-icn-card_code_added:before {
+  content: "\ea7e";
+}
+.mo-icn-subbrand:before {
+  content: "\ea7f";
+}
+.mo-icn-connect_app:before {
+  content: "\ea80";
+}
+.mo-icn-chat_with_us:before {
+  content: "\ea81";
+}
+.mo-icn-small_branch:before {
+  content: "\ea82";
+}
+.mo-icn-survey_paragraph:before {
+  content: "\ea83";
+}
+.mo-icn-survey_dropdown:before {
+  content: "\ea84";
+}
+.mo-icn-survey_short_answer:before {
+  content: "\ea85";
+}
+.mo-icn-survey_rating:before {
+  content: "\ea86";
+}
+.mo-icn-set_profiles_limit:before {
+  content: "\ea87";
+}
+.mo-icn-not_in_team:before {
+  content: "\ea88";
+}
+.mo-icn-survey_use_emoji_selected:before {
+  content: "\ea89";
+}
+.mo-icn-survey_photo_align_right_selected:before {
+  content: "\ea8a";
+}
+.mo-icn-survey_skip_to_page_selected:before {
+  content: "\ea8b";
+}
+.mo-icn-survey_radio_grid:before {
+  content: "\ea8c";
+}
+.mo-icn-survey_photo_align_right:before {
+  content: "\ea8d";
+}
+.mo-icn-survey_skip_to_page:before {
+  content: "\ea8e";
+}
+.mo-icn-survey_photo_align_center:before {
+  content: "\ea8f";
+}
+.mo-icn-survey_add_photo_selected:before {
+  content: "\ea90";
+}
+.mo-icn-survey_photo_align_left_selected:before {
+  content: "\ea91";
+}
+.mo-icn-survey_checkbox_grid:before {
+  content: "\ea92";
+}
+.mo-icn-survey_photo_align_center_selected:before {
+  content: "\ea93";
+}
+.mo-icn-survey_photo_align_left:before {
+  content: "\ea94";
+}
+.mo-icn-survey_add_note_selected:before {
+  content: "\ea95";
+}
+.mo-icn-pipeline_automation:before {
+  content: "\ea96";
+}
+.mo-icn-sale_process_automation:before {
+  content: "\ea97";
+}
+.mo-icn-deal_in_queue:before {
+  content: "\ea98";
+}
+.mo-icn-distribute_to_last_team:before {
+  content: "\ea99";
+}
+.mo-icn-distribute_to_profile_owner:before {
+  content: "\ea9a";
+}
+.mo-icn-prioritise_sale_member:before {
+  content: "\ea9b";
+}
+.mo-icn-random_distribute_deal:before {
+  content: "\ea9c";
+}
+.mo-icn-crop:before {
+  content: "\ea9d";
+}
+.mo-icn-flip_horizontal:before {
+  content: "\ea9e";
+}
+.mo-icn-flip_vertical:before {
+  content: "\ea9f";
+}
+.mo-icn-move_file_to:before {
+  content: "\eaa0";
+}
+.mo-icn-rotate:before {
+  content: "\eaa1";
+}
+.mo-icn-check_calendar_connection:before {
+  content: "\eaa2";
+}
+.mo-icn-resize:before {
+  content: "\eaa3";
+}
+.mo-icn-overdue_task:before {
+  content: "\eaa4";
+}
+.mo-icn-future_task:before {
+  content: "\eaa5";
+}
+.mo-icn-planned_task:before {
+  content: "\eaa6";
+}
+.mo-icn-done_task:before {
+  content: "\eaa7";
+}
+.mo-icn-intergrate_chatbot:before {
+  content: "\eaa8";
+}
+.mo-icn-repeated_journey:before {
+  content: "\eaa9";
+}
+.mo-icn-sale_automation_rule:before {
+  content: "\eaaa";
+}
+.mo-icn-journey_target_audience:before {
+  content: "\eaab";
+}
+.mo-icn-set_to_default:before {
+  content: "\eaac";
+}
+.mo-icn-JB_webpushform_no_photo:before {
+  content: "\eaad";
+}
+.mo-icn-JB_webpushform_email:before {
+  content: "\eaae";
+}
+.mo-icn-JB_webpushform_photo_right:before {
+  content: "\eaaf";
+}
+.mo-icn-JB_webpushform_upper_photo:before {
+  content: "\eab0";
+}
+.mo-icn-JB_webpushform_photo_left:before {
+  content: "\eab1";
+}
+.mo-icn-popup_textblock_left:before {
+  content: "\eab2";
+}
+.mo-icn-popup_textblock_right:before {
+  content: "\eab3";
+}
+.mo-icn-popup_video:before {
+  content: "\eab4";
+}
+.mo-icn-popup_textblock_justify:before {
+  content: "\eab5";
+}
+.mo-icn-popup_line:before {
+  content: "\eab6";
+}
+.mo-icn-popup_html:before {
+  content: "\eab7";
+}
+.mo-icn-popup_line_select_all:before {
+  content: "\eab8";
+}
+.mo-icn-popup_icon:before {
+  content: "\eab9";
+}
+.mo-icn-popup_line_dash:before {
+  content: "\eaba";
+}
+.mo-icn-popup_line_moredash:before {
+  content: "\eabb";
+}
+.mo-icn-popup_line_select_right:before {
+  content: "\eabc";
+}
+.mo-icn-popup_game:before {
+  content: "\eabd";
+}
+.mo-icn-popup_line_select_bottom:before {
+  content: "\eabe";
+}
+.mo-icn-popup_border_radius_topleft:before {
+  content: "\eabf";
+}
+.mo-icn-popup_line_select_left:before {
+  content: "\eac0";
+}
+.mo-icn-popup_block:before {
+  content: "\eac1";
+}
+.mo-icn-popup_text:before {
+  content: "\eac2";
+}
+.mo-icn-popup_form:before {
+  content: "\eac3";
+}
+.mo-icn-popup_border_radius_all:before {
+  content: "\eac4";
+}
+.mo-icn-popup_image:before {
+  content: "\eac5";
+}
+.mo-icn-copy_pipeline_id:before {
+  content: "\eac6";
+}
+.mo-icn-popup_textblock_center:before {
+  content: "\eac7";
+}
+.mo-icn-popup_border_radius_bottomleft:before {
+  content: "\eac8";
+}
+.mo-icn-popup_line_select_top:before {
+  content: "\eac9";
+}
+.mo-icn-popup_time_counter:before {
+  content: "\eaca";
+}
+.mo-icn-popup_border_radius_bottomright:before {
+  content: "\eacb";
+}
+.mo-icn-popup_button:before {
+  content: "\eacc";
+}
+.mo-icn-popup_border_radius_topright:before {
+  content: "\eacd";
+}
+.mo-icn-survey:before {
+  content: "\eace";
+}
+.mo-icn-event_vnpay_transaction:before {
+  content: "\eacf";
+}
+.mo-icn-lower_upper_case:before {
+  content: "\ead0";
+}
+.mo-icn-underline:before {
+  content: "\ead1";
+}
+.mo-icn-clear_format:before {
+  content: "\ead2";
+}
+.mo-icn-layer_position:before {
+  content: "\ead3";
+}
+.mo-icn-move_element:before {
+  content: "\ead4";
+}
+.mo-icn-italic:before {
+  content: "\ead5";
+}
+.mo-icn-numbering:before {
+  content: "\ead6";
+}
+.mo-icn-change_text_BG:before {
+  content: "\ead7";
+}
+.mo-icn-insert_link:before {
+  content: "\ead8";
+}
+.mo-icn-insert_symbol:before {
+  content: "\ead9";
+}
+.mo-icn-break_link:before {
+  content: "\eada";
+}
+.mo-icn-bold:before {
+  content: "\eadb";
+}
+.mo-icn-Services:before {
+  content: "\eadc";
+}
+.mo-icn-block_contact:before {
+  content: "\eadd";
+}
+.mo-icn-empty_survey_report:before {
+  content: "\eade";
+}
+.mo-icn-print:before {
+  content: "\eadf";
+}
+.mo-icn-new_survey_page:before {
+  content: "\eae0";
+}
+.mo-icn-new_title_block:before {
+  content: "\eae1";
+}
+.mo-icn-edit_theme:before {
+  content: "\eae2";
+}
+.mo-icn-sapporo_redeem_point:before {
+  content: "\eae3";
+}
+.mo-icn-DNC:before {
+  content: "\eae4";
+}
+.mo-icn-licensed_profile:before {
+  content: "\eae5";
+}
+.mo-icn-end_call:before {
+  content: "\eae6";
+}
+.mo-icn-new_zoom_out:before {
+  content: "\eae7";
+}
+.mo-icn-new_zoom_in:before {
+  content: "\eae8";
+}
+.mo-icn-other_numbers:before {
+  content: "\eae9";
+}
+.mo-icn-manage_social_networks:before {
+  content: "\eaea";
+}
+.mo-icn-assign_rule:before {
+  content: "\eaeb";
+}
+.mo-icn-dashboard_setting:before {
+  content: "\eaec";
+}
+.mo-icn-download_document:before {
+  content: "\eaed";
+}
+.mo-icn-deploy_landing_page:before {
+  content: "\eaee";
+}
+.mo-icn-create_3rdparty_api:before {
+  content: "\eaef";
+}
+.mo-icn-create_journey_instruction:before {
+  content: "\eaf0";
+}
+.mo-icn-create_trigger_event:before {
+  content: "\eaf1";
+}
+.mo-icn-start_a_journey:before {
+  content: "\eaf2";
+}
+.mo-icn-conditioned_branching:before {
+  content: "\eaf3";
+}
+.mo-icn-exit_journey:before {
+  content: "\eaf4";
+}
+.mo-icn-check_condition:before {
+  content: "\eaf5";
+}
+.mo-icn-ab_test:before {
+  content: "\eaf6";
+}
+.mo-icn-check_message_interaction:before {
+  content: "\eaf7";
+}
+.mo-icn-random_branching:before {
+  content: "\eaf8";
+}
+.mo-icn-hashtag:before {
+  content: "\eaf9";
+}
+.mo-icn-event_wifi:before {
+  content: "\eafa";
+}
+.mo-icn-mess_in_queue:before {
+  content: "\eafb";
+}
+.mo-icn-comment_in_queue:before {
+  content: "\eafc";
+}
+.mo-icn-popup_call:before {
+  content: "\eafd";
+}
+.mo-icn-no_data_found:before {
+  content: "\eafe";
+}
+.mo-icn-loading_data:before {
+  content: "\eaff";
+}
+.mo-icn-dashboard_trend_arrow:before {
+  content: "\eb00";
+}
+.mo-icn-pinned:before {
+  content: "\eb01";
+}
+.mo-icn-not_pin:before {
+  content: "\eb02";
+}
+.mo-icn-profiles_in_queue:before {
+  content: "\eb03";
+}
+.mo-icn-topup_redeem:before {
+  content: "\eb04";
+}
+.mo-icn-service_rating:before {
+  content: "\eb05";
+}
+.mo-icn-transfer_point:before {
+  content: "\eb06";
+}
+.mo-icn-point:before {
+  content: "\eb07";
+}
+.mo-icn-livechat_widget:before {
+  content: "\eb08";
+}
+.mo-icn-widget:before {
+  content: "\eb09";
+}
+.mo-icn-work_done:before {
+  content: "\eb0a";
+}
+.mo-icn-recommend:before {
+  content: "\eb0b";
+}
+.mo-icn-section:before {
+  content: "\eb0c";
+}
+.mo-icn-social_dashboard_empty:before {
+  content: "\eb0d";
+}
+.mo-icn-keypad:before {
+  content: "\eb0e";
+}
+.mo-icn-vin_hotel:before {
+  content: "\eb0f";
+}
+.mo-icn-in_queue:before {
+  content: "\eb10";
+}
+.mo-icn-deal_time:before {
+  content: "\eb11";
+}
+.mo-icn-drag_fields_big:before {
+  content: "\eb12";
+}
+.mo-icn-app_banner:before {
+  content: "\eb13";
+}
+.mo-icn-dislike_fb:before {
+  content: "\eb14";
+}
+.mo-icn-disliked_fb:before {
+  content: "\eb15";
+}
+.mo-icn-ads_distribution_active:before {
+  content: "\eb16";
+}
+.mo-icn-report_mkt_channel:before {
+  content: "\eb17";
+}
+.mo-icn-received:before {
+  content: "\eb18";
+}
+.mo-icn-invite-friend:before {
+  content: "\eb19";
+}
+.mo-icn-loyalty-point:before {
+  content: "\eb1a";
+}
+.mo-icn-deal-activity:before {
+  content: "\eb1b";
+}
+.mo-icn-properties-relationship:before {
+  content: "\eb1c";
+}
+.mo-icn-add-new-profile:before {
+  content: "\eb1d";
+}
+.mo-icn-minimize:before {
+  content: "\eb1e";
+}
+.mo-icn-ss-lesson:before {
+  content: "\eb1f";
+}
+.mo-icn-ss-test:before {
+  content: "\eb20";
+}
+.mo-icn-change-status:before {
+  content: "\eb21";
+}
+.mo-icn-Goi-dien:before {
+  content: "\eb22";
+}
+.mo-icn-Table-view:before {
+  content: "\eb23";
+}
+.mo-icn-Step-view:before {
+  content: "\eb24";
+}
+.mo-icn-Merge-profiles:before {
+  content: "\eb25";
+}
+.mo-icn-e-mail-validation:before {
+  content: "\eb26";
+}
+.mo-icn-Analyze-and-Predict:before {
+  content: "\eb27";
+}
+.mo-icn-merge-threshold:before {
+  content: "\eb28";
+}
+.mo-icn-Sale-pipeline:before {
+  content: "\eb29";
+}
+.mo-icn-Deals:before {
+  content: "\eb2a";
+}
+.mo-icn-Schedule:before {
+  content: "\eb2b";
+}
+.mo-icn-profile---interaction:before {
+  content: "\eb2c";
+}
+.mo-icn-sound-on:before {
+  content: "\eb2d";
+}
+.mo-icn-brand---interaction:before {
+  content: "\eb2e";
+}
+.mo-icn-play-audio:before {
+  content: "\eb2f";
+}
+.mo-icn-quick-edit:before {
+  content: "\eb30";
+}
+.mo-icn-sound-off:before {
+  content: "\eb31";
+}
+.mo-icn-empty-timeline:before {
+  content: "\eb32";
+}
+.mo-icn-Line:before {
+  content: "\eb33";
+}
+.mo-icn-New-page:before {
+  content: "\eb34";
+}
+.mo-icn-Chat-box-setting:before {
+  content: "\eb35";
+}
+.mo-icn-Connect-website:before {
+  content: "\eb36";
+}
+.mo-icn-File:before {
+  content: "\eb37";
+}
+.mo-icn-Highlighted-Feature:before {
+  content: "\eb38";
+}
+.mo-icn-company:before {
+  content: "\eb39";
+}
+.mo-icn-forward:before {
+  content: "\eb3a";
+}
+.mo-icn-Dynamic-Field:before {
+  content: "\eb3b";
+}
+.mo-icn-voucher-profit:before {
+  content: "\eb3c";
+}
+.mo-icn-back-filter:before {
+  content: "\eb3d";
+}
+.mo-icn-Web-view:before {
+  content: "\eb3e";
+}
+.mo-icn-phone-view:before {
+  content: "\eb3f";
+}
+.mo-icn-transac-rating:before {
+  content: "\eb40";
+}
+.mo-icn-lost-connection:before {
+  content: "\eb41";
+}
+.mo-icn-marketing-campaign:before {
+  content: "\eb42";
+}
+.mo-icn-email-template:before {
+  content: "\eb43";
+}
+.mo-icn-master-campaign:before {
+  content: "\eb44";
+}
+.mo-icn-MI-Icon:before {
+  content: "\eb45";
+}
+.mo-icn-cancelling-note:before {
+  content: "\eb46";
+}
+.mo-icn-new-profile-list:before {
+  content: "\eb47";
+}
+.mo-icn-create-successful:before {
+  content: "\eb48";
+}
+.mo-icn-Insert-link:before {
+  content: "\eb49";
+}
+.mo-icn-email-reminder:before {
+  content: "\eb4a";
+}
+.mo-icn-Report-MKT:before {
+  content: "\eb4b";
+}
+.mo-icn-Happy-birthday:before {
+  content: "\eb4c";
+}
+.mo-icn-Blank-template:before {
+  content: "\eb4d";
+}
+.mo-icn-re-attract:before {
+  content: "\eb4e";
+}
+.mo-icn-Marketing-Intel:before {
+  content: "\eb4f";
+}
+.mo-icn-cond-open:before {
+  content: "\eb50";
+}
+.mo-icn-cond-converted:before {
+  content: "\eb51";
+}
+.mo-icn-act-save:before {
+  content: "\eb52";
+}
+.mo-icn-act-export-file:before {
+  content: "\eb53";
+}
+.mo-icn-e-mail:before {
+  content: "\eb54";
+}
+.mo-icn-cond-send:before {
+  content: "\eb55";
+}
+.mo-icn-sms:before {
+  content: "\eb56";
+}
+.mo-icn-act-wait:before {
+  content: "\eb57";
+}
+.mo-icn-push-in-app:before {
+  content: "\eb58";
+}
+.mo-icn-FB-Messenger:before {
+  content: "\eb59";
+}
+.mo-icn-cond-voucher:before {
+  content: "\eb5a";
+}
+.mo-icn-cond-click:before {
+  content: "\eb5b";
+}
+.mo-icn-cmp-plan:before {
+  content: "\eb5c";
+}
+.mo-icn-cmp-duplicate:before {
+  content: "\eb5d";
+}
+.mo-icn-export-file:before {
+  content: "\eb5e";
+}
+.mo-icn-Pause:before {
+  content: "\eb5f";
+}
+.mo-icn-cmp-detail:before {
+  content: "\eb60";
+}
+.mo-icn-activate:before {
+  content: "\eb61";
+}
+.mo-icn-Manage-Campaign:before {
+  content: "\eb62";
+}
+.mo-icn-ads-accounts:before {
+  content: "\eb63";
+}
+.mo-icn-Google-ads:before {
+  content: "\eb64";
+}
+.mo-icn-Target-Audience:before {
+  content: "\eb65";
+}
+.mo-icn-automated-rules:before {
+  content: "\eb66";
+}
+.mo-icn-FB-ads:before {
+  content: "\eb67";
+}
+.mo-icn-Boost-posts:before {
+  content: "\eb68";
+}
+.mo-icn-Report:before {
+  content: "\eb69";
+}
+.mo-icn-upload-files:before {
+  content: "\eb6a";
+}
+.mo-icn-add-profiles-tag:before {
+  content: "\eb6b";
+}
+.mo-icn-upload-photos:before {
+  content: "\eb6c";
+}
+.mo-icn-ticket:before {
+  content: "\eb6d";
+}
+.mo-icn-forward-to:before {
+  content: "\eb6e";
+}
+.mo-icn-add-job-tag:before {
+  content: "\eb6f";
+}
+.mo-icn-set-time:before {
+  content: "\eb70";
+}
+.mo-icn-reply-alert:before {
+  content: "\eb71";
+}
+.mo-icn-call:before {
+  content: "\eb72";
+}
+.mo-icn-cs-tich-diem:before {
+  content: "\eb73";
+}
+.mo-icn-Order:before {
+  content: "\eb74";
+}
+.mo-icn-Products:before {
+  content: "\eb75";
+}
+.mo-icn-Apps-Push:before {
+  content: "\eb76";
+}
+.mo-icn-Apps-reply:before {
+  content: "\eb77";
+}
+.mo-icn-Apps-news:before {
+  content: "\eb78";
+}
+.mo-icn-Apps-videos:before {
+  content: "\eb79";
+}
+.mo-icn-Inactive:before {
+  content: "\eb7a";
+}
+.mo-icn-Active:before {
+  content: "\eb7b";
+}
+.mo-icn-down-arrow:before {
+  content: "\eb7c";
+}
+.mo-icn-up-arrow:before {
+  content: "\eb7d";
+}
+.mo-icn-Zalo-tag:before {
+  content: "\eb7e";
+}
+.mo-icn-Youtube-tag:before {
+  content: "\eb7f";
+}
+.mo-icn-Instagram-tag:before {
+  content: "\eb80";
+}
+.mo-icn-FB-tag:before {
+  content: "\eb81";
+}
+.mo-icn-brand-info:before {
+  content: "\eb82";
+}
+.mo-icn-show-pass:before {
+  content: "\eb83";
+}
+.mo-icn-administration-acc:before {
+  content: "\eb84";
+}
+.mo-icn-access-group:before {
+  content: "\eb85";
+}
+.mo-icn-hide-pass:before {
+  content: "\eb86";
+}
+.mo-icn-personalization:before {
+  content: "\eb87";
+}
+.mo-icn-cross-checking:before {
+  content: "\eb88";
+}
+.mo-icn-setting:before {
+  content: "\eb89";
+}
+.mo-icn-services-n-features:before {
+  content: "\eb8a";
+}
+.mo-icn-personal-n-brand:before {
+  content: "\eb8b";
+}
+.mo-icn-logout:before {
+  content: "\eb8c";
+}
+.mo-icn-divide-administration:before {
+  content: "\eb8d";
+}
+.mo-icn-Basic-setting:before {
+  content: "\eb8e";
+}
+.mo-icn-Advanced-setting:before {
+  content: "\eb8f";
+}
+.mo-icn-social-categories:before {
+  content: "\eb90";
+}
+.mo-icn-AI:before {
+  content: "\eb91";
+}
+.mo-icn-FB:before {
+  content: "\eb92";
+}
+.mo-icn-quick-respond:before {
+  content: "\eb93";
+}
+.mo-icn-Insta:before {
+  content: "\eb94";
+}
+.mo-icn-Live-web:before {
+  content: "\eb95";
+}
+.mo-icn-social-overview:before {
+  content: "\eb96";
+}
+.mo-icn-Youtube:before {
+  content: "\eb97";
+}
+.mo-icn-Zalo:before {
+  content: "\eb98";
+}
+.mo-icn-assigned:before {
+  content: "\eb99";
+}
+.mo-icn-post-tag:before {
+  content: "\eb9a";
+}
+.mo-icn-customer-tag:before {
+  content: "\eb9b";
+}
+.mo-icn-visible-comments:before {
+  content: "\eb9c";
+}
+.mo-icn-revert:before {
+  content: "\eb9d";
+}
+.mo-icn-Sad:before {
+  content: "\eb9e";
+}
+.mo-icn-normal:before {
+  content: "\eb9f";
+}
+.mo-icn-Happy:before {
+  content: "\eba0";
+}
+.mo-icn-Wifi-is-not-intergrated:before {
+  content: "\eba1";
+}
+.mo-icn-Dashboard-empty:before {
+  content: "\eba2";
+}
+.mo-icn-E-mail-invalidated:before {
+  content: "\eba3";
+}
+.mo-icn-E-mail-validated:before {
+  content: "\eba4";
+}
+.mo-icn-remove-card:before {
+  content: "\eba5";
+}
+.mo-icn-download:before {
+  content: "\eba6";
+}
+.mo-icn-reset-code:before {
+  content: "\eba7";
+}
+.mo-icn-file-template:before {
+  content: "\eba8";
+}
+.mo-icn-remove-value:before {
+  content: "\eba9";
+}
+.mo-icn-go-back:before {
+  content: "\ebaa";
+}
+.mo-icn-continue:before {
+  content: "\ebab";
+}
+.mo-icn-all-profiles1:before {
+  content: "\ebac";
+}
+.mo-icn-back:before {
+  content: "\ebad";
+}
+.mo-icn-scheduled-campaign:before {
+  content: "\ebae";
+}
+.mo-icn-new-profile:before {
+  content: "\ebaf";
+}
+.mo-icn-already-in-dashboard:before {
+  content: "\ebb0";
+}
+.mo-icn-new-lead-mkt:before {
+  content: "\ebb1";
+}
+.mo-icn-all-lead-mkt:before {
+  content: "\ebb2";
+}
+.mo-icn-tooltips:before {
+  content: "\ebb3";
+}
+.mo-icn-web-card-option:before {
+  content: "\ebb4";
+}
+.mo-icn-new-sale:before {
+  content: "\ebb5";
+}
+.mo-icn-add-new:before {
+  content: "\ebb6";
+}
+.mo-icn-expanded1:before {
+  content: "\ebb7";
+}
+.mo-icn-Search1:before {
+  content: "\ebb8";
+}
+.mo-icn-running-campaign:before {
+  content: "\ebb9";
+}
+.mo-icn-collapsed1:before {
+  content: "\ebba";
+}
+.mo-icn-unanswered:before {
+  content: "\ebbb";
+}
+.mo-icn-answered:before {
+  content: "\ebbc";
+}
+.mo-icn-dots:before {
+  content: "\ebbd";
+}
+.mo-icn-member-card-empty:before {
+  content: "\ebbe";
+}
+.mo-icn-membership:before {
+  content: "\ebbf";
+}
+.mo-icn-voucher1:before {
+  content: "\ebc0";
+}
+.mo-icn-interacted-users:before {
+  content: "\ebc1";
+}
+.mo-icn-new-profiles:before {
+  content: "\ebc2";
+}
+.mo-icn-inbound:before {
+  content: "\ebc3";
+}
+.mo-icn-all-profiles:before {
+  content: "\ebc4";
+}
+.mo-icn-foot-traffic1:before {
+  content: "\ebc5";
+}
+.mo-icn-displayed-products:before {
+  content: "\ebc6";
+}
+.mo-icn-interacted-profile:before {
+  content: "\ebc7";
+}
+.mo-icn-outbound:before {
+  content: "\ebc8";
+}
+.mo-icn-transaction-profile:before {
+  content: "\ebc9";
+}
+.mo-icn-transaction-users:before {
+  content: "\ebca";
+}
+.mo-icn-Sort-descend:before {
+  content: "\ebcb";
+}
+.mo-icn-Sort-ascend:before {
+  content: "\ebcc";
+}
+.mo-icn-complete-step:before {
+  content: "\ebcd";
+}
+.mo-icn-Crop-frame-2:before {
+  content: "\ebce";
+}
+.mo-icn-Crop-frame-1:before {
+  content: "\ebcf";
+}
+.mo-icn-Upload:before {
+  content: "\ebd0";
+}
+.mo-icn-Delete:before {
+  content: "\ebd1";
+}
+.mo-icn-Crop-frame-4:before {
+  content: "\ebd2";
+}
+.mo-icn-Crop:before {
+  content: "\ebd3";
+}
+.mo-icn-Crop-frame-3:before {
+  content: "\ebd4";
+}
+.mo-icn-radio:before {
+  content: "\ebd5";
+}
+.mo-icn-radio-check:before {
+  content: "\ebd6";
+}
+.mo-icn-lich:before {
+  content: "\ebd7";
+}
+.mo-icn-close-popup:before {
+  content: "\ebd8";
+}
+.mo-icn-menu-sua:before {
+  content: "\ebd9";
+}
+.mo-icn-help:before {
+  content: "\ebda";
+}
+.mo-icn-menu-duplicate:before {
+  content: "\ebdb";
+}
+.mo-icn-menu-xoa:before {
+  content: "\ebdc";
+}
+.mo-icn-sua:before {
+  content: "\ebdd";
+}
+.mo-icn-checkbox:before {
+  content: "\ebde";
+}
+.mo-icn-box:before {
+  content: "\ebdf";
+}
+.mo-icn-close-filter:before {
+  content: "\ebe0";
+}
+.mo-icn-sort:before {
+  content: "\ebe1";
+}
+.mo-icn-search:before {
+  content: "\ebe2";
+}
+.mo-icn-mem-card-code:before {
+  content: "\ebe3";
+}
+.mo-icn-vouch-code:before {
+  content: "\ebe4";
+}
+.mo-icn-diem-va-vouch:before {
+  content: "\ebe5";
+}
+.mo-icn-cs-mem-card:before {
+  content: "\ebe6";
+}
+.mo-icn-cs-voucher:before {
+  content: "\ebe7";
+}
+.mo-icn-noti-danh-gia:before {
+  content: "\ebe8";
+}
+.mo-icn-voucher:before {
+  content: "\ebe9";
+}
+.mo-icn-beacon:before {
+  content: "\ebea";
+}
+.mo-icn-foot-traffic:before {
+  content: "\ebeb";
+}
+.mo-icn-cua-hang:before {
+  content: "\ebec";
+}
+.mo-icn-JB_position_right:before {
+  content: "\ebed";
+}
+.mo-icn-JB_position_top:before {
+  content: "\ebee";
+}
+.mo-icn-JB_position_left:before {
+  content: "\ebef";
+}
+.mo-icn-JB_position_bot:before {
+  content: "\ebf0";
+}
+.mo-icn-Demo_sheet:before {
+  content: "\ebf1";
+}
+.mo-icn-collapse_all:before {
+  content: "\ebf2";
+}
+.mo-icn-expand_all:before {
+  content: "\ebf3";
+}
+.mo-icn-push_paragraph_right:before {
+  content: "\ebf4";
+}
+.mo-icn-push_paragraph_left:before {
+  content: "\ebf5";
+}
+.mo-icn-quote:before {
+  content: "\ebf6";
+}
+.mo-icn-change_text_color:before {
+  content: "\ebf7";
+}
+.mo-icn-work_email:before {
+  content: "\ebf8";
+}
+.mo-icn-signature_photo:before {
+  content: "\ebf9";
+}
+.mo-icn-slash_through:before {
+  content: "\ebfa";
+}
+.mo-icn-use_signature:before {
+  content: "\ebfb";
+}
+.mo-icn-buildformfield_email:before {
+  content: "\ebfc";
+}
+.mo-icn-buildformfield_hidden:before {
+  content: "\ebfd";
+}
+.mo-icn-buildformfield_title:before {
+  content: "\ebfe";
+}
+.mo-icn-buildformfield_up_file:before {
+  content: "\ebff";
+}
+.mo-icn-buildformfield_address:before {
+  content: "\ec00";
+}
+.mo-icn-buildformfield_marketing_info:before {
+  content: "\ec01";
+}
+.mo-icn-buildformfield_fullname:before {
+  content: "\ec02";
+}
+.mo-icn-buildformfield_PESEL:before {
+  content: "\ec03";
+}
+.mo-icn-buildformfield_company:before {
+  content: "\ec04";
+}
+.mo-icn-buildformfield_date:before {
+  content: "\ec05";
+}
+.mo-icn-email_signature:before {
+  content: "\ec06";
+}
+.mo-icn-stop_journey:before {
+  content: "\ec07";
+}
+.mo-icn-sent_to_profile:before {
+  content: "\ec08";
+}
+.mo-icn-pvdemo_bigger:before {
+  content: "\ec09";
+}
+.mo-icn-pvdemo_bigger_equal:before {
+  content: "\ec0a";
+}
+.mo-icn-pvdemo_smaller:before {
+  content: "\ec0b";
+}
+.mo-icn-pvdemo_open_bracket:before {
+  content: "\ec0c";
+}
+.mo-icn-pvdemo_plus:before {
+  content: "\ec0d";
+}
+.mo-icn-pvdemo_multiply:before {
+  content: "\ec0e";
+}
+.mo-icn-pvdemo_smaller_equal:before {
+  content: "\ec0f";
+}
+.mo-icn-pvdemo_close_bracket:before {
+  content: "\ec10";
+}
+.mo-icn-pvdemo_divide:before {
+  content: "\ec11";
+}
+.mo-icn-pvdemo_minus:before {
+  content: "\ec12";
+}
+.mo-icn-sale_setting:before {
+  content: "\ec13";
+}
+.mo-icn-receive_notification_setting:before {
+  content: "\ec14";
+}
+.mo-icn-display_setting:before {
+  content: "\ec15";
+}
+.mo-icn-personal_intergration:before {
+  content: "\ec16";
+}
+.mo-icn-call_api:before {
+  content: "\ec17";
+}
+.mo-icn-general_setting:before {
+  content: "\ec18";
+}
+.mo-icn-journey_setting:before {
+  content: "\ec19";
+}
+.mo-icn-intergrate_google_cal:before {
+  content: "\ec1a";
+}
+.mo-icn-ticket_list_empty:before {
+  content: "\ec1b";
+}
+.mo-icn-show_info_form_template:before {
+  content: "\ec1c";
+}
+.mo-icn-dealassign_team_queue:before {
+  content: "\ec1d";
+}
+.mo-icn-dealassign_general_queue:before {
+  content: "\ec1e";
+}
+.mo-icn-event_submit_form:before {
+  content: "\ec1f";
+}
+.mo-icn-event_privilege_hdbank:before {
+  content: "\ec20";
+}
+.mo-icn-event_hdbank_collab_signup:before {
+  content: "\ec21";
+}
+.mo-icn-dashboard_average_resolve_time:before {
+  content: "\ec22";
+}
+.mo-icn-dashboard_average_rep_time:before {
+  content: "\ec23";
+}
+.mo-icn-dashboard_first_response:before {
+  content: "\ec24";
+}
+.mo-icn-leave-page:before {
+  content: "\ec25";
+}
+.mo-icn-replace:before {
+  content: "\ec26";
+}
+.mo-icn-empty-menu:before {
+  content: "\ec27";
+}
+.mo-icn-open-new-page:before {
+  content: "\ec29";
+}
+.mo-icn-contact-account:before {
+  content: "\ec2a";
+}
+.mo-icn-ticket-activity:before {
+  content: "\ec2b";
+}
+.mo-icn-dashboard_ticket_in_queue:before {
+  content: "\ec2c";
+}
+.mo-icn-empty_answer_topic_list:before {
+  content: "\ec2d";
+}
+.mo-icn-sound_notification:before {
+  content: "\ec2e";
+}
+.mo-icn-empty_answer_list:before {
+  content: "\ec2f";
+}
+.mo-icn-setting_assigning_answering:before {
+  content: "\ec30";
+}
+.mo-icn-template_email_content_list:before {
+  content: "\ec31";
+}
+.mo-icn-contact_popup_mail_template:before {
+  content: "\ec32";
+}
+.mo-icn-add_comment:before {
+  content: "\ec33";
+}
+.mo-icn-border-bottom:before {
+  content: "\e948";
+}
+.mo-icn-border-none:before {
+  content: "\e93d";
+}
+.mo-icn-border-right:before {
+  content: "\e93e";
+}
+.mo-icn-border-vertical:before {
+  content: "\e93f";
+}
+.mo-icn-border-left:before {
+  content: "\e940";
+}
+.mo-icn-border-horizontal:before {
+  content: "\e942";
+}
+.mo-icn-border-top:before {
+  content: "\e943";
+}
+.mo-icn-border-inner:before {
+  content: "\e944";
+}
+.mo-icn-border-outer:before {
+  content: "\e945";
+}
+.mo-icn-border-all:before {
+  content: "\e946";
+}
+.mo-icn-table2:before {
+  content: "\ec28";
+}

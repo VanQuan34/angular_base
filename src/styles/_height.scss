@@ -1,0 +1,71 @@
+$heights: auto normal inherit 0px 1px 2px 3px 4px 5px 6px 8px 10px 12px 14px 15px 16px 17px 18px 20px 21px 22px 23px 24px 25px
+  26px 27px 28px 30px 32px 34px 35px 36px 37px 38px 39px 40px 41px 42px 43px 44px 45px 46px 47px 48px 50px 51px 52px 53px 54px
+  55px 56px 57px 58px 60px 60vh 62px 64px 65px 66px 68px 70px 71px 72px 73px 74px 75px 78px 80vh 80px 82px 84px 85px
+  86px 87px 88px 90px 92px 93px 94px 95px 96px 98px 100vh 100px 110px 104px 107px 113px 114px 115px 116px 117px 119px 120px
+  121px 125px 126px 128px 129px 132px 133px 135px 137px 140px 142px 146px 147px 150px 153px 156px 158px 160px 161px
+  164px 165px 167px 168px 170px 172px 173px 174px 175px 178px 180px 182px 188px 194px 200px 202px 204px 206px 207px 210px 212px 216px
+  217px 220px 221px 222px 224px 226px 228px 230px 235px 240px 245px 247px 248px 255px 260px 262px 264px 267px 269px
+  270px 275px 277px 278px 280px 283px 285px 286px 287px 288px 290px 292px 294px 295px 300px 302px 304px 306px 315px
+  318px 320px 324px 327px 328px 330px 332px 333px 335px 340px 341px 347px 350px 360px 363px 366px 369px 370px 375px
+  379px 385px 387px 390px 391px 400px 402px 407px 408px 410px 414px 417px 420px 422px 431px 432px 435px 438px 450px 487px 490px 497px
+  500px 507px 508px 511px 516px 519px 525px 532px 540px 550px 578px 582px 585px 600px 637px 700px;
+
+$max-min-heights: auto 16px 18px 20px 30px 34px 35px 40px 43px 45px 54px 72px 78px 93px 100px 120px 104px 105px 132px 150px 160px 175px
+  200px 212px 215px 225px 230px 231px 234px 240px 245px 255px 260px 280px 288px 308px 318px 324px 350px 353px 390px 419px 420px 448px 450px 468px
+  538px 552px;
+
+$calcHeight: 4px 5px 10px 12px 16px 19px 20px 22px 24px 25px 27px 28px 30px 32px 34px 35px 36px 40px 42px 43px 44px 45px 48px 50px
+  51px 52px 53px 54px 55px 56px 58px 60px 62px 64px 65px 66px 68px 70px 71px 75px 76px 78px 80px 84px 87px 88px 90px
+  91px 92px 93px 94px 95px 96px 98px 100px 101px 102px 104px 107px 108px 114px 115px 116px 119px 120px 121px 123px 125px 128px
+  129px 133px 135px 136px 139px 140px 143px 147px 150px 153px 155px 156px 158px 161px 164px 165px 167px 170px 172px 173px
+  174px 175px 177px 178px 180px 182px 183px 188px 195px 200px 202px 204px 206px 212px 216px 217px 220px 221px 222px 224px 226px 228px
+  229px 230px 235px 240px 247px 248px 255px 260px 262px 264px 269px 270px 277px 278px 280px 285px 286px 287px 288px
+  290px 294px 295px 304px 315px 318px 320px 324px 328px 330px 333px 340px 341px 347px 360px 366px 370px 375px 385px
+  400px 408px 410px 417px 422px 431px 435px 490px 500px 511px 516px 532px 550px 578px 582px 637px;
+
+
+@each $val in $heights {
+  .#{$prefixCss}h-#{$val} {
+    height: $val !important;
+  }
+}
+
+@each $val in $max-min-heights {
+  .#{$prefixCss}max-height-#{$val} {
+    max-height: $val !important;
+  }
+
+  .#{$prefixCss}min-height-#{$val} {
+    min-height: $val !important;
+  }
+}
+
+@each $val in $calcHeight {
+  .#{$prefixCss}calc-h-#{$val} {
+    height: calc(#{'100% - '}#{$val}) !important;
+  }
+
+  .#{$prefixCss}calc-vh-#{$val} {
+    height: calc(#{'100vh - '}#{$val}) !important;
+  }
+
+  .#{$prefixCss}max-calc-h-#{$val} {
+    max-height: calc(#{'100% - '}#{$val}) !important;
+  }
+
+  .#{$prefixCss}max-calc-vh-#{$val} {
+    max-height: calc(#{'100vh - '}#{$val}) !important;
+  }
+
+  .#{$prefixCss}min-calc-h-#{$val} {
+    min-height: calc(#{'100% - '}#{$val}) !important;
+  }
+
+  .#{$prefixCss}min-calc-vh-#{$val} {
+    min-height: calc(#{'100vh - '}#{$val}) !important;
+  }
+}
+
+.mo-wb-h-max-c {
+  height: max-content;
+}

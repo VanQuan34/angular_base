@@ -1,0 +1,12 @@
+<button class="mo-button-status {{config?.class}}"
+  [class.mo-button-status-success]="config?.type === 'success'"
+  [class.mo-button-status-finished]="config?.type === 'finished'"
+  [class.mo-button-status-wait]="config?.type === 'wait'"
+  [class.mo-button-status-delete]="config?.type === 'delete'"
+  [class.mo-button-status-draft]="config?.type === 'draft'"
+  [class.mo-button-status-cancel]="config?.type === 'cancel'"
+  [class.mo-button-status-processing]="config?.type === 'processing'"
+  [style.width.px]="config?.width">
+  <span [class]="config?.classFontLabelInclude ? config?.classFontLabelInclude : 'mo-wb-f-b2'"> {{config?.label
+    | translate}}</span>
+</button>

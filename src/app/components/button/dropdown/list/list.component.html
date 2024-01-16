@@ -1,0 +1,26 @@
+<div #content
+    class="mo-wb-button-dropdow-list position-absolute mo-wb-bg-ffffff mo-border-radius-3px mo-wb-shadow"
+    (mouseenter)="handlerMouseenter($event)"
+    (mouseleave)="handlerMouseleave($event)">
+    <ng-container *ngIf="items && items.length">
+      <ul *ngFor="let item of items" class="mo-wb-m-0 mo-wb-p-0">
+          <li
+              class="mo-wb-bg-list-hover position-relative mo-wb-cursor-pointer mo-wb-py-8px"
+              [class.mo-wb-px-12px]="!applyNow"
+              [class.mo-wb-pr-20px]="applyNow"
+              [class.mo-wb-pl-12px]="applyNow"
+              (click)="selectItem($event,item)">
+              <i *ngIf="item[fieldClassIconLeft]" [class]="item[fieldClassIconLeft]"></i>
+              <span [class]="item[fieldClass]">{{item[fieldDisplay] | translate}}</span>
+              <mo-wb-components-tooltip *ngIf="item.iconRight"
+                [classInclude]="item.iconRightClass"
+                [iconClass]="item.iconRight"
+                [content]="item.iconRightTooltip"
+                (click)="clickIconRight($event,item)">
+              </mo-wb-components-tooltip>
+              <i *ngIf="(keySelected | checkedItemPipe:item:keyField) && !applyNow" class="mo-wb-font-size-before-12px mo-icn-complete-step position-absolute mo-wb-right-8px mo-wb-top-12px"></i>
+          </li>
+      </ul>
+    </ng-container>
+    <div class="mo-wb-p-12px" *ngIf="!items || !items.length">{{'i18n_no_data' | translate}}</div>
+</div>

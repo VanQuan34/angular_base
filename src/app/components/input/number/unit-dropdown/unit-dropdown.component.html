@@ -1,0 +1,27 @@
+
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0"
+  [style.zIndex]="zIndex"
+  [style.display]="isShow ? 'block' : 'none'"
+  (click)="handleOnOverlayClick($event);">
+  <div class="{{classInclude}} mo-wb-z-index-100 mo-wb-border-radius-4px
+    position-absolute mo-wb-bg-color-w mo-wb-shadow-lg mo-wb-py-4px"
+    [style.width]="width + 'px'"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    (click)="handleOnMenuClick($event);">
+    <ng-container *ngFor="let item of units; let i = index;">
+      <div *ngIf="item.key !== 'divider'"
+        class="d-flex align-items-center mo-wb-pl-20px mo-wb-pr-12px mo-wb-h-34px w-100 mo-wb-f-b2"
+        [ngClass]="{'mo-wb-bg-hover-bg mo-wb-cursor-pointer': item.key !== selectedKey, 
+          'mo-wb-bg-pri-l2': item.key === selectedKey,
+          'justify-content-between': item.key === selectedKey}"
+        (click)="handleOnUnitItemSelect($event, item);">
+        <div class="mo-wb-f-b2">{{ item['title'] | translate }}</div>
+        <i *ngIf="item.key === selectedKey" class="mo-icn-complete-step mo-wb-font-size-12px mo-wb-color-pri"></i>
+      </div>
+      <div *ngIf="item.key === 'divider'" 
+        class="w-100 mo-wb-border-bottom-general"></div>
+    </ng-container> 
+     
+  </div>
+</div>

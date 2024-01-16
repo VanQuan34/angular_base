@@ -1,0 +1,53 @@
+<div class="{{ classInclude }} ">
+  <div *ngIf="label" class="d-flex mo-wb-mb-4px">
+    <div class="mo-wb-f-b2 {{ classIncludeLabel }}">{{label | translate}}</div>
+    <span *ngIf="showAsterisk" class="mo-wb-color-r mo-wb-mb-2px mo-wb-ml-2px">*</span>
+  </div>
+  <div #selectEl
+    class="mo-wb-select d-flex align-items-center justify-content-between {{ classIncludeSelect }}"
+    [ngClass]="{'mo-wb-select-singe' : (type === 'singe' || !selectedIds.length),
+      'mo-wb-border-pri' : isOpen,
+      'mo-wb-border-r': hasError,
+      'mo-wb-bg-w mo-wb-cursor-pointer' : enable,
+      'mo-wb-bg-bg mo-wb-color-cap-txt' : !enable}"
+    (click)="handleOnSelectClick($event)">
+    <!--  none selected -->
+    <div *ngIf="!selectedIds.length || !selectedItems.length" class="mo-wb-select-content">
+      <div *ngIf="!templateSelect" class="mo-wb-f-b2">{{selectTitle | translate}}</div>
+      <ng-container *ngIf="templateSelect">
+        <ng-container *ngTemplateOutlet="templateSelect; context: {$implicit: null}"></ng-container>
+      </ng-container>
+    </div>
+    <!-- singe -->
+    <div *ngIf="selectedIds.length && selectedItems.length && !isSelectMultiple" class="mo-wb-select-content">
+
+      <ng-container *ngIf="!templateSelect">
+        <div *ngIf="ignoreSelectItemHtml || !isHtmlItem" class="mo-wb-f-b2">{{selectedItems[0][keySelected] | translate}}</div>
+        <div *ngIf="isHtmlItem && !ignoreSelectItemHtml" class="mo-wb-f-b2" [innerHtml]="selectedItems[0].html | safeHtml"></div>
+      </ng-container>
+      
+      <ng-container *ngIf="templateSelect">
+        <ng-container *ngTemplateOutlet="templateSelect; context: {$implicit: selectedItems[0]}"></ng-container>
+      </ng-container>
+    </div>
+    
+    <!-- tags -->
+    <div *ngIf="selectedItems.length && isSelectMultiple" class="mo-wb-select-content-tags h-100">
+      <div *ngFor="let item of selectedItems; let i = index;"
+        class="mo-wb-tag-item">
+          <div class="mo-wb-tag-item-label mo-wb-f-c3 mo-wb-color-pri mo-wb-ellipsis">{{item[keySelected] | translate }}</div>
+          <div class="mo-wb-tag-remove-btn"
+            (click)="handleOnBtnItemRemove(item, $event);">
+            <i class="mo-icn-close mo-wb-font-size-14px"></i>
+          </div>
+      </div>
+    </div>
+    <div class="mo-icn-arrow_down mo-wb-mr-20px mo-wb-font-size-6px"
+      [ngClass]="{'mo-wb-color-btn-txt' : enable, 'mo-wb-color-cap-txt' : !enable}"></div>
+  </div>
+   <!-- message error -->
+   <div *ngIf="hasError"
+   class="mo-wb-mt-8px mo-wb-f-c4 mo-wb-color-r">
+   {{ emptyErrorMsg | translate }}
+  </div>
+</div>

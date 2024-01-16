@@ -1,0 +1,16 @@
+<div class="mo-wb-f-b1">Hướng</div>
+<!-- MoWbClickOutside (clickOutside)="handleClickOutside($event)" -->
+<div class="mo-input-angle d-flex justify-content-center align-items-center">
+    <div class="mo-circle" #boxAngle>
+        <div class="mo-circle-center"></div>
+        <div #rotate class="mo-circle-knob"></div>
+    </div>
+    <mo-wb-components-input-number
+        #input
+        [type]="'INTEGER'"
+        [classInclude]="'mo-wb-w-70px'"
+        [actionKey]="'KEY-UP'"
+        [unit]="'°'"
+        (onValueChanged)="handleValueChange($event)"
+    ></mo-wb-components-input-number>
+</div>

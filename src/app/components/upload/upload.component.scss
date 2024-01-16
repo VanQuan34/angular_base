@@ -1,0 +1,218 @@
+.mo-media-upload {
+  border: solid 1px #e6e8ed;
+  border-radius: 4px;
+  cursor: pointer;
+  justify-content: center;
+  min-height: 158px;
+  background-color: #fff;
+
+  .upload-icon,
+  .file-icon {
+    margin-top: 40px;
+    font-size: 48px;
+    margin-bottom: 12px;
+    &::before {
+      color: var(--btn-txt);
+    }
+  }
+
+  .file-icon {
+    cursor: pointer;
+  }
+
+  .content-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .drag-over {
+    border-color: var(--pri);
+  }
+
+  .file-list-container {
+    padding-right: 40px;
+    padding-left: 40px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 120px;
+    width: 100%;
+    padding-bottom: 30px;
+
+    .file-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #ebf0f5;
+      height: 32px;
+      padding-left: 12px;
+      padding-right: 12px;
+      margin-bottom: 4px;
+      border-radius: 16px;
+      cursor: default;
+
+      .name {
+        max-width: 280px;
+        overflow: hidden;
+        white-space: nowrap;
+        display: block;
+        text-overflow: ellipsis;
+      }
+      .editBtn,
+      .closeBtn {
+        cursor: pointer;
+      }
+      .closeBtn {
+        font-size: 8px !important;
+      }
+      .iconComplete::before {
+        color: var(--pri);
+      }
+      .icon {
+        font-size: 12px;
+      }
+
+      .left,
+      .right {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .loading {
+      opacity: 0.5;
+      .editBtn,
+      .closeBtn {
+        cursor: default;
+      }
+    }
+  }
+
+  .none-border {
+    border-top: 0px !important;
+  }
+
+  .image-list-container {
+    padding-top: 20px;
+    padding-bottom: 8px;
+    padding-right: 14px;
+    padding-left: 14px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    border-top: 1px solid #e6e8ed;
+    white-space: nowrap;
+    width: 100%;
+    cursor: default;
+
+    .image-container-item {
+      display: inline-flex;
+      margin-left: 6px;
+      margin-right: 6px;
+      width: 131px;
+      height: 99px;
+      border-radius: 4px;
+      background-color: rgba(51, 51, 51, 0.6);
+      cursor: default;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 4px;
+        object-fit: cover;
+      }
+      &:hover .action-control {
+        display: block;
+      }
+    }
+
+    .action-control {
+      display: none;
+    }
+
+    .overlay {
+      background-color: #000;
+      opacity: 0.25;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 4px;
+    }
+
+    .cropBtn,
+    .deleteBtn {
+      width: 40px;
+      height: 40px;
+      background-color: #8e8e8e;
+      opacity: 0.85;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -20px;
+      margin-left: -50px;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+
+    .deleteBtn {
+      margin-left: 10px;
+    }
+  }
+}
+
+.mo-media-upload-error {
+  border: solid 1px #e64b4b;
+}
+
+.container-only-file {
+  min-height: auto !important;
+  padding-top: 20px !important;
+}
+
+.file-list-item {
+  background-color: #ebf0f5;
+  border-radius: 20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 12px;
+  padding-right: 12px;
+  min-width: 350px;
+  cursor: default;
+  span {
+    max-width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .close-file-btn {
+    padding: 4px;
+    cursor: pointer;
+    i {
+      font-size: 8px;
+    }
+  }
+}
+
+.mo-media-upload.drag-over {
+  border-color: var(--pri);
+}
+
+.mo-media-upload.drag-over-error {
+  border-color: #e64b4b;
+}
+.error-file {
+  border: 1px solid red;
+  border-radius: 4px;
+}
+.title-error {
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: red;
+}

@@ -1,0 +1,50 @@
+<div #container 
+    class="mo-tooltip-content" 
+    [ngClass]="{'mo-tooltip-white-theme': whiteTheme}"
+    [style.width]="autoWidth ? 'auto' : width + 'px'" 
+    [style.max-width]="maxWidth +'px'" 
+    [style.bottom]="bottom? bottom+'px': 'auto'"
+    [style.top]="top? top+'px': 'auto'"
+    [style.left]="left+'px'"
+    [style.opacity]="opacity"
+    [style.zIndex]="zIndex"
+    (mouseenter)="handleOnMouseEnter($event)"
+    (mouseleave)="handleOnMouseLeave($event)">
+    <div *ngIf="!isTemplate && !isAI" class="mo-tooltip-content-inner"
+    [ngClass]="{'mo-wb-p-0': noContentPadding}" 
+        [style.max-height]="maxHeight+'px'"
+        [innerHtml] = "content | translate">
+    </div>
+    <div *ngIf="!isTemplate && isAI" class="mo-tooltip-content-ai-inner">
+        <div class="mo-tooltip-content-ai-header mo-wb-f-b2" 
+            [innerHtml]="(contentAI?.title || '') | translate"></div>
+        <div class="mo-tooltip-content-ai-body mo-wb-f-b2">
+            <div class="mo-tooltip-content-ai-body-title" 
+                [innerHtml]="(contentAI?.body?.title || '') | translate"></div>
+            <div class="mo-tooltip-content-ai-body-content" 
+                [innerHtml]="(contentAI?.body?.content || '') | translate:contentAI?.body?.interpolateParams"></div>
+        </div>
+    </div>
+    <div *ngIf="isTemplate" 
+        [ngClass]="{'mo-wb-px-0': acceptDynamicDirection && (direction === 'left' || direction  === 'right' || !direction)}"
+        class="mo-tooltip-content-inner {{classIncludeTemplate}}"
+        [style.max-height]="maxHeight+'px'">
+        <ng-container *ngTemplateOutlet="template"></ng-container>
+    </div>
+</div>
+<div *ngIf="!ignoreArrow" [class]="'mo-tooltip-content-arrow ' + ( !isTemplate && isAI && top ? ' mo-tooltip-content-arrow-ai ' : '' ) + (whiteTheme ? ' mo-tooltip-content mo-tooltip-white-theme ' : '') + getArrowClass()" 
+    [style.bottom]="bottom ? (bottom - 10)+'px': 'auto'"
+    [style.top]="arrowTop ? arrowTop+'px' : 'auto'"
+    [style.left]="arrowLeft+'px'"
+    [style.opacity]="opacity"
+    [style.zIndex]="iconOverContent ? zIndex : zIndex - 1">
+</div>
+
+<div [class]="'mo-tooltip-content-arrow mo-wb-w-18px mo-wb-h-18px mo-tooltip-content-arrow-triangle-left'" 
+    *ngIf="acceptDynamicDirection && direction === 'left' && !ignoreArrow"
+    [style.bottom]="bottom ? (bottom - 10)+'px': 'auto'"
+    [style.top]="arrowTop ? arrowTop+1+'px' : 'auto'"
+    [style.left]="arrowLeft+'px'"
+    [style.opacity]="opacity"
+    [style.zIndex]="iconOverContent ? zIndex : zIndex - 1">
+</div>

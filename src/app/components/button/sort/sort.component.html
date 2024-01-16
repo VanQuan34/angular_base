@@ -1,0 +1,8 @@
+<span class="mo-wb-button-sort d-flex flex-column justify-content-center">
+  <i class="mo-icn-Sort-ascend mo-wb-cursor-pointer"
+    [class.mo-wb-button-sort-active]="mode === 'asc'"
+    (click)="handlerClickSort($event,'asc')"></i>
+  <i class="mo-icn-Sort-descend mo-wb-cursor-pointer mo-wb-mt--2px"
+    [class.mo-wb-button-sort-active]="mode === 'desc'"
+    (click)="handlerClickSort($event,'desc')"></i>
+</span>

@@ -1,0 +1,11 @@
+$cursor: pointer default text move copy help none grab;
+
+@each $val in $cursor {
+    .#{$prefixCss}cursor-#{$val}{
+      cursor: $val !important;
+
+      * {
+        cursor: $val !important;
+      }
+    }
+}

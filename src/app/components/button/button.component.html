@@ -1,0 +1,31 @@
+
+<mo-wb-components-tooltip
+  [maxWidth]="maxWidthTooltip || 200"
+  [maxHeight]="maxHeightTooltip || 100"
+  [template]="templateOutlet"
+  [content]="tooltipContent"
+  [noContentPadding]="noContentTooltipPadding"
+  [ignoreCaculatorMaxHeightContent]="ignoreCaculatorMaxHeightTooltipContent"
+  [allowHover]="true"
+  [direction]="direction"
+  type="other">
+  <button #buttonEl
+    [class]="class + (isPending ? ' mo-wb-btn-pending': '') + ' none-selection ' + classInclude"
+    [class.mo-wb-btn-disable]="disable"
+    [class.mo-wb-pointer-events-none]="disable || isPending"
+    (click)="clickButton($event)">
+    <i *ngIf="classIconLeft" [class]="'mo-wb-icon-l ' + classIconLeft"></i>
+    <span *ngIf="label" [class]="classLabel" [innerHtml]="label"></span>
+    <i *ngIf="classIconRight" [class]="'mo-wb-icon-r ' + classIconRight"></i>
+    <i *ngIf="classIcon" [class]="'mo-wb-icon ' + classIcon"></i>
+    <div *ngIf="isPending" class="position-relative"
+      [style.width]="spinnerWidth+'px'"
+      [style.marginLeft]="classIconRight ? '12px' : '8px'"
+      [style.marginRight]="'-4px'">
+      <mo-wb-components-spinner
+        [size]="spinnerSize"
+        [isPri]="spinnerPri">
+      </mo-wb-components-spinner>
+    </div>
+  </button>
+</mo-wb-components-tooltip>

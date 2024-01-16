@@ -1,0 +1,94 @@
+.mo-wb-input-number-wrap {
+  border-radius: 4px;
+  border: solid 1px var(--border);
+  background-color: var(--w);
+  padding-right: 10px;
+  padding-left: 12px;
+  height: 32px;
+  max-width: 100%;
+
+  input {
+    border: none;
+    outline: none;
+    border-radius: 0px;
+    background-color: transparent;
+    max-width: 100%;
+    height: 100%;
+    padding: 0px;
+    line-height: 100%;
+  }
+
+  &.mo-wb-input-focus {
+    border-color: var(--pri-l1);
+  }
+
+  &.mo-wb-input-error {
+    border-color: var(--r);
+  }
+
+  &.mo-wb-input-readonly {
+    pointer-events: none;
+    background-color: var(--bg);
+  }
+
+  &.mo-wb-input-disable {
+    pointer-events: none;
+    background-color: var(--bg);
+    input {
+      color: var(--cap-txt) !important;
+    }
+  }
+
+  &.mo-wb-input-unit-left {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  &.mo-wb-input-unit-right {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  // step button
+  .mo-wb-input-step-btn{
+    height: 18px;
+    width: 12px;
+
+    .mo-wb-input-btn-increase, .mo-wb-input-btn-decrease {
+      width: 12px;
+      height: 8px;
+      border-radius: 2px;
+      background-color: var(--border);
+      cursor: pointer;
+      position: relative;
+  
+      i {
+        font-size: 4px;
+        position: absolute;
+        &::before {
+          color: var(--btn-txt);
+        }
+      }
+    }
+
+    &.mo-wb-input-step-btn-hover { 
+      .mo-wb-input-btn-increase, .mo-wb-input-btn-decrease {
+        &:hover {
+          background-color: var(--pri-l2);
+          i {
+            &::before {
+              color: var(--pri);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+

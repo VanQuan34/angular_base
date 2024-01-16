@@ -1,0 +1,22 @@
+<div *ngIf="isOpen"
+  #popupEl
+  class="mo-wb-menu-dropdown position-fixed mo-wb-shadow-lg 
+    mo-wb-bg-w mo-wb-border-radius-4px"
+  [style.zIndex]="zIndex"
+  [style.width]="width + 'px'"
+  [style.height]="height+ 'px'"
+  [style.top]="top+'px'"
+  [style.left]="left+'px'"
+  (mouseout)="handleOnMouseout($event)">
+  <div *ngFor="let item of items; let i = index;"
+    class="d-flex align-items-center mo-wb-px-16px 
+      mo-wb-bg-hover-pri-l2 mo-wb-hover-pri mo-wb-cursor-pointer"
+    [ngClass]="{'mo-wb-border-bottom-general': item.divider,
+      'mo-wb-border-radius-top-4px' : i === 0,
+      'mo-wb-border-radius-bottom-4px' : i === items.length - 1, 'mo-wb-pointer-events-none mo-wb-color-disabled': item.disable}"
+    (click)="handleOnMenuItemClick(item)"
+    [style.height]="itemHeight + 'px'">
+      <i *ngIf="item.icon" class="{{item.icon}} mo-wb-font-size-16px mo-wb-mr-8px" [class.mo-wb-color-disabled]="item.disable"></i>
+      <div class="mo-wb-f-b2">{{item.name}}</div>
+  </div>
+</div>

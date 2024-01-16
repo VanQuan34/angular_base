@@ -1,0 +1,33 @@
+
+.mo-wb-rad {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid var(--pri);
+  border-radius: 6px;
+  
+  .mo-wb-rad-inner {
+    width: 6px;
+    height: 6px;
+    border-radius: 10px;
+    background-color: var(--pri);
+  }
+
+  &.mo-wb-rad-unselected {
+    border-color: var(--btn-txt);
+  }
+}
+
+.mo-wb-rad-disable {
+  pointer-events: none;
+  .mo-wb-rad {
+    &.mo-wb-rad-unselected{
+      border-color: var(--disabled);
+    }
+    &.mo-wb-rad-selected{
+      border-color: var(--pri-l4);
+    }
+    .mo-wb-rad-inner {
+      background-color: var(--pri-l4);
+    }
+  }
+}

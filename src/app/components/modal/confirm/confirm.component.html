@@ -1,0 +1,37 @@
+<div
+  class="mo-wb-overlay"
+  [style.display]="isOpen ? 'block' : 'none'">
+  <div class="mo-wb-confirm-modal mo-wb-border-radius-8px mo-wb-border-general mo-wb-shadow {{classInclude}}"> 
+
+    <!-- header -->
+    <div class="mo-wb-h-54px d-flex align-items-center justify-content-between mo-wb-border-bottom-general mo-wb-px-40px ">
+      <div class="mo-wb-f-h1">{{ title | translate}}</div>
+      <div class="mo-icn-close-popup mo-wb-font-size-12px mo-wb-color-pri-hover mo-wb-cursor-pointer"
+        (click)="handleOnCloseClick($event);">
+      </div>
+    </div>
+
+    <!-- content -->
+    <div class="mo-wb-py-20px mo-wb-px-40px">
+      <ng-content>
+
+      </ng-content>
+    </div>
+
+    <!-- footer -->
+    <div class="mo-wb-h-54px d-flex align-items-center justify-content-end mo-wb-px-40px mo-wb-border-top-general">
+      <mo-wb-components-button 
+        label="{{'i18n_delete'| translate}}"
+        [type]="'red'"
+        [classInclude]="'mo-wb-mr-12px'"
+        (onClick)="handleOnApplyButtonClick($event)">
+      </mo-wb-components-button>
+      <mo-wb-components-button 
+        [type]="'third'"
+        label="i18n_cancel"
+        (onClick)="handleOnCancelButtonClick($event)">
+      </mo-wb-components-button>
+    </div>
+
+  </div>
+</div>

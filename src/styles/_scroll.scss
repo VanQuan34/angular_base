@@ -1,0 +1,48 @@
+$line : 1 2 3 4 5;
+
+@each $val in $line {
+	.#{$prefixCss}line-clamp-#{$val} {
+		-webkit-line-clamp: $val;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 100%;
+		white-space: nowrap;
+		display: block;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+	cursor: default;
+	display: block !important;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 0;
+	background: transparent;
+
+	&:hover {
+		background: transparent
+	}
+
+	&:focus,
+	&:checked {
+		background: transparent
+	}
+}
+
+
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background:  var(--disabled);
+
+	&:hover {
+		background:  var(--cap-txt);
+	}
+
+	&:focus,
+	&:checked {
+		background: var(--btn-txt);
+	}
+}

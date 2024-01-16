@@ -1,0 +1,14 @@
+$rotates: 45deg 90deg 180deg 270deg;
+@each $val in $rotates {
+    .#{$prefixCss}rotate-#{$val}{
+        transform: rotate($val) !important;;
+    }
+
+    .#{$prefixCss}rotate-x-#{$val}{
+        transform: rotateX($val) !important;;
+    }
+
+    .#{$prefixCss}rotate-y-#{$val}{
+        transform: rotateY($val) !important;;
+    }
+}

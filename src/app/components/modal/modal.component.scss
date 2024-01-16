@@ -1,0 +1,139 @@
+:host ::ng-deep {
+	@keyframes mo-wb-slide-down {
+		0% {
+			transform: translate(0, -3rem);
+			opacity: 0;
+		}
+
+		100% {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes mo-wb-slide-up {
+		0% {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+
+		100% {
+			transform: translate(0, -3rem);
+			opacity: 0;
+		}
+	}
+
+	.mo-wb-modal {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		top: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 1200;
+		transition: all 0.5s;
+		display: flex;
+	}
+
+	.mo-wb-modal-wrapper {
+		position: relative;
+		margin: auto;
+		max-width: 1098px;
+		width: calc(100vw - 100px);
+		max-height: 801px;
+		height: calc(100vh - 100px);
+		animation: mo-wb-slide-down 0.215s;
+		background-color: #fff;
+		border-radius: 8px;
+	}
+
+	.mo-wb-modal-wrapper.shadow {
+		box-shadow: 0 0 10px #e6e8ed;
+	}
+
+	.mo-wb-modal-header {
+		height: 52px;
+		border-bottom: solid 1px #e6e8ed;
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+
+	.mo-wb-modal-footer {
+		height: 52px;
+		border-top: solid 1px #e6e8ed;
+		width: 100%;
+
+		.footer-content,
+		.footer-container {
+			height: 100%;
+			width: 100%;
+			padding: 0px 40px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+
+			&>:not(:first-child) {
+				margin-left: 6px;
+			}
+
+			&>:not(:last-child) {
+				margin-right: 6px;
+			}
+		}
+	}
+
+	.mo-wb-modal-content-inner {
+		padding: 12px 40px;
+
+		.modal-row:last-child {
+			margin-bottom: 0px;
+		}
+	}
+
+	.mo-wb-modal-content {
+		height: calc(100% - 134px);
+		position: relative;
+		width: 100%;
+
+		>p {
+			padding-top: 15px;
+			padding-bottom: 15px;
+			margin: 0px;
+		}
+
+		>p:first-child {
+			padding-top: 0px;
+		}
+
+		>p:last-child {
+			padding-bottom: 0px;
+		}
+
+		>p.title {
+			font-family: SFUIText-Medium, Helvetica, Arial, sans-serif;
+			;
+		}
+
+		.modal-row {
+			text-align: center;
+			margin-bottom: 20px;
+			width: 100%;
+		}
+	}
+
+	.none-modal {
+		height: auto !important;
+		margin: 0px !important;
+		padding: 0px !important;
+		overflow-y: auto !important;
+		overflow-x: hidden !important;
+	}
+
+}
+
+@-moz-document url-prefix() {
+	.mo-wb-firefox-padding-28px {
+		padding-right: 28px !important;
+	}
+}

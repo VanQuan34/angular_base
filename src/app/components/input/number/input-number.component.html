@@ -1,0 +1,92 @@
+<div
+  class="{{classInclude}}">
+
+  <div *ngIf="title"
+    class="mo-wb-f-b2 mo-wb-mb-4px">
+    {{ title | translate}}
+  </div>
+
+  <ng-container *ngIf="unit === 'minmax'">
+    <div class="d-flex align-items-center">
+      <div
+        #minmaxEl 
+        class="d-flex align-items-center mo-wb-py-8px mo-wb-cursor-pointer"
+        (click)="handleOnMinmaxClick($event, minmaxEl);">
+        <div class="mo-wb-f-b2 mo-wb-color-pri">{{'min/max'}}</div>
+        <div class="mo-wb-f-b2 mo-wb-ml-8px">{{ convertUnitValue(value.min.value, value.min.unit) + value.min.unit + '/' + convertUnitValue(value.max.value, value.max.unit)+ value.max.unit }}</div>
+      </div>
+
+      <i class="mo-icn-quick-edit mo-wb-font-size-12px 
+        mo-wb-hover-pri mo-wb-ml-12px mo-wb-cursor-pointer"
+        (click)="handleOnEditMinMaxIconClick($event);"></i>
+
+    </div>
+    
+  </ng-container>
+
+  <div *ngIf="unit !== 'minmax'"
+    class="d-flex align-items-center"> 
+    <!-- input wrap -->
+    <div #inputWrap
+      class="mo-wb-input-number-wrap mo-wb-h-32px d-flex align-items-center position-relative mo-wb-f-b2 {{classIncludeInputWrap}}"
+      [ngClass]="{
+        'mo-wb-input-focus' : isFocus, 
+        'mo-wb-input-error' : error,
+        'mo-wb-input-disable': !enable,
+        'mo-wb-input-readonly': isReadonly,
+        'mo-wb-cursor-pointer': enable,
+        'mo-wb-pointer-events-none' : !isInputEnable,
+        'mo-wb-input-unit-right': unitItem}"
+      [style.maxWidth]="inputWrapMaxWidth">
+      <!-- input -->
+      <input #input
+        class="mo-wb-input-number h-100 {{classIncludeInput}}"
+        [ngClass]="{'mo-wb-cursor-text' : isFocus}"
+        [placeholder]="placeholder | translate"
+        spellcheck="false"
+        value="{{value}}"
+        [style.maxWidth]="inputMaxWidth" />
+
+      <!-- step count  -->
+      <div *ngIf="hasPlusButton || hasStepper" 
+        #stepEl
+        class="mo-wb-input-step-btn mo-wb-ml-5px position-relative"
+        [ngClass]="{'mo-wb-input-step-btn-hover': enable && isInputEnable}">
+        <div class="mo-wb-input-btn-increase mo-wb-mb-2px"
+          (click)="handleOnIncreaseButton($event);">
+          <i class="mo-icn-arrow-up position-center"></i>
+        </div>
+        <div class="mo-wb-input-btn-decrease"
+          (click)="handleOnDecreaseButton($event);">
+          <i class="mo-icn-arrow_down position-center"></i>
+        </div>
+      </div>
+
+    </div>
+    
+
+    <!--unit -->
+    <div *ngIf="unitItem" 
+      #unitEl
+      class="mo-wb-input-unit mo-wb-h-32px mo-wb-border-radius-top-right-4px  mo-wb-border-radius-bottom-right-4px 
+        mo-wb-px-8px align-items-center justify-content-center d-flex mo-wb-cursor-pointer white-space-no-wrap" 
+      [ngClass]="{'mo-wb-bg-border' : !isShowUnit,
+          'mo-wb-f-b2 mo-wb-cursor-default': units && units.length <= 1 , 
+        ' mo-wb-cursor-pointer mo-wb-bg-hover-pri-l2 mo-wb-hover-pri': (units && units.length > 1) 
+          && enable && !isShowUnit,
+        'mo-wb-bg-pri-l2 mo-wb-color-pri-d': isShowUnit}"
+      (click)="handleOnUnitSelect($event, unitEl);">
+      {{ unitItem.label }}
+    </div>
+
+  </div>
+  <div *ngIf="emptyError && !notShowErrorMsg"
+    class="mo-wb-mt-8px mo-wb-f-c4 mo-wb-color-r">
+    {{ otherErrorMsg ? otherErrorMsg : (emptyErrorMsg | translate) }}
+  </div>
+  <div *ngIf="invalidError && !notShowErrorMsg && !emptyError"
+    class="mo-wb-mt-8px mo-wb-f-c4 mo-wb-color-r">
+    {{ invalidMsg | translate }}
+  </div>
+
+</div>

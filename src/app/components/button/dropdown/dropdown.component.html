@@ -1,0 +1,20 @@
+<div #buttonDropdown
+  class="mo-wb-button-dropdown d-flex"
+  [class.mo-wb-disable]="disable"
+  [class.mo-wb-pointer-events-none]="disable"
+  [class.mo-wb-button-dropdown-un-apply-now]="!applyNow"
+  [class.mo-wb-button-dropdown-apply-now-blue-solid]="applyNow && typeButton === 'blue-solid'"
+  [class.mo-wb-button-dropdown-apply-now-blue-border]="applyNow && typeButton === 'blue-border'"
+  (mouseenter)="handlerMouseenter($event)"
+  (mouseleave)="handlerMouseleave($event)">
+  <mo-wb-components-button [classIconLeft]="classIconLeft"
+    [type]="typeButton"
+    [label]="keySelected | getLabelPipe:items:keyField:fieldDisplay:label:applyNow"
+    (onClick)="onClickButton($event,true)">
+  </mo-wb-components-button>
+  <mo-wb-components-button [type]="typeButton"
+    [classIconRight]="classIconRight"
+    [classInclude]="'mo-wb-py-9px'"
+    (onClick)="onClickButton($event,false)">
+  </mo-wb-components-button>
+</div>

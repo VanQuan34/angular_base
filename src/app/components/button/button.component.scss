@@ -1,0 +1,755 @@
+@import "../../../styles/variables";
+
+.mo-wb-button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  &.mo-wb-btn-disable {
+    background: var(--bg) !important;
+    border: 1px solid var(--bg) !important;
+    color: var(--disabled) !important;
+
+    &:hover {
+      border: 1px solid var(--bg) !important;
+      background: var(--bg) !important;
+    }
+
+    &:active,
+    &:checked {
+      border: 1px solid var(--bg) !important;
+      background: var(--bg) !important;
+    }
+
+    &>[class^="mo-icn"] {
+      &:before {
+        color: var(--disabled) !important;
+      }
+    }
+  }
+
+  &.mo-wb-btn-pri {
+    background: var(--pri);
+    border: 1px solid var(--pri);
+    color: var(--w);
+    line-height: 100%;
+  
+    &>[class^="mo-icn"] {
+      &:before {
+        color: var(--w);
+      }
+    }
+  
+    &:hover {
+      border: 1px solid var(--pri-l1);
+      background: var(--pri-l1);
+    }
+  
+    &:active,
+    &:checked,
+    &.selected {
+      border: 1px solid var(--pri-d);
+      background: var(--pri-d);
+    }
+
+    &.mo-wb-btn-pending {
+      background: var(--pri-l1) !important;
+      border: 1px solid var(--pri-l1) !important;
+    }
+  }
+
+  &.mo-wb-btn-sed {
+    background: var(--pri-l2);
+    border: 1px solid var(--pri-l2);
+    color: var(--pri);
+    line-height: 100%;
+  
+    &>[class^="mo-icn"] {
+      &:before {
+        color: var(--pri);
+      }
+    }
+  
+    &:hover {
+      color: var(--pri-l1);
+      [class^="mo-icn"] {
+        &:before {
+          color: var(--pri-l1);
+        }
+      }
+    }
+  
+    &:active,
+    &:checked,
+    &.selected {
+      color: var(--pri-d);
+      [class^="mo-icn"] {
+        &:before {
+          color: var(--pri-d);
+        }
+      }
+    }
+
+    &.mo-wb-btn-pending {
+      background: var(--pri-l2) !important;
+      border: 1px solid var(--pri-l2) !important;
+      color: var(--pri-l1) !important;
+      [class^="mo-icn"] {
+        &:before {
+          color: var(--pri-l1) !important;
+        }
+      }
+    }
+  }
+
+  &.mo-wb-btn-third {
+    background: var(--bg);
+    border: 1px solid var(--bg);
+    color: var(--btn-txt);
+    line-height: 100%;
+  
+    &>[class^="mo-icn"] {
+      &:before {
+        color: var(--btn-txt);
+      }
+    }
+  
+    &:hover {
+      background: var(--pri-l2);
+      border: 1px solid var(--pri-l2);
+      color: var(--pri-l1);
+      [class^="mo-icn"] {
+        &:before {
+          color: var(--pri-l1);
+        }
+      }
+    }
+  
+    &:active,
+    &:checked,
+    &.selected {
+      background: var(--pri-l2);
+      border: 1px solid var(--pri-l2);
+      color: var(--pri-d);
+      [class^="mo-icn"] {
+        &:before {
+          color: var(--pri-d);
+        }
+      }
+    }
+
+    &.mo-wb-btn-pending {
+      background: var(--pri-l2) !important;
+      border: 1px solid var(--pri-l2) !important;
+      color: var(--pri-l1) !important;
+      [class^="mo-icn"] {
+        &:before {
+          color: var(--pri-l1) !important;
+        }
+      }
+    }
+  }
+
+  &.mo-wb-btn-outline {
+    background: var(--w);
+    border: 1px solid var(--border);
+    color: var(--btn-txt);
+    line-height: 100%;
+  
+    &>[class^="mo-icn"] {
+      &:before {
+        color: var(--btn-txt);
+      }
+    }
+  
+    &:hover {
+      background: var(--w);
+      border: 1px solid var(--pri-l1);
+      color: var(--pri-l1);
+      [class^="mo-icn"] {
+        &:before {
+          color: var(--pri-l1);
+        }
+      }
+    }
+  
+    &:active,
+    &:checked,
+    &.selected {
+      background: var(--w);
+      border: 1px solid var(--pri-d);
+      color: var(--pri-d);
+      [class^="mo-icn"] {
+        &:before {
+          color: var(--pri-d);
+        }
+      }
+    }
+
+    &.mo-wb-btn-pending {
+      background: var(--w) !important;
+      border: 1px solid var(--pri-l1) !important;
+      color: var(--pri-l1) !important;
+      [class^="mo-icn"] {
+        &:before {
+          color: var(--pri-l1) !important;
+        }
+      }
+    }
+  }
+
+  &.mo-wb-btn-link {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--pri);
+    line-height: 100%;
+    padding: 0 2px !important;
+  
+    &>[class^="mo-icn"] {
+      &:before {
+        color: var(--pri);
+      }
+    }
+  
+    &:hover {
+      color: var(--pri-l1);
+      [class^="mo-icn"] {
+        &:before {
+          color: var(--pri-l1);
+        }
+      }
+    }
+  
+    &:active,
+    &:checked,
+    &.selected {
+      color: var(--pri-d);
+      [class^="mo-icn"] {
+        &:before {
+          color: var(--pri-d);
+        }
+      }
+    }
+
+    &.mo-wb-btn-disable {
+      background: transparent !important;
+      border: 1px solid transparent !important;
+    }
+
+    &.mo-wb-btn-link-red {
+      color: var(--r);
+      &>[class^="mo-icn"] {
+        &:before {
+          color: var(--r);
+        }
+      }
+
+      &:hover {
+        color: var(--r-l1);
+        [class^="mo-icn"] {
+          &:before {
+            color: var(--r-l1);
+          }
+        }
+      }
+    
+      &:active,
+      &:checked,
+      &.selected {
+        color: var(--r-d);
+        [class^="mo-icn"] {
+          &:before {
+            color: var(--r-d);
+          }
+        }
+      }
+    }
+  }
+
+  &.mo-wb-btn-red {
+    background: var(--r);
+    border: 1px solid var(--r);
+    color: var(--w);
+    line-height: 100%;
+  
+    &>[class^="mo-icn"] {
+      &:before {
+        color: var(--w);
+      }
+    }
+  
+    &:hover {
+      background: var(--r-l1);
+      border: 1px solid var(--r-l1);
+    }
+  
+    &:active,
+    &:checked,
+    &.selected {
+      background: var(--r-d);
+      border: 1px solid var(--r-d);
+    }
+
+    &.mo-wb-btn-pending {
+      background: var(--r-l1) !important;
+      border: 1px solid var(--r-l1) !important;
+    }
+  }
+
+  &.mo-wb-btn-yellow {
+    background: var(--y);
+    border: 1px solid var(--y);
+    color: var(--w);
+    line-height: 100%;
+  
+    &>[class^="mo-icn"] {
+      &:before {
+        color: var(--w);
+      }
+    }
+  
+    &:hover {
+      background: var(--y-l1);
+      border: 1px solid var(--y-l1);
+    }
+  
+    &:active,
+    &:checked,
+    &.selected {
+      background: var(--y-d);
+      border: 1px solid var(--y-d);
+    }
+
+    &.mo-wb-btn-pending {
+      background: var(--y-l1) !important;
+      border: 1px solid var(--y-l1) !important;
+    }
+  }
+
+  &.mo-wb-btn-green {
+    background: var(--g);
+    border: 1px solid var(--g);
+    color: var(--w);
+    line-height: 100%;
+  
+    &>[class^="mo-icn"] {
+      &:before {
+        color: var(--w);
+      }
+    }
+  
+    &:hover {
+      background: var(--g-l1);
+      border: 1px solid var(--g-l1);
+    }
+  
+    &:active,
+    &:checked,
+    &.selected {
+      background: var(--g-d);
+      border: 1px solid var(--g-d);
+    }
+
+    &.mo-wb-btn-pending {
+      background: var(--g-l1) !important;
+      border: 1px solid var(--g-l1) !important;
+    }
+  }
+  // button icon
+  &.mo-wb-btn-icon {
+    background: transparent;
+    border: 0px solid transparent;
+    color: var(--main-txt);
+    justify-content: center;
+
+    &>[class^="mo-icn"] {
+      &:before {
+        color: var(--main-txt);
+      }
+    }
+
+    &.mo-wb-btn-icon-grey {
+      &>[class^="mo-icn"] {
+        &:before {
+          color: var(--btn-txt);
+        }
+      }
+    }
+  
+    &:hover {
+      background: var(--pri-l2);
+      border: 0px solid var(--pri-l2);
+
+      &>[class^="mo-icn"] {
+        &:before {
+          color: var(--pri-l1);
+        }
+      }
+    }
+  
+    &:active,
+    &:checked,
+    &.selected {
+      background: var(--pri-l2);
+      border: 0px solid var(--pri-l2);
+
+      &>[class^="mo-icn"] {
+        &:before {
+          color: var(--pri-d);
+        }
+      }
+    }
+
+    &.mo-wb-btn-disable {
+      background-color: transparent !important;
+      border-color: transparent !important;
+    }
+
+    &.mo-wb-btn-sl {
+      &>[class^="mo-icn"] {
+        font-size: 28px;
+      }
+    }
+
+    &.mo-wb-btn-sm {
+      &>[class^="mo-icn"] {
+        font-size: 22px;
+      }
+    }
+
+    &.mo-wb-btn-ss {
+      &>[class^="mo-icn"] {
+        font-size: 16px;
+      }
+      width: 28px;
+      height: 28px;
+    }
+   
+  }
+
+  &.mo-wb-btn-i-sl {
+    border-radius: 8px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &>[class^="mo-icn"] {
+      font-size: 20px;
+    }
+
+  }
+  
+  &.mo-wb-btn-sl {
+    border-radius: 8px;
+    padding: 14px 16px;
+    
+    &>[class^="mo-icn"] {
+      font-size: 20px;
+    }
+
+    .mo-wb-icon-l {
+      margin-left: -4px;
+      margin-right: 8px;
+    }
+
+    .mo-wb-icon-r {
+      margin-right: -4px;
+      margin-left: 8px;
+    }
+  }
+
+  &.mo-wb-btn-i-sm {
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 100%;
+    &>[class^="mo-icn"] {
+      font-size: 16px;
+    }
+
+  }
+  
+  &.mo-wb-btn-sm {
+    border-radius: 4px;
+    padding: 10px 16px;
+    line-height: 100%;
+    &>[class^="mo-icn"] {
+      font-size: 18px;
+    }
+
+    .mo-wb-icon-l {
+      margin-right: 8px;
+    }
+
+    .mo-wb-icon-r {
+      margin-left: 8px;
+    }
+  }
+  
+  &.mo-wb-btn-i-ss {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    width: 28px;
+    line-height: 12px;
+
+    &>[class^="mo-icn"] {
+      font-size: 12px;
+    }
+
+  }
+
+  &.mo-wb-btn-ss {
+    border-radius: 4px;
+    padding: 0px 12px;
+    height: 28px;
+    line-height: 12px;
+
+    &>[class^="mo-icn"] {
+      font-size: 16px;
+    }
+
+    .mo-wb-icon-l {
+      margin-right: 8px;
+      margin-left: -2px;
+    }
+
+    .mo-wb-icon-r {
+      margin-left: 8px;
+      margin-right: -2px;
+    }
+  }
+}
+
+.mo-wb-button-text {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  line-height: normal;
+  padding: 0;
+  cursor: pointer;
+
+  span {
+    font-size: $font-size;
+    font-family: $SFUIText-Regular;
+    line-height: 18px;
+  }
+
+  &>[class^="mo-icn"] {
+    font-size: $font-size;
+
+    &:before {
+      color: #fff;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:hover {
+    color: $blue3;
+  }
+
+  &.mo-wb-button-link {
+    color: $blue;
+
+    &>[class^="mo-icn"] {
+      &:before {
+        color: $blue;
+      }
+    }
+
+    &:hover {
+      color: $blue4;
+
+      &>[class^="mo-icn"] {
+        &:before {
+          color: $blue4;
+        }
+      }
+    }
+  }
+
+  &.mo-wb-button-text-dark {
+    color: $text;
+
+    &>[class^="mo-icn"] {
+      &:before {
+        color: $text;
+      }
+    }
+
+    &:hover {
+      color: $blue3;
+
+      &>[class^="mo-icn"] {
+        &:before {
+          color: $blue3;
+        }
+      }
+    }
+  }
+
+  &.mo-wb-button-text-red {
+    color: $red;
+
+    &>[class^="mo-icn"] {
+      &:before {
+        color: $red;
+      }
+    }
+
+    &:hover {
+      color: $red2;
+
+      &>[class^="mo-icn"] {
+        &:before {
+          color: $red2;
+        }
+      }
+    }
+  }
+}
+
+.mo-wb-button-icon {
+  height: 28px;
+  width: 28px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: $text;
+  background-color: #fff;
+  border: none;
+
+  &>[class^="mo-icn"] {
+    font-size: 16px;
+    &:before {
+      color: $text;
+    }
+  }
+
+  &:hover {
+    background-color: $gray;
+  }
+
+  &:active,
+  &:checked {
+    border: none;
+    background: $gray1;
+    color: $text;
+  }
+}
+
+.mo-wb-button-text-pri{
+  outline: none;
+  border: none;
+  background: none;
+  color: var(--pri);
+  &:hover{
+    color: var(--pri-l1);
+  }
+}
+
+.mo-wb-button-selected {
+  height: 30px;
+  width: auto;
+  padding-left: 7px;
+  padding-right: 7px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: $text;
+  background-color: #fff;
+  border: none;
+
+  &>[class^="mo-icn"] {
+    font-size: 16px;
+    &:before {
+      color: $text;
+    }
+  }
+
+  &:hover {
+    background-color: $gray;
+  }
+
+  &:active,
+  &:checked {
+    border: none;
+    background: $gray1;
+    color: $text;
+  }
+}
+
+.mo-wb-button-icon-selected {
+  background-color: $blue-1;
+  color: $blue;
+  &>[class^="mo-icn"] {
+    &:before {
+      color: $blue;
+    }
+  }
+
+  &:hover {
+    background-color: $blue-3;
+  }
+
+  &:active,
+  &:checked {
+    border: none;
+    background: $blue-5;
+    color: $text;
+  }
+}
+
+.mo-wb-button-icon-only {
+  height: 30px;
+  width: 30px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: $text;
+  background-color: #fff;
+  border: none;
+
+  &>[class^="mo-icn"] {
+    font-size: 16px;
+    &:before {
+      color: $text;
+    }
+  }
+
+  &:hover {
+    background-color: #fff;
+    &>[class^="mo-icn"] {
+      &:before {
+        color: $blue3;
+      }
+    }
+  }
+
+  &:active,
+  &:checked {
+    border: none;
+    background: #fff;
+    color: $text;
+  }
+}
+

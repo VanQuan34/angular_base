@@ -1,0 +1,168 @@
+<div class="mo-wb-modal-container position-fixed mo-wb-top-0 mo-wb-left-0 mo-wb-right-0 mo-wb-bottom-0"
+  [style.display]="isShow ? 'flex' : 'none' "
+  [style.z-index]="zIndex">
+  <!-- backdrop -->
+  <div class="mo-wb-modal-backdrop full-screen"></div>
+  <div class="mo-wb-modal mo-wb-px-40px mo-wb-pt-32px mo-wb-pb-24px mo-wb-shadow-lg d-flex flex-column justify-content-center align-items-center"
+    [style.width]="width">
+    <!-- Success icon -->
+    <div *ngIf="type === 'SUCCESS' || type === 'SUCCESS1'"
+      class="mo-wb-mb-16px">
+      <svg width="72"
+        height="72"
+        viewBox="0 0 72 72"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="72"
+          height="72"
+          rx="36"
+          fill="var(--g-l2)" />
+        <path
+          d="M29.1137 44.3352L21.658 36.8796C21.2566 36.4772 20.7116 36.2511 20.1432 36.2511C19.5749 36.2511 19.0299 36.4772 18.6285 36.8796C17.7905 37.7175 17.7905 39.0711 18.6285 39.9091L27.6097 48.8903C28.4476 49.7283 29.8013 49.7283 30.6392 48.8903L53.3715 26.158C54.2095 25.32 54.2095 23.9664 53.3715 23.1284C52.9701 22.7261 52.4251 22.5 51.8568 22.5C51.2884 22.5 50.7434 22.7261 50.342 23.1284L29.1137 44.3352Z"
+          fill="var(--g)" />
+      </svg>
+    </div>
+    <!-- error icon -->
+    <div *ngIf="type === 'ERROR'"
+      class="mo-wb-mb-16px">
+      <svg width="72"
+        height="72"
+        viewBox="0 0 72 72"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="72"
+          height="72"
+          rx="36"
+          fill="var(--r-l2)" />
+        <path fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M22.364 49.6363C21.6109 48.8832 21.7967 47.4764 22.779 46.494L46.4944 22.7786C47.4768 21.7963 48.8836 21.6105 49.6367 22.3636C50.3898 23.1167 50.204 24.5236 49.2217 25.5059L25.5063 49.2213C24.524 50.2036 23.1171 50.3895 22.364 49.6363Z"
+          fill="var(--r)" />
+        <path fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M22.364 22.3636C23.1171 21.6105 24.524 21.7963 25.5063 22.7786L49.2217 46.4941C50.204 47.4764 50.3898 48.8832 49.6367 49.6364C48.8836 50.3895 47.4768 50.2037 46.4944 49.2213L22.779 25.5059C21.7967 24.5236 21.6109 23.1167 22.364 22.3636Z"
+          fill="var(--r)" />
+      </svg>
+    </div>
+    <!-- warning icon -->
+    <div *ngIf="type === 'WARNING1' || type === 'WARNING2'"
+      class="mo-wb-mb-16px">
+      <svg width="72"
+        height="72"
+        viewBox="0 0 72 72"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="72"
+          height="72"
+          rx="36"
+          fill="var(--y-l2)" />
+        <path fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M36.0014 28.788C36.9956 28.788 37.8014 29.5939 37.8014 30.588V39.5892C37.8014 40.5833 36.9956 41.3892 36.0014 41.3892C35.0073 41.3892 34.2014 40.5833 34.2014 39.5892V30.588C34.2014 29.5939 35.0073 28.788 36.0014 28.788Z"
+          fill="var(--y)" />
+        <path fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M36.0015 49.3291C36.1238 49.3291 36.2447 49.3352 36.3638 49.3471H46.9111C49.2309 49.3471 49.9952 48.5465 50.1945 48.2077C50.3943 47.8681 50.7232 46.8082 49.5964 44.7751L38.686 25.1328C37.4369 22.8802 36.3161 22.6529 36.0015 22.6529C35.687 22.6529 34.5661 22.8802 33.3171 25.1328L33.314 25.1383L22.4076 44.7554C21.2782 46.7934 21.6056 47.8555 21.8035 48.1926C21.9994 48.5263 22.7594 49.3291 25.092 49.3291H36.0015ZM24.876 32.8923L19.2592 43.0097C16.2348 48.4645 18.8451 52.9291 25.092 52.9291H36.0015V52.9471H46.9111C53.14 52.9471 55.7683 48.4825 52.7439 43.0277L41.8344 23.387C38.6299 17.6082 33.3732 17.6082 30.1687 23.387L24.876 32.8923Z"
+          fill="var(--y)" />
+        <path fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M34.1916 44.99C34.1916 43.9959 34.9974 43.19 35.9916 43.19H36.0077C37.0018 43.19 37.8077 43.9959 37.8077 44.99C37.8077 45.9841 37.0018 46.79 36.0077 46.79H35.9916C34.9974 46.79 34.1916 45.9841 34.1916 44.99Z"
+          fill="var(--y)" />
+      </svg>
+
+    </div>
+    
+    <div *ngIf="title" class="mo-wb-f-h2 ">{{title}}</div>
+    <div *ngIf="desc" class="mo-wb-f-b1 mo-wb-mt-5px">{{desc}}</div>
+    <div *ngIf="content" class="mo-wb-f-b2 mo-wb-color-btn-txt mo-wb-mt-14px mo-wb-mb-32px" [innerHtml]="content | translate"></div>
+
+    <div *ngIf="!content" class="mo-wb-mb-32px w-100">
+      <ng-content>
+
+      </ng-content>
+    </div>
+    
+    <div *ngIf="type === 'SUCCESS'">
+      <mo-wb-components-button
+        label="{{label | translate}}"
+        [classInclude]="'mo-wb-w-260px justify-content-center'"
+        [isPending]="loading"
+        (onClick)="handleOnOk($event)">
+      </mo-wb-components-button>
+    </div>
+
+    <div *ngIf="type === 'SUCCESS1'" class="d-flex align-items-center">
+      <mo-wb-components-button 
+        label="{{label | translate}}"
+        [type]="'third'"
+        [classInclude]="'mo-wb-mr-8px'"
+        [disable]="loading"
+        (onClick)="handleOnOkButton1($event)">
+      </mo-wb-components-button>
+
+      <mo-wb-components-button 
+        label="{{label1 | translate}}"
+        [type]="'pri'"
+        [classInclude]="'mo-wb-ml-8px'"
+        [isPending]="loading"
+        (onClick)="handleOnOkButton2($event)">
+      </mo-wb-components-button>
+    </div>
+
+    <div *ngIf="type === 'ERROR'">
+      <mo-wb-components-button 
+        label="{{label | translate}}"
+        [type]="'pri'"
+        [classInclude]="'mo-wb-w-180px d-flex justify-content-center'"
+        [isPending]="loading"
+        (onClick)="handleOnOk($event)">
+      </mo-wb-components-button>
+    </div>
+
+    <div *ngIf="type === 'WARNING1'" class="d-flex align-items-center">
+      <mo-wb-components-button 
+        label="{{'Hủy bỏ' | translate}}"
+        [type]="'third'"
+        [classInclude]="'mo-wb-mr-8px'"
+        [disable]="loading"
+        (onClick)="handleOnCancel($event)">
+      </mo-wb-components-button>
+
+      <mo-wb-components-button 
+        label="{{label | translate}}"
+        [type]="'red'"
+        [classInclude]="'mo-wb-ml-8px'"
+        [isPending]="loading"
+        (onClick)="handleOnOk($event)">
+      </mo-wb-components-button>
+    </div>
+
+    
+    <div *ngIf="type === 'WARNING2'" class="d-flex flex-column">
+      <mo-wb-components-button 
+        label="{{label | translate}}"
+        [type]="'pri'"
+        [classInclude]="'mo-wb-w-260px d-flex justify-content-center'"
+        [isPending]="loading"
+        (onClick)="handleOnOkButton1($event)">
+      </mo-wb-components-button>
+
+      <mo-wb-components-button 
+        label="{{label1 | translate}}"
+        [type]="'third'"
+        [disable]="loading"
+        [classInclude]="'mo-wb-w-260px mo-wb-my-12px mo-wb-h-32px d-flex justify-content-center'"
+        (onClick)="handleOnOkButton2($event)">
+      </mo-wb-components-button>
+
+      <mo-wb-components-button 
+        label="{{'Hủy bỏ' | translate}}"
+        [type]="'third'"
+        [classInclude]="'mo-wb-w-260px mo-wb-h-32px d-flex justify-content-center'"
+        [disable]="loading"
+        (onClick)="handleOnCancel($event)">
+      </mo-wb-components-button>
+    </div>
+
+  </div>
+</div>

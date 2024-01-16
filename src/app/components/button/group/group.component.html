@@ -1,0 +1,14 @@
+<div class="mo-button-group">
+    <mo-wb-components-button
+        *ngFor="let button of buttons;let i = index;"
+        [class]="button.class"
+        [type]="indexActive === i ? 'blue-solid':'blue-border'"
+        [label]="button.label"
+        [disable]="disable"
+        [classIconLeft]="button.classIconLeft"
+        [classInclude]="button.classInclude"
+        [classIconRight]="button.classIconRight"
+        [tooltipContent]="button.tooltipContent"
+        (onClick)="clickButton(i,button)">
+    </mo-wb-components-button>
+</div>
