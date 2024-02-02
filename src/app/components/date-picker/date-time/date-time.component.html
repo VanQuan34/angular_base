@@ -11,7 +11,7 @@
         [class.mo-wb-disable]="!enable"
         [class.mo-wb-pointer-events-none]="!enable"
         (click)="toggleCalendar($event)">
-        <div class="mo-icn-lich"></div>
+        <div class="mo-icn-lich mo-wb-font-weight-600"></div>
         <div
             [ngClass]="{'mo-wb-color-29c7cc':useColorModeExist, 'mo-wb-date-picker-label': true, 'mo-wb-date-picker-label-default': !dateUpPost, 'mo-wb-mr-20px': dateUpPost && hasResetDate && !readonly }">
             {{dateUpPost | labelTime:hiddenTime: keepFormat }}

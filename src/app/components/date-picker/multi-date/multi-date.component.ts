@@ -121,8 +121,8 @@ export class MoWbMultiDatePickerComponent implements OnInit, OnDestroy, AfterVie
     if (this.minDate) {
       this.datePickerOptions.minDate = this.minDate;
     }
-    this.datePickerOptions.startDate = this.dateRange.start;
-    this.datePickerOptions.endDate = this.dateRange.end;
+    this.datePickerOptions.startDate = this.dateRange?.start;
+    this.datePickerOptions.endDate = this.dateRange?.end;
     // this.subscribeDOption = this._translate.get('dOptions').subscribe((opt) => { // support cho trường hợp không truyền giá trị daterage
     //   if (opt && opt.ranges) {
     //     if (this.lifetime) {
