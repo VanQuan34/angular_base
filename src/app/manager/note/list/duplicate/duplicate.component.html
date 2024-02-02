@@ -1,0 +1,35 @@
+<mo-wb-components-v4-modal
+  [width]="width"
+  [title]="title"
+  [disable]=""
+  [label]="'Xác nhận' | translate"
+  [zIndex]="2500"
+  [isPending]="loading"
+  [isHideMenu]="isHideMenu"
+  (onOk)="handleOnClickDuplicateSite($event)"
+  (onClose)="handleOnCloseModal()">
+  <div class="">
+    <div class="mo-wb-mb-5px">{{'Vui lòng xác nhận thông tin để thực hiện Sao chép trang.' | translate}}</div>
+    <mo-wb-components-input
+      #input
+      [title]="'Tên ghi chú'"
+      [showAsterisk]="true"
+      [placeholder]="'i18n_import_content'"
+      [classInclude]="'mo-wb-py-10px'"
+      [maxLength]="50"
+      [value]="noteInfo.title">
+    </mo-wb-components-input>
+    <mo-wb-components-select
+      #select
+      [type]="'singe'"
+      [label]="'Lựa chọn danh mục'"
+      [showAsterisk]="true"
+      [selectTitle]="'i18n_select_fol'"
+      [classInclude]="'mo-wb-mt-5px'"
+      [items]="categoryList"
+      [key]="'category_id'"
+      [keyName]="'cate_name'"
+      (onSelectedChange)="handleOnSelectCategory($event)">
+    </mo-wb-components-select>
+  </div>
+</mo-wb-components-v4-modal>

@@ -1,0 +1,21 @@
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.mo-media-store-loader {
+  border: 3.5px solid #4e4e4e;
+  border-top: 3.5px solid var(--pri);
+  border-radius: 50%;
+  width: 68px;
+  height: 68px;
+  animation: spin 1.5s linear infinite;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: block;
+  z-index: 10;
+}

@@ -1,0 +1,20 @@
+<mo-wb-components-v4-modal 
+  [width]="width"
+  [height]="'1200px'"
+  [title]="'i18n_select_file_from_media' | translate"
+  [classInclude]="'mo-wb-py-0 mo-wb-px-0'"
+  (onClose)="handleOnCloseModal()"
+  (onOk)="handleOnSelectFilesClick()">
+
+  <div class="media-store-modal-container h-100 mo-wb-overflow-hidden">
+    <div class="left-container">
+      <mo-wb-media_store_folder #folder [zIndex]="zIndex" (onSelect)="handleOnFolderSelect($event);">
+      </mo-wb-media_store_folder>
+    </div>
+    <div class="right-container">
+      <mo-wb-media_store_file #fileStore [maxSelected]="maxSelected" [zIndex]="zIndex" [multiple]="multiple"
+        [mode]="mode" [selectedFileUrls]="selectedFileUrls" (onSelectedFiles)="handleOnSelectedFiles($event);">
+      </mo-wb-media_store_file>
+    </div>
+  </div>
+</mo-wb-components-v4-modal>

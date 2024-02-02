@@ -57,7 +57,7 @@
       value="{{ value }}"
       [readonly]="isReadonly ? true : false"
       placeholder="{{ placeholder  | translate}}"
-      type="'text'" 
+      type="{{inputType ? inputType : 'text'}}" 
       (mousedown)="handleOnInputMousedown($event)"
       />
 

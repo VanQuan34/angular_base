@@ -1,0 +1,113 @@
+<div #container *ngIf="type === 'POPUP'" class="mo-media-store-folder-container">
+  <div class="header-container">
+    <div class="header-top">
+      <div class="mo-wb-f-h5">{{'i18n_folder' | translate}}</div>
+
+      <mo-wb-components-button
+        classIconLeft="mo-icn-add"
+        [classInclude]="'mo-wb-ml-20px'"
+        [type]="'link'"
+        label="i18n_new_folder"
+        (onClick)="handleOpenAddEdit()">
+      </mo-wb-components-button>
+     
+    </div>
+    
+    <mo-wb-components-input 
+      [hideTextRequire]="true"
+      [isRequired]="false"
+      [placeholder]="'i18n_find_name_folder'"
+      [classInclude]="''"
+      [isSearchInput]="true"
+      (onValueChanged)="handleOnSearchFolder($event)">
+    </mo-wb-components-input>
+  </div>
+
+  <div class="folder-list-container">
+    <div class="folder-list">
+      <div *ngFor="let item of disFolderList; let i=index;"
+        class="item-list mo-wb-f-b1"
+        [ngClass]="{'selected': item.id === selectedFolderId}"
+        (click)="handleOnSelectFolder(item);">
+          <span class="mo-wb-f-b1" title="{{item.name | translate}}">{{item.name | translate}}</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<ng-container *ngIf="type === 'CMS'" >
+  <div #container class="mo-media-store-folder-container mo-media-store-folder-cms-container">
+
+    <div class="header-cms-container">
+      <div class="mo-wb-font-head-1s">{{'i18n_media_library' | translate}}</div>
+      <mo-wb-components-button
+        classIconLeft="mo-icn-add-new mo-wb-font-size-10px"
+        [classInclude]="''"
+        label="i18n_new_folder"
+        (onClick)="handleOpenAddEdit()">
+      </mo-wb-components-button>
+    </div>
+  
+    <div class="content-cms-container">
+
+      <div class="mo-wb-pl-12px mo-wb-pr-12px">
+        <div class="mo-wb-f-h5">{{'i18n_list_folder' | translate}}</div>
+        <div class="mo-wb-mt-12px mo-wb-mb-12px">{{'i18n_click_folder' | translate}}</div>
+    
+        <mo-wb-components-input
+          [placeholder]="'i18n_find_name_folder'"
+          [classInclude]="''"
+          [isSearchInput]="true"
+          (onValueChanged)="handleOnSearchFolder($event)">
+        </mo-wb-components-input>
+      </div>
+
+      <div class="list-cms-container">
+          <div *ngFor="let item of disFolderList; let i=index;"
+            class="item-csm"
+            [ngClass]="{'selected': item.id === selectedFolderId}"
+            (click)="handleOnSelectFolder(item);">
+            <div class="top-container">
+              <div class="mo-wb-f-b1 title" title="{{item.name}}">
+                {{item.name}}
+              </div>
+              <div *ngIf="item.id" class="menu-right-button">
+                <i class="mo-icn-dots icon-menu" (click)="handleOnMenuClick($event, item);"></i>
+              </div>
+            </div>
+            
+            <div class="mo-wb-color-btn-txt mo-wb-pt-8px">
+              {{item.count || '0'}} {{ item.count > 1 ? 'files' : 'file'}}
+            </div>
+
+          </div>
+      </div>
+  
+    </div>
+
+    <div [style.display]="menuShow ? 'block' : 'none'">
+      <div class="menu-overlay" (click)="handleOnOverlayMenuClick($event);">
+      </div>
+
+      <div class="media-store-popup-container menu-right"
+        [style.top] = "menuTop"
+        [style.left] = "menuLeft">
+        <div class="menu-item"
+          (click)="handleOnEditFolder($event);">
+          <i class="mo-icn-sua icon-menu"></i> <span>{{'i18n_edit' | translate}}</span>
+        </div>
+        <div class="menu-item delete-item"
+          (click)="handleOnRemoveFolder($event);">
+          <i class="mo-icn-menu-xoa icon-menu"></i> <span>{{'i18n_delete' | translate}}</span>
+        </div>
+      </div>
+    </div>
+    
+  
+  </div>
+
+</ng-container>
+
+
+      

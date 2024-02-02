@@ -42,7 +42,7 @@ export class MoWbBaseApiService {
     if (this.token) {  
       return;
     }
-    this.host =  environment.domainApi;
+    this.host = environment.domainApiLocal //environment.domainApi;
     console.log('init host=', this.host);
     const token = this.getToken();
     this.token = token ? `Bearer ${token}` : '';

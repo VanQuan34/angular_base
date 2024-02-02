@@ -1,0 +1,25 @@
+
+<div class="mo-media-store-container">
+  <mo-wb-components-button classIconLeft="mo-icn-add-new mo-wb-pr-8px" [classInclude]="'mo-wb-ml-20px'"
+    label="i18n_new_template_email" (onClick)="handleOpenMediaModal()">
+  </mo-wb-components-button>
+
+  <div class="left-container">
+    <mo-wb-media_store_folder 
+        #folder
+        [type]="'CMS'"
+        (onSelect)="handleOnFolderSelect($event);">
+      </mo-wb-media_store_folder>
+  </div>
+
+  <div class="right-container"> 
+    <mo-wb-media_store_file #fileStore
+      [multiple]="multiple"
+      [mode]="mode"
+      [type]="'CMS'"
+      [selectedFileUrls]="[]"
+      (onFileChanged)="handleOnFileChanged($event);"
+      (onSelectedFiles)="handleOnSelectedFiles($event);">
+    </mo-wb-media_store_file>
+  </div>
+</div>

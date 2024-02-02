@@ -1,0 +1,65 @@
+<div class="mo-wb-w-450px m-auto h-100" style="max-width: 100%;">
+	<div class="chat position-relative mo-wb-border-general mo-wb-pr-5px mo-wb-pl-12px mo-wb-overflow-hidden mo-wb-bg-w  mo-wb-mt-15px" style="height: calc(100% - 120px);">
+		<div class="" *ngIf="isLoading">
+			<mo-wb-components-spinner
+				[size]="'m'">
+			</mo-wb-components-spinner>
+		</div>
+		<div class="mo-wb-f-b1 mo-wb-p-10px d-flex align-items-center justify-content-between">
+			{{'PUBLIC CHAT'}}
+			<app-topbar></app-topbar>
+		</div>
+		<div class="mo-wb-border-general"></div>
+		<div #chat class="overflow-auto mo-wb-calc-h-60px" (scroll)="handleOnScroll($event)">
+			<div *ngFor="let item of messages; index as idx" class="mo-wb-py-5px mo-wb-mr-10px {{idx > 0 && messages[idx].user.user_id === messages[idx - 1].user.user_id ? '' : 'mo-wb-mt-5px'}}">
+				<div class="mo-wb-f-b1 d-flex align-items-center {{item.user && item.user.user_id === currentUser.user_id ? 'justify-content-end' : '' }}">
+					<div *ngIf="idx === 0 || messages[idx].user.user_id != messages[idx - 1].user.user_id" class="mo-wb-w-25px mo-wb-h-25px mo-wb-border-radius-30px mo-wb-mr-7px d-flex align-items-center justify-content-center mo-wb-color-w"
+						[style]="item.user.user_id === currentUser.user_id ? 'order: 1;margin-right: 0 !important; margin-left: 7px;': ''"
+						[style.background-color]="item.user.user_id !== currentUser.user_id ? ('' | getRandomColor) : 'var(--pri)'">
+						{{item.user.lastName | getFirstCharacter}}
+					</div>
+					{{idx > 0 && messages[idx].user.user_id === messages[idx - 1].user.user_id ? '' :  item.user.lastName}}
+				</div>
+				<div class="animation d-flex align-items-center {{item.user.user_id === currentUser.user_id ? 'justify-content-end mo-wb-mr-30px' : 'mo-wb-ml-30px' }}">
+					<div class="mo-wb-color-d mo-wb-py-4px mo-wb-border-radius-10px mo-wb-px-10px" [style.order]="item.user.user_id === currentUser.user_id ? '1': ''" style="background-color: #e6e8ed;">{{item.message}}</div>
+					<div class="mo-wb-font-size-10px  mo-wb-color-btn-txt mo-wb-mt-2px mo-wb-opacity-5 {{item.user.user_id === currentUser.user_id ? 'd-flex justify-content-end mo-wb-mr-30px' : 'mo-wb-ml-30px'}}">{{item.createdAt | date: 'HH:mm dd/MM/yyyy'}}</div>
+				</div>
+			</div>
+			<emoji-mart class="emoji-mart" *ngIf="showEmojiPicker" (clickOutside)="handleOnClickOutSide($event)" (emojiSelect)="addEmoji($event)" title="Pick your emoji…"></emoji-mart>
+			<div class="position-absolute mo-wb-right-25px mo-wb-bottom-10px mo-wb-font-size-11px mo-wb-color-btn-txt" *ngIf="typingList.length">{{textTyping}}</div>
+			<div *ngIf="this.onScroll" 
+				class="position-absolute mo-wb-right-5px mo-wb-bottom-50px d-flex align-items-center justify-content-center mo-wb-w-30px mo-wb-h-30px mo-wb-border-radius-30px mo-wb-bg-pri-l2 mo-wb-rotate-90deg mo-wb-cursor-pointer"
+				(click)="scrollToBottom()">
+				<i class="mo-icn-collapse_col3 mo-wb-font-size-10px icon"></i>
+			</div>
+	</div>
+	<div>
+</div>
+<div class="mo-wb-w-450px room-chat m-auto position-fixed mo-wb-bottom-15px" style="max-width: 96%;">
+	<div class="d-flex justify-content-between w-100">
+		<div class="w-80 mo-wb-mr-15px position-relative">
+			<mo-wb-components-input
+				#input
+				[isRequired]="false"
+				[classInclude]="''"
+				[isMultiple]="true"
+				[actionKey]="'KEY-UP'"
+				[value]="valueMess"
+				(onValueChanged)="handleChangeText($event)">
+		</mo-wb-components-input>
+		<div class="position-absolute mo-wb-right-5px mo-wb-bottom-100 mo-wb-z-index-2500 mo-wb-cursor-pointer mo-wb-w-200px d-flex justify-content-end">
+		<span class="mo-wb-w-20px mo-wb-h-20px d-flex align-items-center justify-content-center mo-wb-bg-w mo-wb-border-radius-30px mo-wb-font-size-16px" (click)="toggleEmojiPicker()">😀</span>
+		</div>
+		</div>
+		<div class="w-20">
+			<mo-wb-components-button
+				[label]="'Gửi'"
+				[classInclude]="'mo-wb-px-30px mo-wb-py-13px h-100'"
+				[type]="'pri'"
+				[disable]="isDisable || loadedMessage"
+				[isPending]="loadedMessage"
+				(onClick)="handleSendMessage($event)">
+			</mo-wb-components-button>
+		</div>
+	</div>
+</div>

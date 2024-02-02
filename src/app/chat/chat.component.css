@@ -1,0 +1,23 @@
+.room-chat{
+    left: 50%;
+    transform: translateX(-50%);
+}
+.animation{
+    animation: bottom-to-top ease .3s;
+}
+@keyframes bottom-to-top {
+    0%{transform: translateY(30px); opacity: 0;}
+    100%{transform: translateY(0); opacity: 1;}
+}
+.emoji-mart {
+    position: absolute;
+    bottom: 0;
+    z-index: 99999;
+}
+.icon{
+    animation: scale ease 1s infinite;
+}
+@keyframes scale {
+    0%{transform: scale(0.6);}
+    100%{transform: scale(1);}
+}

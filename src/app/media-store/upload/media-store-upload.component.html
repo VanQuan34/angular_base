@@ -1,0 +1,106 @@
+<div  #upload  
+  [style.min-height]="minHeight + 'px'"
+  class="mo-media-upload"
+  [ngClass]="{'mo-media-upload-error' : isEmptyError,
+    'container-only-file' : !multiple && fileList.length > 0 && displayType === 'LIST',
+    'mo-wb-disable mo-wb-pointer-events-none': disable}">
+  <div class="content-container">
+
+    <ng-container *ngIf="multiple || !fileList.length">
+      <ng-container *ngIf="mode==='UPLOAD'">
+        <div class="mo-icn-Upload upload-icon"
+          [style.margin-top] = "!fileList.length ? (minHeight - 78)/2 + 'px' : '40px'">
+      </div>
+        <div *ngIf="!fileList.length || displayType !== 'LIST'"  class="mo-wb-font-family-regular mo-wb-color-btn-txt">{{'i18n_drag_and_drop_file_or_click_to_add_file' | translate}}</div>
+      </ng-container>
+
+      <ng-container *ngIf="mode==='FILE'" >
+        <div class="mo-icn-new_zoom_in file-icon" (click)="handleOnOpenStoreMedia($event)"
+          [style.margin-top] = "!fileList.length ? (minHeight - 78)/2 + 'px' : '40px'"></div>
+        <div *ngIf="!fileList.length || displayType !== 'LIST'"  class="mo-wb-font-family-regular mo-wb-color-btn-txt">{{'i18n_select_files_from_media_library' | translate}}</div>
+      </ng-container>
+    </ng-container>
+
+
+    <ng-container *ngIf="fileList.length && displayType === 'LIST'">
+      <div #filelist  class="file-list-container"
+        [style.height]="fileListHeight">
+        <div *ngFor="let item of fileList; let i=index;"
+          class="file-list-item"
+          (click)="handleOnFileItemClick($event);"
+          [ngClass]="{'loading' : item.loading , 'error' : item.isError}">
+          <div class="left">
+            <i class="mo-icn-File icon mo-wb-mr-4px"></i>
+            <span class="name" title="{{item.name}}">{{item.name}}</span> <span>&nbsp;-&nbsp;</span><span>{{item.size}}</span>
+          </div>
+
+          <div class="right">
+            <i *ngIf="item.type === 'IMAGE' && !ignoreEditFile" class="mo-icn-menu-sua icon editBtn mo-wb-color-pri"
+                (click)="handleOnEditFileClick($event, item);"></i>
+            <i class="mo-icn-close-popup mo-wb-ml-12px icon closeBtn"
+              (click)="handleOnRemoveFileClick($event, item);"></i>
+            <!-- <ng-container *ngIf="!item.uploaded">
+            </ng-container>
+            <ng-container *ngIf="item.uploaded">
+              <i class="mo-icn-complete-step icon iconComplete"></i>
+            </ng-container> -->
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="fileList.length && displayType === 'IMAGE'">
+      <div #imageContainer class="image-list-container"
+        [ngClass]="{'mo-wb-mt-40px' : multiple, 'none-border': !multiple}">
+        <div class="image-container-item"
+          (click)="handleOnImageItemClick($event);"
+          *ngFor="let item of fileList; let i=index;">
+          <img [style.opacity]="item.url || item.origin_url ? 1 : 0" src="{{item.url || item.origin_url}}" />
+          <div *ngIf="loading">
+            <div class="overlay"></div>
+            <mo-wb-components-spinner [width]="'60px'"  [height]="'60px'" ></mo-wb-components-spinner>
+          </div>
+          <!-- <mo-wb-media_store_loader [loading] = "!item.url && !item.origin_url"></mo-wb-media_store_loader> -->
+          <div class="action-control">
+            <div class="overlay" (click)="handleOnImageItemClick($event);"></div>
+            <div class="cropBtn" (click)="handleOnCropButtonClick($event, item);"><i class="mo-icn-Crop icon"></i></div>
+            <div class="deleteBtn" (click)="handleOnRemoveButtonClick($event, item);"><i class="mo-icn-Delete icon"></i></div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <input *ngIf="multiple" 
+    #uploadInput 
+    id="upload-input" 
+    class="upload-input" 
+    style="display:none;" 
+    type="file"  
+    name="files[]" 
+    multiple 
+    accept="{{accessFiles}}"/>
+
+    <input *ngIf="!multiple" 
+    #uploadInput 
+    id="upload-input" 
+    class="upload-input" 
+    style="display:none;" 
+    type="file"  
+    name="files[]" 
+    accept="{{accessFiles}}"/>
+  </div>
+</div>
+
+<div #error class="error-containner">
+  <div *ngIf="isEmptyError"  class="error-containner d-flex align-items-center mo-wb-line-height-normal mo-wb-mt-4px">
+    <i class="mo-wb-color-ff5454 mo-icn-close-popup mo-wb-font-size-8px mo-wb-pr-4px"></i>
+    <span class="mo-wb-color-ff5454 mo-wb-font-head-5">{{(validRequired.message || 'i18n_valid_empty_message') | translate}}</span>
+  </div>
+</div>
+<div #info class="infor-containner">
+  <div *ngIf="hasInfo" class="mo-wb-line-height-normal mo-wb-mt-12px">
+    <span>{{'i18n_note_file_new_upload' | translate}} </span>  <span class="mo-wb-f-b1">{{'i18n_default' | translate}}.</span>
+    <span *ngIf="!doNotDelete && expiredDays">{{('i18n_auto_remove_file_note' | translate) | translateI18nPipe: expiredDays}}</span>
+
+  </div>
+</div>

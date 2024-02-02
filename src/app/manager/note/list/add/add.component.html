@@ -1,0 +1,47 @@
+<mo-wb-components-v4-modal
+  #modal
+  [title]="title"
+  [width]="width"
+  [height]="'auto'"
+  [zIndex]="5000"
+  [label]="'Lưu'"
+  [isPending]="isPending"
+  [isHideMenu]="isHideMenu"
+  (onOk)="handleOnClickCreateNote($event)"
+  (onClose)="handleOnCloseModal()">
+  <div class="">
+    <mo-wb-components-input
+      #input
+      [value]=""
+      [title]="'Tên ghi chú'"
+      [showAsterisk]="true"
+      [maxLength]="50"
+      [classInclude]=""
+      [actionKey]="'KEY-UP'"
+      [placeholder]="'Nhập tên ghi chú'">
+    </mo-wb-components-input>
+    <mo-wb-components-select
+      #select
+      [type]="'singe'"
+      [label]="'Lựa chọn danh mục'"
+      [showAsterisk]="true"
+      [selectTitle]="'i18n_select_fol'"
+      [classInclude]="'mo-wb-mt-15px'"
+      [items]="categoryList"
+      [key]="'category_id'"
+      [keyName]="'cate_name'"
+      (onSelectedChange)="handleOnSelectCategory($event)">
+    </mo-wb-components-select>
+    <mo-wb-components-input
+      #inputDescription
+      [value]=""
+      [title]="'Mô tả'"
+      [showAsterisk]="true"
+      [maxLength]="100"
+      [classInclude]="'mo-wb-mt-15px'"
+      [actionKey]="'KEY-UP'"
+      [isMultiple]="true"
+      [placeholder]="'Nhập phần mô tả'">
+    </mo-wb-components-input>
+  </div>
+</mo-wb-components-v4-modal>

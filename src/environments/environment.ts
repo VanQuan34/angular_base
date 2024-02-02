@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   domainPublic: window.location.origin,
-  domainApi: 'https://node-be-production-3cf0.up.railway.app', //"http://localhost:4000",
+  domainApi: 'https://node-be-test.onrender.com', //'http://localhost:4000', //'https://node-be-production-3cf0.up.railway.app',
+  domainApiLocal: 'http://localhost:4000',
   loginDirect: false
 };
 

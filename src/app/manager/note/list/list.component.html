@@ -1,0 +1,168 @@
+<div class="d-flex h-100 overflow-auto">
+  <div class="content mo-wb-ml-0-s1 w-100" [style]="tableRef?.loaded ? 'min-width: 1000px' : ''">
+    <div class="mo-wb-mt-0px h-100">
+      <div class="h-100 w-100 position-relative">
+        <mo-wb-components-table 
+          #table
+          [classInclude]="'w-100 h-100 mo-wb-shadow-lg mo-wb-border-radius-4px mo-wb-overflow-auto'"
+          [containerClassInclude]="''"
+          [class.max-height]="true"
+          [columnSetting]="tableColumns"
+          [templateHeader]="header"
+          [fetchParam]=""
+          [isClick]="false"
+          [templateRow]="row"
+          [items]="siteList"
+          [bodyClassInclude]="'mo-wb-bg-w mo-wb-overflow-auto'"
+          (onLoadedData)="handleOnTableLoadedData($event)">
+      
+          <!-- template header -->
+          <ng-template #header let-value>
+            <div class="mo-wb-h-32px d-flex w-100 mo-wb-gd-1 mo-wb-border-radius-top-4px"
+            [class.mo-wb-pr-8px]="hasScroll">
+              <div *ngFor="let columnItem of tableColumns; let i = index;"
+                [style.width]="columnItem.width + columnItem.widthUnit"
+                class="d-flex align-items-center "
+                [ngClass]="{'justify-content-center': columnItem.textAlign === 'center',
+                  'justify-content-start': columnItem.textAlign === 'start',
+                  'justify-content-end': columnItem.textAlign === 'end'}">
+      
+                <mo-wb-components-checkbox
+                  #checkAll 
+                  *ngIf="columnItem.type === 'CHECKBOX'"
+                  [state]="isCheckedAll ? 'selected' : 'unselected'"
+                  (onCheckedChange)="handleOnChangeCheckedAll($event)">
+                </mo-wb-components-checkbox>
+      
+                <div *ngIf="columnItem.type === 'TEXT'"
+                  class="mo-wb-f-b1">
+                  {{columnItem.name}}
+                </div>
+              </div>  
+            </div>  
+          </ng-template>
+      
+          <!-- template row -->
+          <ng-template #row let-rowItem="rowItem">
+            <div #itemEl 
+              class="mo-wb-h-62px d-flex w-100 mo-wb-border-bottom-general mo-wb-bg-hover-bg position-relative mo-wb-min-width-1000px">
+              <!-- Columns -->
+              <div *ngFor="let columnItem of tableColumns; let i = index;"
+                [style.width]="columnItem.width + columnItem.widthUnit"
+                class="d-flex align-items-center "
+                [ngClass]="{'justify-content-center': columnItem.textAlign === 'center',
+                  'justify-content-start': columnItem.textAlign === 'start',
+                  'justify-content-end': columnItem.textAlign === 'end'}">
+      
+                <mo-wb-components-checkbox
+                  #checkbox
+                  *ngIf="columnItem.type === 'CHECKBOX'"
+                  [state]="isCheckedItem ? 'selected' : 'unselected'"
+                  (onCheckedChange)="handleOnChangeCheckedItem($event, rowItem)">
+                </mo-wb-components-checkbox>
+      
+                <!-- Page column -->
+                <div *ngIf="columnItem.key === 'name'"
+                  class="d-flex h-100 w-100 align-items-center">
+                  <div class="mo-wb-h-42px w-100 d-flex align-items-center">
+                    <div #siteName class="mo-wb-calc-w-20px mo-wb-pr-20px d-flex align-items-center">
+                      <div class="mo-wb-f-b1 d-flex w-100">
+                        <!-- <div class="site-name mo-wb-cursor-pointer" (click)="handleOnClickEditSite($event, rowItem)">{{rowItem.name}}</div> -->
+                        <mo-wb-components-tooltip
+                          [classInclude]="''"
+                          [type]="'text'"
+                          [maxWidth]="200"
+                          [maxHeight]="100"
+                          [content]="rowItem.title"
+                          [noContentPadding]="false"
+                          [allowHover]="true">
+                          <span class="mo-wb-cursor-pointer"
+                          (click)="handleOnClickEditSite($event, rowItem)">{{rowItem.title ? rowItem.title : 'Chưa đặt tên'}}</span>
+                        </mo-wb-components-tooltip>
+                      </div>
+                      <div class="site-url d-flex w-100">
+                        <mo-wb-components-tooltip
+                          [classInclude]="''"
+                          [maxWidth]="200"
+                          [maxHeight]="100"
+                          [content]="rowItem.name"
+                          [noContentPadding]="false"
+                          [allowHover]="true"
+                          type="text">
+                          <div class="mo-wb-f-c4 mo-wb-mt-4px w-100"> 
+                            {{rowItem.name }}
+                          </div>
+                        </mo-wb-components-tooltip>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Folder column-->
+                <div *ngIf="columnItem.key === 'description'"
+                  class="d-flex align-items-center w-100 h-100">
+                  <div class="mo-wb-f-b2 folder-name mo-wb-pr-15px"
+                  (click)="handleOnClickPreview(rowItem.link)">{{rowItem.description || '--'}}</div>
+                </div>
+
+                <div *ngIf="columnItem.key === 'created_time'" class="d-flex align-items-center mo-wb-mt-4px mo-wb-f-b2">
+                  <i class="mo-icn-set-time mo-wb-font-size-12px mo-wb-color-btn-txt mo-wb-mr-8px"></i>
+                  <div class="mo-wb-color-btn-txt">{{rowItem.createdAt | date: 'HH:mm dd/MM/yyyy'}}</div>
+                </div>
+      
+                <!-- Status column -->
+                <div *ngIf="columnItem.key === 'status'"
+                  class="d-flex flex-column justify-content-center w-100 h-100">
+                  <!--Trang thai -->
+                  <div class="d-flex align-items-center">
+                    <div class="mo-wb-w-8px mo-wb-h-8px mo-wb-border-radius-4px mo-wb-mr-8px"
+                      [ngClass]="{'mo-wb-bg-btn-txt' : !rowItem['downloads'], 
+                        'mo-wb-bg-pri' : rowItem['status']}"></div>
+                    <div class="mo-wb-f-b2">
+                      <span>{{(rowItem.category_id | getNameFolderById : categoryList | async )}}</span>
+                    </div>
+                  </div>
+                  <!-- time -->
+                </div>
+      
+              </div>
+              <!-- hover action -->
+              <mo-wb-components-hover_action
+                [parentEl]="itemEl"
+                [fixedShow]="false">
+                <div class="position-center-ver d-flex align-items-center mo-wb-right-60px justify-content-end mo-wb-w-300px">
+                  <mo-wb-components-button
+                    [label]="'Chỉnh sửa'" 
+                    [type]="'outline'"
+                    [classIconLeft]="'mo-icn-edit'"
+                    [classInclude]="'mo-wb-mr-12px'" 
+                    [isPending]="false"
+                    (onClick)="handleOnClickEditSite($event, rowItem)"
+                    [disable]="false">  
+                  </mo-wb-components-button>
+      
+                  <!-- <mo-wb-components-button
+                    [label]="'Báo cáo'" 
+                    [type]="'outline'"
+                    [classIconLeft]="'mo-icn-report'"
+                    [classInclude]="''" 
+                    [isPending]="false"
+                    [disable]="rowItem['status'] ==='none' ? true : false"
+                    (onClick)="handleOnClickShowReport(rowItem)">
+                  </mo-wb-components-button> -->
+                </div>
+              </mo-wb-components-hover_action>
+              <!-- menu -->
+              <mo-wb-components-select-menu
+                [items]="menuItems"
+                [parentEl]="itemEl"
+                [classInclude]="'position-center-ver mo-wb-right-20px'"
+                (onClick)="handleOnClickItemMenu($event, rowItem)"
+                (onSelectItem)="handleOnSelectMenuItem($event, rowItem)">
+              </mo-wb-components-select-menu>
+            </div>
+          </ng-template>
+        </mo-wb-components-table>
+    </div>
+  </div>
+</div>

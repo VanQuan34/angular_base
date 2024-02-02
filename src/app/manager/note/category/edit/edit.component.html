@@ -1,0 +1,25 @@
+<mo-wb-components-v4-modal
+  [width]="width"
+  [title]="title"
+  [disable]=""
+  [zIndex]="zIndex + 10"
+  [label]="'Cập nhật'"
+  [isPending]="loading"
+  [isHideMenu]="isHideMenu"
+  (onOk)="handleOnClickOnChangeName($event)"
+  (onClose)="handleOnCloseModal()">
+  <div class="">
+    <mo-wb-components-input
+      #input
+      [title]="'i18n_name_folder'"
+      [showAsterisk]="true"
+      [value]="categoryInfo.cate_name"
+      [placeholder]="'i18n_enter_folder_name'"
+      [classInclude]="'mo-wb-py-10px'"
+      [maxLength]="25"
+      [actionKey]="'KEY-UP'"
+      (onInputError)="handleErrorInput($event)"
+      (onValueChanged)="handleOnValueChange($event)">
+    </mo-wb-components-input>
+  </div>
+</mo-wb-components-v4-modal>

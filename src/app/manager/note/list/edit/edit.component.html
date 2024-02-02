@@ -1,0 +1,35 @@
+<mo-wb-components-v4-modal
+  #modal
+  [title]="title"
+  [width]="width"
+  [height]="'auto'"
+  [zIndex]="5000"
+  [label]="'Lưu'"
+  [isPending]="isPending"
+  [isHideMenu]="isHideMenu"
+  (onOk)="handleOnClickEditName($event)"
+  (onClose)="handleOnCloseModal()">
+  <div class="">
+    <mo-wb-components-input
+      #input
+      [value]="noteInfo.title"
+      [title]="'Tên ghi chú'"
+      [showAsterisk]="true"
+      [maxLength]="50"
+      [classInclude]=""
+      [actionKey]="'KEY-UP'"
+      [placeholder]="'Nhập tên ghi chú'">
+    </mo-wb-components-input>
+    <mo-wb-components-input
+      #inputDescription
+      [value]="noteInfo.description"
+      [title]="'Mô tả'"
+      [showAsterisk]="true"
+      [maxLength]="100"
+      [classInclude]="'mo-wb-mt-20px'"
+      [actionKey]="'KEY-UP'"
+      [isMultiple]="true"
+      [placeholder]="'Nhập phần mô tả'">
+    </mo-wb-components-input>
+  </div>
+</mo-wb-components-v4-modal>

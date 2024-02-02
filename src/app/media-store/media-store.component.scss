@@ -1,0 +1,12 @@
+.mo-media-store-container {
+  display: flex;
+  background-color: #fff;
+  height: 100vh;
+  .left-container {
+    width: 416px;
+  }
+
+  .right-container {
+    width: calc(100% - 416px);
+  }
+}

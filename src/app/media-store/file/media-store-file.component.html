@@ -1,0 +1,331 @@
+<div class="mo-store-media-file-container" [ngClass]="{'mo-store-media-file-cms-container' : type === 'CMS' }">
+
+  <div class="header-container" >
+
+    <div class="header-top-container" >
+
+      <div *ngIf="type === 'CMS'" class="center-flex-container">
+        <mo-wb-components-button 
+          classIconLeft="mo-icn-add-new mo-wb-font-size-10px" 
+          [classInclude]="'mo-wb-mr-12px'"
+          [disable]="loading"
+          label="i18n_new_file"
+          (onClick)="handleOnAddNewFile();">
+        </mo-wb-components-button>
+
+        <ng-container *ngIf="selectedItems.length">
+          <div class="mo-wb-mr-8px">{{('i18n_is_select_instant' | translate) | translateI18nPipe: selectedItems.length}}</div>
+          <div *ngIf="selectedItems.length !== fileList.length" 
+            class="mo-wb-f-b1 mo-wb-cursor-pointer mo-wb-color-pri mo-wb-mr-8px"
+            (click)="handleOnSelectAll($event);">{{('i18n_select_all_object' | translate) | translateI18nPipe: fileList.length}}</div>
+
+          <div *ngIf="selectedItems.length === fileList.length" 
+            class="mo-wb-f-b1 mo-wb-cursor-pointer mo-wb-color-pri mo-wb-mr-8px"
+            (click)="handleOnUnSelectAll($event);">{{('i18n_unselect_all_object' | translate) | translateI18nPipe: fileList.length}}</div>
+          <div class="mo-wb-cursor-pointer mo-wb-color-btn-txt" (click)="handleOnUnSelectAll($event);">{{'i18n_unselect' | translate}}</div>
+        </ng-container>
+
+      </div>
+
+      <div class="input-search">
+        <mo-wb-components-input 
+          [hideTextRequire]="true"
+          [isRequired]="false"
+          [actionKey]="'ENTER'" 
+          [isSearchInput]="true"
+          [placeholder]="'i18n_find_by_name_file'"
+          [classInclude]="''" 
+          (onValueChanged)="handleOnSearchFile($event)">
+        </mo-wb-components-input>
+      </div>
+      
+    </div>
+
+    <div class="header-bottom-container">
+      <div class=center-flex-container>
+
+        <mo-wb-components-button 
+          *ngIf="type === 'POPUP'"
+          classIconLeft="mo-icn-add-new mo-wb-font-size-10px" 
+          [classInclude]="'mo-wb-mr-12px'"
+          [disable]="loading"
+          label="i18n_new_file"
+          (onClick)="handleOnAddNewFile();">
+        </mo-wb-components-button>
+
+        <mo-wb-components-button
+          *ngIf="selectedItems.length > 0 && groupId !== ''"
+          classIconLeft="mo-icn-move_file_to"
+          [classInclude]="'mo-wb-mr-12px mo-wb-pt-8px mo-wb-pb-8px mo-wb-pl-8px mo-wb-pr-8px'" 
+          [label]="''"
+          [disable]="loading"
+          [type]="'icon-outline'" 
+          [tooltipContent]="'i18n_tranfer_folder'"
+          (onClick)="handleOnMoveFile($event)">
+        </mo-wb-components-button>
+
+        <mo-wb-components-button 
+          *ngIf="selectedItems.length === 1 && selectedItems[0].isImage"
+          classIconLeft="mo-icn-sua"
+          [classInclude]="'mo-wb-mr-12px mo-wb-pt-8px mo-wb-pb-8px mo-wb-pl-8px mo-wb-pr-8px'" 
+          [label]="''"
+          [type]="'icon-outline'" 
+          [disable]="loading"
+          [tooltipContent]="'i18n_edit'"
+          (onClick)="handleOnEditFile($event)">
+        </mo-wb-components-button>
+
+        <mo-wb-components-button 
+          *ngIf="selectedItems.length > 0"
+          classIconLeft="mo-icn-menu-xoa"
+          [classInclude]="'mo-wb-pt-8px mo-wb-pb-8px mo-wb-pl-8px mo-wb-pr-8px'" 
+          [label]="''" 
+          [type]="'icon-red'"
+          [disable]="loading"
+          [tooltipContent]="'i18n_delete'"
+          (onClick)="handleOnDeleteFile($event);">
+        </mo-wb-components-button>
+
+      </div>
+
+      <div class=center-flex-container>
+        <mo-wb-components-button 
+          [classIconLeft]="'mo-icn-survey_short_answer mo-wb-mr-8px'"
+          [classInclude]="'mo-wb-mr-12px'"
+          [label]="('i18n_order_by' | translate)+': ' + (sortItems[selectedSortIndex].name | translate)" 
+          [type]=" sortOpen ? 'pri' : 'outline'" 
+          [disable]="loading"
+          (onClick)="handleOnSelectSortPopup($event)">
+        </mo-wb-components-button>
+
+        <mo-wb-components-button classIconLeft="mo-icn-Step-view"
+          [classInclude]="'mo-wb-pt-8px mo-wb-pb-8px mo-wb-pl-8px mo-wb-pr-8px mo-wb-border-radius-top-right-0 mo-wb-border-radius-bottom-right-0 '"
+          [label]="''" [type]="displayMode === 'grid' ? 'icon-pri' : 'icon-outline'"
+          [disable]="loading"
+          (onClick)="handleOnSelectGridView()">
+        </mo-wb-components-button>
+
+        <mo-wb-components-button classIconLeft="mo-icn-Table-view"
+          [classInclude]="'mo-wb-pt-8px mo-wb-pb-8px mo-wb-pl-8px mo-wb-pr-8px mo-wb-border-radius-top-left-0 mo-wb-border-radius-bottom-left-0'"
+          [label]="''" [type]="displayMode === 'list' ? 'icon-pri' : 'icon-outline'"
+          [disable]="loading"
+          (onClick)="handleOnSelectListView()">
+        </mo-wb-components-button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="content-container"
+  [ngClass]="{'mo-media-store-cms-content-container':displayMode === 'list' && type === 'CMS' }">
+    <div *ngIf="displayMode === 'list' && type === 'CMS'" class="file-list-header">
+      <div class="file-col-name mo-wb-f-b1">{{'i18n_name_file'|translate}}</div>
+      <div class="file-col-info mo-wb-f-b1">{{'i18n_capacity' | translate}}</div>
+      <div class="file-col-info mo-wb-f-b1">{{'i18n_format' | translate}}</div>
+      <div class="file-col-info mo-wb-f-b1">{{'i18n_resolution' | translate}}</div>
+      <div class="file-col-info mo-wb-f-b1">{{'i18n_time_outdate'|translate}}</div>
+    </div>
+    <div #fileContainer class="file-list-container">
+
+        <div class="media-store-item-container" *ngFor="let item of fileList; let i=index;"
+          [ngClass]="{'w-100' :  displayMode === 'list'}">
+          <div class="media-store-file-item" 
+            *ngIf="!item.isOverSize || type === 'CMS'"
+            [ngClass]="{'mo-media-store-item-selected': checkIfItemIsSelected(item) >= 0, 
+            'mo-media-store-item-list': displayMode === 'list' && type === 'POPUP', 
+            'mo-media-store-item-cms-list': displayMode === 'list' && type === 'CMS',
+            'single-select' : !multiple, 
+            'over-size' : type !== 'CMS' && item.isOverSize }"
+            (click)="handleOnFileItemClick($event, item);"
+            (dblclick)="handleOnFileItemDbClick(item)">
+
+            <ng-container *ngIf="displayMode != 'list' || type != 'CMS'">
+
+              <div class="img-container" 
+                [ngClass]="{'file-img-container':  !item.isImage}">
+                <img *ngIf="item.isImage" src="{{item.imageThumb}}"/>
+                  <img *ngIf="!item.isImage && item.imageThumb" src="{{item.imageThumb}}" class="file-img" />
+                  <i *ngIf="!item.isImage && !item.imageThumb" class="mo-icn-File file-icon"></i>
+              </div>
+              <div class="info-container">
+                <div class="center-flex-container">
+                  <div class="mo-wb-f-b1 mo-wb-mb-4px title" title="{{item.filename}}">{{item.filename}}</div>
+                  <i *ngIf="item.isExpired" class="expired-icon-top mo-icn-deal_time"></i>
+                </div>
+                <div class="grid-info">
+                  <div class="mo-wb-font-family-regular mo-wb-font-size-10px mo-wb-color-btn-txt">{{item.ext}}</div>
+                </div>
+                <div class="list-info">
+                  <div class="mo-wb-font-family-regular mo-wb-font-size-10px mo-wb-color-btn-txt">{{'i18n_format' | translate}}: {{item.ext}}</div>
+                  <div class="mo-wb-font-family-regular mo-wb-font-size-10px mo-wb-color-btn-txt mo-wb-mt-4px">{{'i18n_capacity' | translate}}: {{item.origin_capacity}}</div>
+                  <div *ngIf="item.isImage" class="mo-wb-font-family-regular mo-wb-font-size-10px mo-wb-color-btn-txt mo-wb-mt-4px">{{'i18n_resolution' | translate}}: {{item.origin_width ? item.origin_width + ' x ' + item.origin_height + ' px' : '-' }}</div>
+                </div>
+              </div>
+
+            </ng-container>
+
+            <ng-container *ngIf="displayMode === 'list' && type === 'CMS'">
+              <div class="file-col-name">
+                <div class="img-container mo-wb-ml-20px" 
+                  [ngClass]="{'file-img-container':  !item.isImage}">
+                  <img *ngIf="item.isImage" src="{{item.imageThumb}}"/>
+                  <img *ngIf="!item.isImage && item.imageThumb" src="{{item.imageThumb}}" class="file-img" />
+                  <i *ngIf="!item.isImage && !item.imageThumb" class="mo-icn-File file-icon"></i>
+                </div>
+                <div class="center-flex-container">
+                  <div class="mo-wb-ml-8px mo-wb-mb-4px title mo-wb-color-pri" title="{{item.filename}}">{{item.filename}}</div>
+                  <mo-wb-components-tooltip
+                    *ngIf="item.isExpired" 
+                    [maxWidth]="116"
+                    [maxHeight]="100"
+                    [content]="'i18n_outdate_store'"
+                    [noContentPadding]="false"
+                    [allowHover]="true"
+                    type="other">
+                    <i class="expired-icon-top mo-icn-deal_time"></i>
+                 </mo-wb-components-tooltip>
+                </div>
+              </div>
+              <div class="file-col-info">{{item.origin_capacity}}</div>
+              <div class="file-col-info">{{item.ext}}</div>
+              <div class="file-col-info">{{ item.origin_width ? item.origin_width + ' x ' + item.origin_height + ' px' : '-'}} </div>
+              <div class="file-col-info">{{item.display_expired_time}}</div>
+            </ng-container>
+
+            <div class="selected-checked">
+              <i class="mo-icn-complete-step"></i>
+            </div>
+
+            <div class="detail-button">
+              <mo-wb-components-button 
+                [disable]="loading"
+                [label]="'i18n_view_detail'" 
+                [type]="'outline'" 
+                (onClick)="handleOnDetailButtonClick($event, item);">
+              </mo-wb-components-button>
+            </div>
+
+            <div class="select-button">
+              <ng-container *ngIf="!multiple">  
+                <mo-wb-components-radio 
+                  [isSelected]="checkIfItemIsSelected(item) >= 0 ? true : false"
+                  [classInclude]="'position-absolute mo-wb-top-46px mo-wb-left-12px '"
+                  [label]="''"
+                  (onSelectedChange)="handleOnCheckboxSelect($event, item);">
+                </mo-wb-components-radio>
+              </ng-container>
+
+              <ng-container *ngIf="multiple">  
+                <mo-wb-components-checkbox 
+                  [state]="checkIfItemIsSelected(item) >= 0 ? 'selected' : 'unselected'"
+                  [classInclude]="'position-absolute mo-wb-left-12px ' + (displayMode === 'list' && type === 'CMS' ? 'mo-wb-top-20px' : 'mo-wb-top-46px')"
+                  [label]="''"
+                  (onCheckedChange)="handleOnCheckboxSelect($event, item);">
+                </mo-wb-components-checkbox>
+              </ng-container>
+              
+            </div>
+
+            <mo-wb-components-tooltip
+              *ngIf="item.isExpired" 
+              [maxWidth]="116"
+              [maxHeight]="100"
+              [content]="'i18n_outdate_store'"
+              [noContentPadding]="false"
+              [allowHover]="true"
+              type="other">
+              <div class="expired-icon mo-icn-deal_time"></div>
+            </mo-wb-components-tooltip>
+            
+          </div>
+
+          <mo-wb-components-tooltip
+            *ngIf="item.isOverSize && type !== 'CMS'"
+            [maxWidth]="254"
+            [maxHeight]="100"
+            [content]="'i18n_limit_file'"
+            [noContentPadding]="false"
+            [ignoreCaculatorMaxHeightContent]="true"
+            [allowHover]="true"
+            type="other">
+            <div class="media-store-file-item" 
+              [ngClass]="{ 'mo-media-store-item-list': displayMode === 'list', 'over-size' : item.isOverSize }">
+              <div class="img-container" 
+                [ngClass]="{'file-img-container':  !item.isImage}">
+                <img *ngIf="item.isImage" src="{{item.imageThumb}}"/>
+                <img *ngIf="!item.isImage && item.imageThumb" src="{{item.imageThumb}}" class="file-img" />
+                <i *ngIf="!item.isImage && !item.imageThumb" class="mo-icn-File file-icon"></i>
+              </div>
+              <div class="info-container">
+                <div class="center-flex-container">
+                  <div class="mo-wb-f-b1 mo-wb-mb-4px title" title="{{item.filename}}">{{item.filename}}</div>
+                  <i *ngIf="item.isExpired" class="expired-icon-top mo-icn-deal_time"></i>
+                </div>
+                <div class="grid-info">
+                  <div class="mo-wb-font-family-regular mo-wb-font-size-10px mo-wb-color-btn-txt">{{item.ext}}</div>
+                </div>
+                <div class="list-info">
+                  <div class="mo-wb-font-family-regular mo-wb-font-size-10px mo-wb-color-btn-txt">{{'i18n_format' | translate}}: {{item.ext}}</div>
+                  <div class="mo-wb-font-family-regular mo-wb-font-size-10px mo-wb-color-btn-txt mo-wb-mt-4px">{{'i18n_capacity' | translate}}: {{item.origin_capacity}}</div>
+                  <div *ngIf="item.isImage" class="mo-wb-font-family-regular mo-wb-font-size-10px mo-wb-color-btn-txt mo-wb-mt-4px">{{'i18n_resolution' | translate}}: {{item.origin_width ? item.origin_width + ' x ' + item.origin_height + ' px' : '-'}} px</div>
+                </div>
+              </div>
+
+              <div class="select-button">
+                <ng-container *ngIf="!multiple">  
+                  <mo-wb-components-radio 
+                    [isSelected]="checkIfItemIsSelected(item) >= 0 ? true : false"
+                    [classInclude]="'position-absolute mo-wb-top-46px mo-wb-left-12px'"
+                    [label]="''"
+                    (onSelectedChange)="handleOnCheckboxSelect($event, item);">
+                  </mo-wb-components-radio>
+                </ng-container>
+
+                <ng-container *ngIf="multiple">  
+                  <mo-wb-components-checkbox 
+                    [state]="checkIfItemIsSelected(item) >= 0 ? 'selected' : 'unselected'"
+                    [classInclude]="'position-absolute mo-wb-top-46px mo-wb-left-12px'"
+                    [label]="''"
+                    (onCheckedChange)="handleOnCheckboxSelect($event, item);">
+                  </mo-wb-components-checkbox>
+                </ng-container>
+              </div>
+
+              <div *ngIf="item.isExpired" class="expired-icon mo-icn-deal_time"></div>
+            </div>
+          </mo-wb-components-tooltip>
+
+        </div>
+    </div>
+
+    <!-- <mo-wb-media_store_loader [loading]="loading"></mo-wb-media_store_loader> -->
+    <div *ngIf="loading">
+      <div class="overlay"></div>
+      <mo-wb-components-spinner [width]="'60px'"  [height]="'60px'" ></mo-wb-components-spinner>
+    </div>
+
+    <div class="none-item"
+      [style.display]="loaded && !loading && !fileList.length ? 'flex' : 'none'">
+      <i class="mo-icn-file-template icon"></i>
+      <div class="mo-wb-font-family-regular mo-wb-color-btn-txt mo-wb-mt-12px"> {{ getEmptyMessage() | translate}}</div>
+    </div>
+
+  </div>
+
+  <div [style.display]=" sortOpen ? 'block' : 'none'">
+    <div class="popup-overlay"
+      (click)="handleOnOverlayPopupSortClick($event);"></div>
+    <div class="media-store-file-popup-container sort-popup-container">
+      <div class="sort-item mo-wb-font-family-regular"
+        *ngFor="let item of sortItems; let i=index;"
+        [ngClass]="{'selected': i === selectedSortIndex, 'none-border' : i === sortItems.length - 1}"
+        (click)="handleOnSelectSortItem($event, i);">
+        <span>{{item.name | translate}}</span>
+        <i class="mo-icn-complete-step icon-selected"></i>
+      </div>
+    </div>
+  </div>
+
+  
+
+</div>

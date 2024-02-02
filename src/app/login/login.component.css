@@ -1,0 +1,13 @@
+.login-box-right-item{
+    box-shadow: 0 1px 1px #00143305, 0 8px 56px #0014330d;
+    max-width: 96%;
+    min-width: 400px;
+    width: 450px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.heading{
+    font-size: 30px;
+    line-height: 38px;
+}

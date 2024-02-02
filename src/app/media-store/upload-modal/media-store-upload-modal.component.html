@@ -1,0 +1,34 @@
+<mo-wb-components-v4-modal
+  [title]="'i18n_file_new' | translate" 
+  [width]="'598px'"
+  [isPending]="loading"
+  [disable]="disable"
+  (onClose)="handleOnCloseModal()"
+  (onOk)="handleOnSaveClick()">
+
+  <div class="mo-wb-pb-12px">
+    <mo-wb-components-select 
+      #folder
+      [items]="folderListItems"
+      [hasSearch]="true"
+      [selectedIds]="folderId ? [folderId] : []"
+      [selectTitle]="'i18n_select_folder' | translate"
+      [title]="'i18n_folder_lowercase' | translate"
+      (onSelectedChange)="handleOnSelectFolder($event)">
+    </mo-wb-components-select>
+  </div>
+
+  <mo-wb-components-file-upload-v4 
+    #upload
+    [minHeight]="224"
+    [fieldLabel]="'File media'"
+    [type]="uploadType"
+    [multiple]="true"
+    [fromMedia]="false"
+    [maxImageSize]="maxImageSize"
+    [maxFileSize]="maxFileSize"
+    (onFileChanged)="handleOnUploadFileChanged($event)"
+    (onUploadSuccess)="handleOnUploadSuccess()">
+  </mo-wb-components-file-upload-v4>
+
+</mo-wb-components-v4-modal>

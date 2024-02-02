@@ -1,0 +1,94 @@
+<div class="mo-wb-border-radius-4px mo-wb-bg-w mo-wb-shadow-lg mo-wb-calc-h-10px mo-wb-w-250px mo-wb-p-10px">
+
+  <!-- select all -->
+  <div class="mo-wb-folder-all d-flex align-items-center mo-wb-h-32px mo-wb-border-radius-4px mo-wb-cursor-pointer"
+    [ngClass]="{'mo-wb-bg-hover-bg mo-wb-cursor-pointer': selectedTab !== 'ALL',
+      'mo-wb-bg-pri-l2 selected' : selectedTab === 'ALL'}"
+      (click)="handleOnClickActiveTab($event, 'ALL')">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.16602 2.625H12.2493" stroke="#101010" stroke-linecap="round" stroke-linejoin="round" data-stroke="a23538d29d6"></path><path d="M8.16602 5.54102H12.2493" stroke="#101010" stroke-linecap="round" stroke-linejoin="round" data-stroke="a23538d29d6"></path><path d="M1.75 8.45898H12.25" stroke="#101010" stroke-linecap="round" stroke-linejoin="round" data-stroke="a23538d29d6"></path><path d="M1.75 11.375H12.25" stroke="#101010" stroke-linecap="round" stroke-linejoin="round" data-stroke="a23538d29d6"></path><path d="M5.54102 4.91815V3.24982C5.54102 2.59648 5.27852 2.33398 4.61935 2.33398H2.95685C2.30352 2.33398 2.04102 2.59648 2.04102 3.24982V4.91232C2.04102 5.57148 2.30352 5.83398 2.95685 5.83398H4.61935C5.27852 5.83398 5.54102 5.57148 5.54102 4.91815Z" stroke="#101010" stroke-linecap="round" stroke-linejoin="round" data-stroke="a23538d29d6"></path></svg>
+    <div class="mo-wb-f-b1 mo-wb-ml-8px"
+      [ngClass]="{'mo-wb-color-pri' : selectedTab === 'ALL'}">{{'Tất cả' | translate}}</div>
+  </div>
+
+  <div class="mo-wb-border-top-general mo-wb-my-10px"></div>
+
+  <!-- trash -->
+  <div class=" mo-wb-folder-trash  d-flex align-items-center mo-wb-h-32px mo-wb-border-radius-4px"
+    [ngClass]="{'mo-wb-bg-hover-bg mo-wb-cursor-pointer': selectedTab !== 'TRASH',
+      'mo-wb-bg-pri-l2 mo-wb-stroke-pri' : selectedTab === 'TRASH'}"
+      (click)="handleOnClickActiveTab($event, 'TRASH')">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.24935 12.8327H4.08268C1.74935 12.8327 1.16602 12.2493 1.16602 9.91602V4.08268C1.16602 1.74935 1.74935 1.16602 4.08268 1.16602H4.95768C5.83268 1.16602 6.0252 1.42269 6.3577 1.86602L7.2327 3.03269C7.45436 3.32436 7.58268 3.49935 8.16602 3.49935H9.91602C12.2493 3.49935 12.8327 4.08268 12.8327 6.41602V7.58268" stroke="#101010" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" data-stroke="538d29d6b72"></path><path d="M8.02617 10.6859C6.65534 10.7851 6.65534 12.7684 8.02617 12.8676H11.2695C11.6603 12.8676 12.0453 12.7217 12.3312 12.4592C13.2937 11.6192 12.7803 9.93924 11.5145 9.78174C11.0595 7.04591 7.10452 8.08424 8.03785 10.6917" stroke="#101010" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" data-stroke="538d29d6b72"></path></svg>
+    <div class="mo-wb-f-b1 mo-wb-ml-8px"
+      [ngClass]="{'mo-wb-color-pri' : selectedTab === 'TRASH'}">{{'i18n_trash' | translate}}</div>
+  </div>
+
+  <div class="mo-wb-border-top-general mo-wb-my-10px"></div>
+
+  <mo-wb-components-button
+    [label]="'Tạo Folder'" 
+    [type]="'link'"
+    [classIconLeft]="'mo-icn-add'"
+    [classInclude]="''" 
+    [isPending]="false"
+    [disable]="false"
+    (onClick)="handleOnClickAddNewFolder($event)">
+  </mo-wb-components-button>
+
+  <mo-wb-components-input
+    [placeholder]="'Tìm kiếm theo tên folder'"
+    [classInclude]="'w-100 mo-wb-mt-10px'"
+    [isSearchInput]="true"
+    [isCheckEmpty]="true"
+    (onValueChanged)="handleOnInputValueChanged($event)">
+  </mo-wb-components-input>
+
+  <div class="mo-wb-mt-10px position-relative mo-wb-calc-h-177px mo-wb-overflow-auto">
+    <div #itemEl *ngFor="let item of cateItems; let i = index;"
+      class="w-100 d-flex align-items-center justify-content-between mo-wb-py-8px position-relative mo-wb-cursor-pointer mo-wb-bg-hover-bg mo-wb-border-radius-4px"
+      [ngClass]="{'mo-wb-bg-pri-l2 mo-wb-color-pri mo-wb-stroke-pri' : selectedFolder === item.category_id}"
+      (click)="handleOnClickCategory(item)">
+      
+      <div #container 
+        class="mo-wb-folder-item d-flex align-items-center w-100"
+        [ngClass]="{'mo-wb-stroke-pri' : selectedFolder === item.category_id}">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8327 6.41602V9.91602C12.8327 12.2493 12.2493 12.8327 9.91602 12.8327H4.08268C1.74935 12.8327 1.16602 12.2493 1.16602 9.91602V4.08268C1.16602 1.74935 1.74935 1.16602 4.08268 1.16602H4.95768C5.83268 1.16602 6.02518 1.42268 6.35768 1.86602L7.23268 3.03268C7.45435 3.32435 7.58268 3.49935 8.16602 3.49935H9.91602C12.2493 3.49935 12.8327 4.08268 12.8327 6.41602Z" stroke="#101010" stroke-miterlimit="10" data-stroke="8d29d6b72e8"></path></svg>
+        <div class="mo-wb-f-b2 mo-wb-ml-8px d-flex name-folder"
+          #name
+          [ngClass]="{'mo-wb-color-pri' : selectedFolder === item.category_id}">
+          <mo-wb-components-tooltip
+            [classInclude]="''"
+            [maxWidth]="200"
+            [maxHeight]="100"
+            [content]="item.cate_name"
+            [noContentPadding]="false"
+            [allowHover]="true"
+            type="text">
+            <span>{{ item.cate_name | translate}}</span>
+          </mo-wb-components-tooltip>
+        </div>
+        <div class="mo-wb-f-c4 mo-wb-ml-2px mo-wb-mb-4px"
+        [ngClass]="{'mo-wb-color-pri' : selectedFolder === item.category_id}">({{item.note_amount}})</div>
+      </div>
+
+      <mo-wb-components-select-menu
+        [items]="folderMenuItems"
+        [parentEl]="itemEl"
+        [menuIcon]="'mo-icn-more-horizontal mo-wb-rotate-90deg'"
+        [width]="160"
+        [classInclude]="'position-center-ver mo-wb-right-5px'"
+        (onSelectItem)="handleOnSelectMenuItem($event, item)">
+      </mo-wb-components-select-menu>
+    </div>
+    <ng-container *ngIf="valueSearch && cateItems.length === 0">
+      <div class="d-flex flex-column align-items-center">
+        <img class="mo-wb-w-64px mo-wb-h-64px" src="./assets/images/no-data.png" />
+        <div class="mo-wb-mt-20px mo-wb-color-cap-txt">{{'Không có kết quả' | translate}}</div>
+      </div>
+    </ng-container>
+    <mo-wb-components-spinner  
+      *ngIf="isLoading"
+      [size]="'m'"
+      [ngClass]="'mo-wb-pt-40px d-block'">
+    </mo-wb-components-spinner>
+  </div>
+</div>

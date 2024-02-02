@@ -1,0 +1,303 @@
+<div class='mo-store-edit-container' 
+  [style.display]="isOpen?'':'none'" 
+  [style.zIndex]="zIndex">
+  <div class="mo-store-edit-content-container" 
+    #viewContainerRef 
+    [style.width]="'1200px'"
+    [style.height]="'801px'"
+    [style.max-width]="'1200px'"
+    [style.max-height]="modalHeight">
+    <!-- content -->
+    <div
+      [ngClass]="{'mo-store-edit-content':true,'mo-store-edit-content-inner':isHeightAutoSize}"
+      [style.height]="'calc(100% - 52px)'">
+
+      <div class="content-container">
+
+        <div #imageContainer class="img-container">
+          <img #imageOrigin src="{{imgSrcList[0]}}" class="imgOrigin" />
+          <div [style.display]="isCropMode ? 'block' : 'none'"> 
+            <img #imageClip src="{{imgSrcList[0]}}" class="imgClip" />
+            <div class="overlay">
+            </div>
+            <div #cropArea class="crop-area">
+              <div class="crop-content-container">
+                <div #cropTL class="crop-resize-tl mo-icn-Crop-frame-1"></div>
+                <div #cropBL class="crop-resize-bl mo-icn-Crop-frame-4"></div>
+                <div #cropTR class="crop-resize-tr mo-icn-Crop-frame-2"></div>
+                <div #cropBR class="crop-resize-br mo-icn-Crop-frame-3"></div>
+                <div #cropLineVL class="crop-line-vl"></div>
+                <div #cropLineVR class="crop-line-vr"></div>
+                <div #cropLineHT class="crop-line-ht"></div>
+                <div #cropLineHB class="crop-line-hb"></div>
+
+                <div class="lineHRT"></div>
+                <div class="lineHRB"></div>
+                <div class="lineVRL"></div>
+                <div class="lineVRR"></div>
+
+                <div class="lineHR1"></div>
+                <div class="lineHR2"></div>
+                <div class="lineVR1"></div>
+                <div class="lineVR2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="control-container">
+          <div class="left-container">
+            
+            <div *ngIf="hasZoom" class="control-button {{isCropMode ? 'control-button-selected' : ''}}"
+              (click)="handleOnSelectCropMode();">
+              <div class="mo-icn-crop mo-wb-font-size-20px icon"></div>
+              <div class="mo-wb-f-b1 mo-wb-mt-4px title">{{'i18n_cut' | translate}}</div>
+            </div>
+
+            <div class="control-button"
+              (click)="handleOnRotateImage();">
+              <div class="mo-icn-rotate mo-wb-font-size-20px"></div>
+              <div class="mo-wb-f-b1 mo-wb-mt-4px">{{'i18n_swim' | translate}}</div>
+            </div>
+
+            <div class="control-button"
+              (click)="handleOnSelectFipImage();">
+              <div class="mo-icn-flip_horizontal mo-wb-font-size-20px"></div>
+              <div class="mo-wb-f-b1 mo-wb-mt-4px">{{'i18n_vertical_flip' | translate}}</div>
+            </div>
+
+            <div class="control-button"
+              (click)="handleOnSelectMirrorImage();" >
+              <div class="mo-icn-flip_vertical mo-wb-font-size-20px"></div>
+              <div class="mo-wb-f-b1 mo-wb-mt-4px">{{'i18n_horizontal_flip' | translate}}</div>
+            </div>
+
+            <div class="control-button"
+              (click)="handleOnSelectResize();">
+              <div class="mo-icn-resize mo-wb-font-size-20px"></div>
+              <div class="mo-wb-f-b1 mo-wb-mt-4px">Resize</div>
+            </div>
+
+            <div *ngIf="hasZoom" class="control-button"
+              (click)="handleOnZoomInImage();">
+              <div class="mo-icn-new_zoom_in mo-wb-font-size-20px"></div>
+              <div class="mo-wb-f-b1 mo-wb-mt-4px">{{'i18n_zoom' | translate}}</div>
+            </div>
+
+            <div *ngIf="hasZoom" class="control-button"
+              (click)="handleOnZoomOutImage();">
+              <div class="mo-icn-new_zoom_out mo-wb-font-size-20px"></div>
+              <div class="mo-wb-f-b1 mo-wb-mt-4px">{{'i18n_zoom_out' | translate}}</div>
+            </div>
+
+          </div>
+
+          <div class="right-container d-fex">
+
+            <div class="mo-wb-mr-30px">
+              <div class="mo-wb-f-b1 mo-wb-mb-13px">{{"i18n_frame_cut"| translate}}</div>
+              <div class="mo-wb-f-b1 mo-wb-color-pri mo-wb-font-family-regular crop-ratio-select" 
+                (click)="handleOnSelectCropRatioPopup();">{{cropRatioList[selectedCropRatioIndex].label | translate}} 
+                  <i class="mo-icn-collapsed1 mo-wb-mr-8px mo-wb-color-pri mo-wb-font-size-8px"></i>
+              </div>
+            </div>
+
+            <div class="mo-wb-mr-20px">
+              <div class="mo-wb-f-b1 mo-wb-mb-9px">Chất lượng</div>
+              <mo-wb-components-input-number
+                [classInclude]="'mo-wb-w-80px'"
+                [value]="quality"
+                [max]="100"
+                [min]="1"
+                [unit]="'%'"
+                (onValueChanged)="handleOnImageQualityChange($event);">
+              </mo-wb-components-input-number>
+            </div>
+
+            <div class="mo-wb-mr-20px" style="width: 116px">
+              <div class="mo-wb-f-b1 mo-wb-mb-9px">Width(px)</div>
+              <mo-wb-components-input-number
+                [width]="'116px'"
+                [isRequired]="false"
+                [value]="cropSize?.width"
+                [max]="originWidth"
+                [min]="1"
+                (onValueChanged)="handleOnCropWidthChange($event);">
+              </mo-wb-components-input-number>
+            </div>
+
+            <div style="width: 116px">
+              <div class="mo-wb-f-b1 mo-wb-mb-9px">Height(px)</div>
+              <mo-wb-components-input-number
+                [isRequired]="false"
+                [max]="originHeight"
+                [min]="1"
+                [value]="cropSize?.height"
+                (onValueChanged)="handleOnCropWidthChange($event);"
+              >
+              </mo-wb-components-input-number>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- footer -->
+    <div class="mo-store-edit-footer">
+      <div class="footer-content-container">
+        <div class="right-container">
+          <mo-wb-components-button 
+            [classInclude]="'mo-wb-mr-12px'"
+            [label]="'i18n_restore'"
+            [type]="'third'" 
+            [disable]="!isImageChanged || loading"
+            (onClick)="handleOnRestoreImage()">
+          </mo-wb-components-button>
+          <mo-wb-components-button 
+            *ngIf="hasZoom"
+            [classInclude]="''"
+            [label]="'i18n_label_cut_image'" 
+            [type]="'outline'"
+            [disable]="!isCropMode || loading"
+            (onClick)="handleOnCropImage()">
+          </mo-wb-components-button>
+        </div>
+
+        <div class="left-container">
+          <ng-container *ngIf="mode === 'ALL' || mode === 'FILE'">
+            <mo-wb-components-button 
+              [classInclude]="'mo-wb-mr-12px'"
+              [label]="'i18n_agree'" 
+              [disable]="loading"
+              (onClick)="handleOnSelectFile($event)">
+            </mo-wb-components-button>
+          </ng-container>
+          <ng-container>
+            <mo-wb-components-button 
+              [classInclude]="'mo-wb-mr-12px'"
+              [label]="'i18n_save'"
+              [disable]="loading"
+              (onClick)="handleOnSaveNewFileClick($event)">
+            </mo-wb-components-button>
+
+            <!-- <mo-wb-components-button 
+              [classInclude]="'mo-wb-mr-12px'"
+              [label]="'i18n_save_to_new_file'" 
+              [type]="'outline'"
+              [disable]="loading"
+              (onClick)="handleOnSaveNewFileClick($event)">
+            </mo-wb-components-button> -->
+          </ng-container>
+
+          <mo-wb-components-button 
+            [type]="'third'"
+            label="i18n_cancel" 
+            (onClick)="handleOnCancel()">
+          </mo-wb-components-button>
+        </div>
+      </div>
+      
+    </div>
+
+    <div #cropRatioPopup
+      class="crop-ratio-popup"
+      [style.display]="isCropRatioShow ? 'block' : 'none'">
+      <div class="overlay-popup"
+        (click)="handleOnClickOverlayCropRatioPopup();"></div>
+      <div class="media-store-popup-container crop-ratio-container">
+        <div class="crop-ratio-content">
+          <div class="crop-ratio-item"
+            *ngFor="let item of cropRatioList; let i=index;"
+            [ngClass]="{'selected': i === selectedCropRatioIndex }"
+            (click)="handleOnCropRatioItemSelect(item, i);">
+            <div class="box-container">
+              <div class="crop-ratio-box {{item.className}}">
+              </div>
+            </div>
+            <div class="mo-wb-f-b1 title no-wrap">{{item.label | translate}}</div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div #resizePopup
+      class="resize-popup"
+      [style.display]="isResizeShow ? 'block' : 'none'">
+      <div class="overlay-popup"
+        (click)="handleOnClickOverlayResizePopup();"></div>
+      <div class="media-store-popup-container resize-popup-container">
+        <div class="top-container">
+
+          <div class="mo-wb-mr-20px"> 
+            <div class="mo-wb-f-b1 mo-wb-mb-4px">{{'Tỷ lệ' | translate}}</div>
+            <mo-wb-components-input-number
+              [classInclude]="'mo-wb-w-85px'"
+              [isRequired]="false"
+              [value]="resizeData.ratio"
+              [unit]="'%'"
+              [min]="1"
+              [max]="100"
+              (onValueChanged)="handleOnResizeRatioChange($event)">
+            </mo-wb-components-input-number>
+          </div>
+
+          <div class="mo-wb-mr-20px"> 
+            <div class="mo-wb-f-b1 mo-wb-mb-4px">Width (px)</div>
+            <!-- <mo-wb-components-input
+              [value]="resizeData.width"
+              [placeholder]="''"
+              [showIcon]="false" 
+              [isRequired]="false"
+              [HideTextRequire]="true"
+              [width]="'116px'"
+              [enable]="true"
+              (onValueChanged)="handleOnResizeWidthChange($event);">
+              </mo-wb-components-input> -->
+
+              <mo-wb-components-input-number
+                [classInclude]="'mo-wb-w-120px'"
+                [isRequired]="false"
+                [value]="resizeData.width"
+                [max]="originWidth"
+                [min]="1"
+                (onValueChanged)="handleOnResizeWidthChange($event)">
+              </mo-wb-components-input-number>
+          </div>
+
+          <div>
+            <div class="mo-wb-f-b1 mo-wb-mb-4px">Height (px)</div>
+              <mo-wb-components-input-number
+                [classInclude]="'mo-wb-w-120px'"
+                [isRequired]="false"
+                [value]="resizeData.height"
+                [max]="originHeight"
+                [min]="1"
+                (onValueChanged)="handleOnResizeHeightChange($event)">
+              </mo-wb-components-input-number>
+          </div>
+
+        </div>
+
+        <div class="bottom-container">
+          <mo-wb-components-button 
+            [classInclude]="'mo-wb-mr-12px'"
+            [label]="'i18n_save'"
+            (onClick)="handleOnSaveResize()">
+          </mo-wb-components-button>
+
+          <mo-wb-components-button 
+            [type]="'third'"
+            label="i18n_cancel" 
+            (onClick)="handleOnCancelResizePopup()">
+          </mo-wb-components-button>
+        </div>
+      </div>
+
+    </div>
+    
+    <mo-wb-components-spinner *ngIf="loading"></mo-wb-components-spinner>
+
+</div>

@@ -1,0 +1,52 @@
+<mo-wb-components-v4-modal #modal 
+  [title]="'i18n_move_to_folder_other' | translate" 
+  [width]="'598px'"
+  [maxWidth]="'1200px'"
+  [height]="'179px'"
+  [zIndex]="zIndex"
+  [isPending]="loading"
+  (onOk)="handleOnSaveClick()"
+  (onClose)="handleOnCloseModal()"
+  (onClosed)="handlerClickButtonClose()">
+  <div class="large-container media-store-modal-container">
+    <!-- <mo-wb-components-dropdown 
+      #folder
+      [hasSearchInput]="true"
+      [label]="{text: 'Chuyển đến thư mục'}"
+      [placeholderSearchInput]="'Tìm theo tên thư mục'"
+      [maxLine]="5"
+      [keyField]="'id'"
+      [enable]="true"
+      [emptyValid]="true"
+      [items]="folderListItems"
+      default="Chọn thư mục"
+      [selectedKeys]="''"
+      (onSelectedChange)="handleOnSelectFolder($event)">
+    </mo-wb-components-dropdown> -->
+    <!-- <mo-wb-components-select
+      #folder
+      [label]="'i18n_go_to_folder'"
+      [items]="folderListItems"
+      [key]="'name'"
+      [selectedId]="'name'"
+      [hasSearch]="true"
+      [searchHolder]="'i18n_find_name_folder'"
+      [defaultTitle]="'i18n_select_folder'"
+      (onSelectedItem)="handleOnSelectFolder($event)">
+    </mo-wb-components-select> -->
+  </div>
+  <!-- <div class="footer-container">
+    <mo-wb-components-button
+      [disable]="loading"
+      [label]="'i18n_save'"
+      (onClick)="handleOnSaveClick()"
+      [disable]="">
+    </mo-wb-components-button>
+    <mo-wb-components-button
+      [disable]="loading"
+      [type]="'third'"
+      label="i18n_cancel"
+      (onClick)="handleOnCancelModal()">
+    </mo-wb-components-button>
+  </div> -->
+</mo-wb-components-v4-modal>

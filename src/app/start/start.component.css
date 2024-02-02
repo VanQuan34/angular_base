@@ -1,0 +1,15 @@
+.login{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.login-box-right-item{
+    box-shadow: 0 1px 1px #00143305, 0 8px 56px #0014330d;
+    max-width: 100%;
+    min-width: 375px;
+    width: 450px;
+}
+.heading{
+    font-size: 30px;
+    line-height: 38px;
+}

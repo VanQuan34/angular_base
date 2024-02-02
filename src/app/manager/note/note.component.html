@@ -1,0 +1,27 @@
+<mo-wb-manager-note-topbar>
+</mo-wb-manager-note-topbar>
+<div class="h-100 w-100 mo-wb-pl-10px">
+	<mo-wb-manager-note-toolbar
+		[categoryList]="categoryList"
+		(onAddNewNote)="handleOnAddNewNote($event)"
+		(onValueSearch)="handleOnChangeSearch($event)">
+	</mo-wb-manager-note-toolbar>
+	<div class="w-100 mo-wb-calc-h-115px mo-wb-px-16px mo-wb-pt-10px d-flex">
+		<mo-wb-manager-note-category
+			#category
+			(onCategoryList)="handleOnLoadCategory($event)"
+			(onClickCategory)="handleOnClickCategory($event)"
+			(onClickAll)="handleOnClickAll($event)">
+		</mo-wb-manager-note-category>
+		<div class="flex-grow-1 mo-wb-pl-10px mo-wb-mb-10px">
+			<mo-wb-manager-note-list
+				#list
+				[valueSearch]="valueSearch"
+				[categoryList]="categoryList"
+				(onDuplicateNote)="handleOnChangeNote($event, 'DUPLICATE')"
+				(onRemoveNote)="handleOnChangeNote($event, 'REMOVE')">
+			</mo-wb-manager-note-list>
+			
+		</div>
+	</div>
+</div>

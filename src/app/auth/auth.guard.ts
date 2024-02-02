@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { CacheKeys } from '../common/define/cache-keys.define';
-import { Utils } from '../file_manager/utils/utils';
+import { Utils } from '../utils/utils';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
   initConfig(){
     this.initTheme();
   }
-
+  
   initTheme(){
     const theme = localStorage.getItem(CacheKeys.KEY_THEME);
     let currentTheme = theme && JSON.parse(theme);

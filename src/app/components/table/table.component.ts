@@ -144,7 +144,7 @@ export class MoWbTableComponent extends MoWbDetectionComponent {
   /**
    * reload data
    */
-  reLoadData() {
+  reLoadData(type?: 'ALL' | 'CATE') {
     this.loading = true;
     this.loaded = false;
     this.canLoadMore = true;
@@ -155,7 +155,7 @@ export class MoWbTableComponent extends MoWbDetectionComponent {
     this.items = [];
     this.detectChanges();
     console.log('reload data');
-    this.onLoadedData.emit(this.fetchParam);
+    this.onLoadedData.emit(type);
   }
 
   /**
@@ -194,7 +194,7 @@ export class MoWbTableComponent extends MoWbDetectionComponent {
    * @param items 
    * @param afterToken
    */
-  handleLoadDataCompleted(isSuccess: boolean, items: any[], offset: number) {
+  handleLoadDataCompleted(isSuccess: boolean, items: any[], page: number) {
     // console.log('handleLoadDataCompleted afterToken=', afterToken);
     this.loading = false;
     this.isLoadingMore = false;
@@ -205,7 +205,7 @@ export class MoWbTableComponent extends MoWbDetectionComponent {
     }
 
     this.items = !this.loaded ? items : [...this.items, ...items];
-    this.fetchParam['offset'] = offset;
+    this.fetchParam['page'] = page;
     this.detectChanges();
 
     if (!this.loaded) {
@@ -218,7 +218,7 @@ export class MoWbTableComponent extends MoWbDetectionComponent {
     }
 
     // this.canLoadMore = true;
-    if (!items.length || items.length < 15 || (!this.fetchParam.page && !offset)) {
+    if (!items.length || items.length < 15 || (!this.fetchParam.page && !page)) {
       this.fetchParam.after_token = null;
       this.canLoadMore = false;
       return;

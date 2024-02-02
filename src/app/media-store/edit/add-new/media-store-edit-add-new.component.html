@@ -1,0 +1,22 @@
+<mo-wb-components-v4-modal #modal 
+  [title]="'i18n_save_to_new_file' | translate" 
+  [width]="'598px'"
+  [maxWidth]="'1200px'"
+  [level]="level"
+  (onClosed)="handleOnCloseModal()"
+  (onOk)="handleOnSaveClick($event)">
+    <div>
+      <mo-wb-components-select
+        #folder
+        [label]="'i18n_folder_lowercase' | translate"
+        [hasSearch]="true"
+        [selectTitle]="'i18n_select_folder' | translate"
+        [searchPlaceholder]="'i18n_find_name_folder' | translate"
+        [items]="folderListItems"
+        [classInclude]="'w-100'"
+        [selectedIds]="folderId ? [folderId] : []"
+        (onInitData)="handleOnInitData()"
+        (onSelectedChange)="handleOnSelectFolders($event);">
+      </mo-wb-components-select>
+    </div>
+</mo-wb-components-v4-modal>

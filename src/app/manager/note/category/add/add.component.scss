@@ -1,0 +1,24 @@
+.mo-wb-folder-all [data-stroke="a23538d29d6"],
+.mo-wb-folder-trash [data-stroke="538d29d6b72"],
+.mo-wb-folder-item [data-stroke="8d29d6b72e8"] {
+  stroke: var(--cap-txt);
+}
+
+.mo-wb-folder-all svg,
+.mo-wb-folder-trash svg,
+.mo-wb-folder-item svg {
+  margin-left: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+.mo-wb-folder-all.selected [data-stroke="a23538d29d6"],
+.mo-wb-folder-trash.selected [data-stroke="538d29d6b72"],
+.mo-wb-folder-item.selected [data-stroke="8d29d6b72e8"] {
+  stroke: var(--pri);
+}
+
+.name-folder{
+  word-break: break-all;
+  max-width: calc(100% - 90px);
+}

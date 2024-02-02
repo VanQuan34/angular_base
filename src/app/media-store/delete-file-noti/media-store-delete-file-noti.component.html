@@ -1,0 +1,23 @@
+<mo-wb-components-v4-modal #modal 
+  [title]="'i18n_push_notification_popup_message' | translate" 
+  [width]="'598px'"
+  [maxWidth]="'1200px'"
+  [zIndex]="zIndex"
+  (onClose)="handleOnCancelModal()"
+  (onOk)="handleOnOkClick()">
+  <div class="large-container media-store-delete-noti-modal-container">
+    <ng-container *ngIf="deleteFiles.length === 1">
+      <div class="mo-wb-font-family-regular">{{'i18n_remove_file_question' | translate}}</div>
+      <div class="mo-wb-f-b1 mo-wb-mt-4px">File: {{deleteFiles[0].filename}}</div>
+    </ng-container>
+
+    <ng-container *ngIf="deleteFiles.length > 1">
+      <div class="mo-wb-f-b1">{{('i18n_is_select_files' | translateI18nPipe: deleteFiles.length )| translate }}</div>
+      <div class="mo-wb-font-family-regular mo-wb-mt-4px">{{ 'i18n_remove_files_question'| translate}}</div>
+    </ng-container>
+    
+    <div class="mo-wb-font-family-regular mo-wb-mt-4px">
+      <span class="mo-wb-color-ff5454">{{'i18n_minds' | translate}} </span>{{'i18n_note_remove_file_message'| translate}}
+    </div>
+  </div>
+</mo-wb-components-v4-modal>

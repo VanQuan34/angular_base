@@ -1,0 +1,17 @@
+<div class="position-fixed w-100 h-100 mo-wb-top-0 mo-wb-left-0" style="background-color: rgb(72 70 70 / 65%);">
+	<div class="w-80 mo-wb-bg-w mo-wb-m-auto position-absolute editor-wrapper">
+		<editor apiKey="gzoe31w7xekwa9zmcxi1ik6y2i84g58rl4ki1m0ilonmtsnh" [(ngModel)]="contentEditor" [inline]="false"
+			[init]="{
+      branding: false,
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ],
+    }" (ngModelChange)="handleOnChangeContent($event)">
+		</editor>
+	</div>
+</div>

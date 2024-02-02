@@ -1,0 +1,118 @@
+<div class="mo-media-store-detail-container"
+  [style.z-index]="zIndex"
+  [style.display]="isOpen?'':'none'" >
+  <div class="left">
+    <div class="header">
+      <mo-wb-components-button 
+        classIconLeft="mo-icn-arrow-left"
+        [classInclude]="''" 
+        [label]="'i18n_go_back'" 
+        [type]="'outline'"
+        (onClick)="handleOnBack();">
+      </mo-wb-components-button>
+
+      <mo-wb-components-button 
+        *ngIf="type === 'POPUP'"
+        [classInclude]="''" 
+        [label]="'i18n_select_file'"
+        (onClick)="handleOnSelectFile($event);">
+      </mo-wb-components-button>
+    </div>
+
+    <div class="img-container">
+      <img *ngIf="fileItem.isImage" src="{{fileItem.origin_url}}" />
+      <img *ngIf="!fileItem.isImage" src="{{fileItem.imageThumb}}" class="file-image" />
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="header">
+      
+      <div class="title mo-wb-font-head-1s">
+        {{fileItem.filename}}
+      </div>
+
+      <div class="center-flex-container">
+        <mo-wb-components-button
+          classIconLeft="mo-icn-move_file_to"
+          [classInclude]="'mo-wb-mr-12px mo-wb-pt-8px mo-wb-pb-8px mo-wb-pl-8px mo-wb-pr-8px'"
+          [type]="'icon-outline'" 
+          [tooltipContent]="'i18n_tranfer_folder'"
+          (onClick)="handleOnMoveFileSelect($event);">
+        </mo-wb-components-button>
+
+        <ng-container *ngIf="fileItem.isImage">
+          <mo-wb-components-button 
+            classIconLeft="mo-icn-sua"
+            [classInclude]="'mo-wb-mr-12px mo-wb-pt-8px mo-wb-pb-8px mo-wb-pl-8px mo-wb-pr-8px'" 
+            [label]="''"
+            [type]="'icon-outline'" 
+            [tooltipContent]="'i18n_edit'"
+            (onClick)="handleOpenEditModal($event);">
+          </mo-wb-components-button>
+        </ng-container>
+        
+
+        <mo-wb-components-button 
+          classIconLeft="mo-icn-menu-xoa"
+          [classInclude]="'mo-wb-pt-8px mo-wb-pb-8px mo-wb-pl-8px mo-wb-pr-8px'" 
+          [label]="''" 
+          [type]="'icon-red'"
+          [tooltipContent]="'i18n_delete'"
+          (onClick)="handleOnDeleteFile($event);">
+        </mo-wb-components-button>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="mo-wb-f-b1 mo-wb-mb-4px">URL</div>
+      <div class="center-flex-container">
+        <!-- <mo-wb-components-input-valid 
+          [width]="'418px'"
+          [fieldNameBind]="'origin_url'"
+          [item]="fileItem"
+          [readonly]="true">
+        </mo-wb-components-input-valid>
+
+        <mo-wb-components-button 
+          [classInclude]="'mo-wb-ml-12px'" 
+          [label]="'Sao chép link'" 
+          [type]="'outline'"
+          (onClick)="handleOnCopyUrl($event);">
+        </mo-wb-components-button> -->
+      </div>
+
+      <div class="mo-wb-f-b1 mo-wb-mb-4px mo-wb-mt-14px">{{'i18n_folder_lowercase' | translate}}</div>
+      <div class="mo-wb-mb-4px">{{folderName || '-'}}</div>
+
+      <div class="mo-wb-f-b1 mo-wb-mb-4px mo-wb-mt-14px">{{'i18n_format_file' | translate}}</div>
+      <div class="mo-wb-mb-4px">{{fileItem.ext}}</div>
+
+      <ng-container *ngIf="fileItem.isImage">
+        <div class="mo-wb-f-b1 mo-wb-mb-4px mo-wb-mt-14px">{{'i18n_resolution'| translate}}</div>
+        <div class="mo-wb-mb-4px">{{ fileItem.origin_width ? fileItem.origin_width + ' x ' + fileItem.origin_height : ''}} px</div>
+      </ng-container>
+      
+
+      <div class="mo-wb-f-b1 mo-wb-mb-4px mo-wb-mt-14px">{{'i18n_capacity' | translate}}</div>
+      <div class="mo-wb-mb-4px">{{fileItem.origin_capacity}}</div>
+
+      <ng-container *ngIf="fileItem.display_create_time">
+        <div class="mo-wb-f-b1 mo-wb-mb-4px mo-wb-mt-14px">{{'i18n_time_create' | translate}}</div>
+        <div class="mo-wb-mb-4px">{{fileItem.display_create_time}}</div>
+      </ng-container>
+      
+      <ng-container *ngIf="fileItem.display_update_time">
+        <div class="mo-wb-f-b1 mo-wb-mb-4px mo-wb-mt-14px">{{'i18n_update_time' | translate}}</div>
+        <div class="mo-wb-mb-4px">{{fileItem.display_update_time}}</div>
+      </ng-container>
+
+      <ng-container *ngIf="fileItem.display_expired_time">
+        <div class="mo-wb-f-b1 mo-wb-mb-4px mo-wb-mt-14px">{{'i18n_time_outdate' | translate}}</div>
+        <div class="mo-wb-mb-4px">{{fileItem.display_expired_time}}</div>
+      </ng-container>
+      
+    </div>
+
+  </div>
+</div>
