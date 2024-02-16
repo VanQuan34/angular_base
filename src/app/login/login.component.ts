@@ -48,17 +48,20 @@ export class LoginComponent {
     if(!this.validate()){
       return;
     }
-    if (this.authService.login(this._username.getValue(), this._password.getValue())) {
-      // Check for a redirect URL
-      const redirectUrl = this.authService.getRedirectUrl();
-      // Clear the redirect URL after successful login
-      this.authService.setRedirectUrl('');
-    } else {
-      alert('Invalid credentials');
-    }
+    this.isPending = true;
+    this.authService.login(this._username.getValue(), this._password.getValue()).then(()=>{
+      this.isPending = false;
+    })
   }
 
-  handleOnClickRedirect(e: MouseEvent){
-    this._router.navigate(['/register']);
+  handleOnClickRedirect(e: MouseEvent, type: 'REGISTER' | 'RESET'){
+    switch(type){
+      case 'REGISTER':
+        this._router.navigate(['/register']);
+        break;
+      case 'RESET':
+        this._router.navigate(['/reset-password']);
+        break;
+    }
   }
 }

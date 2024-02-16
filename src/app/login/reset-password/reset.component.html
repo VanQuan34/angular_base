@@ -1,0 +1,36 @@
+<div class="d-flex w-100 justify-content-center">
+	<div class="login-box-right-item mo-wb-bg-w mo-wb-border-radius-15px d-flex flex-column align-items-center mo-wb-px-15px mo-wb-py-60px">
+		<div class="d-flex flex-column justify-content-center w-90">
+			<div class="heading w-100 d-flex justify-content-center mo-wb-font-weight-600">Quên mật khẩu</div>
+			<div class="w-100 d-flex flex-column">
+				<div class="mo-wb-f-b1 mo-wb-mt-20px mo-wb-mb-12px">Nhập email đã đăng kí<span class="mo-wb-color-r mo-wb-ml-3px">*</span></div>
+				<mo-wb-components-input
+					#email
+					[isRequired]="true"
+					[classInclude]="''"
+					[classInput]="isShow ? 'mo-wb-disabled': 'mo-wb-bg-f8f9fa'"
+					[actionKey]="'KEY-UP'"
+					[placeholder]="'Nhập tài khoản email'"
+					[maxLength]="25"
+					[validType]="'EMAIL'"
+					(onValueChanged)="handleChangeText($event)">
+				</mo-wb-components-input>
+			</div>
+
+			<div class="w-100 mo-wb-mt-30px">
+				<mo-wb-components-button
+					[label]="'Lấy lại mật khẩu'"
+					[disable]="isPending"
+					[isPending]="isPending"
+					[disable]="isShow"
+					[type]="'pri'"
+					[classInclude]="'w-100 d-flex align-items-center justify-content-center mo-wb-h-40px'"
+					(onClick)="handleOnClickResetPassword($event)">		
+				</mo-wb-components-button>
+			</div>
+			<div *ngIf="isShow" class="d-flex justify-content-center mo-wb-mt-12px mo-wb-f-b1 mo-wb-color-r">
+				{{'Yêu cầu lấy lại mật khẩu của bạn đã được gửi qua email. Vui lòng kiểm tra Email'}}
+			</div>
+			</div>
+	</div>
+</div>

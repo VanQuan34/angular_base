@@ -14,6 +14,7 @@ import { MoWbManagerNoteListDuplicateComponent } from './duplicate/duplicate.com
 import { MoWbConfirmModalService } from 'src/app/components/modal/v4/confirm/showConfirmModal.service';
 import { MoWbModalV4ConfirmComponent } from 'src/app/components/modal/v4/confirm/confirm.component';
 import { MoWbManagerNoteEditorComponent } from '../editor/editor.component';
+import { MoWbManagerNoteListPreviewComponent } from './preview/preview.component';
 // import { FileManagerListEditComponents } from './edit/edit.component';
 // import { FileManagerListRemoveComponents } from './remove/remove.component';
 
@@ -321,7 +322,7 @@ export class MoWbManagerNoteListComponent extends MoWbDetectionComponent {
         this.editNoteName(item);
         break;
       case 'preview':
-        // this.previewSite(item);
+        this.previewNote(item);
         break;
       case 'copy':
         this.duplicateNote(item);
@@ -346,6 +347,17 @@ export class MoWbManagerNoteListComponent extends MoWbDetectionComponent {
     // });
     
     // this._domService.addDomToBody(modalRef);
+  }
+
+  previewNote(note: INoteInfo){
+    const modalRef = this._componentFactoryResolver.resolveComponentFactory(MoWbManagerNoteListPreviewComponent).create(this._injector);
+    modalRef.instance.noteInfo = note;
+    modalRef.instance.onClose.subscribe(() => {
+      setTimeout(() => {
+        this._domService.removeComponentFromBody(modalRef);
+      }, 200);
+    });
+    this._domService.addDomToBody(modalRef);
   }
 
   duplicateNote(item: INoteInfo) {

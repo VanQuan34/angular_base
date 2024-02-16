@@ -13,6 +13,7 @@ import { MoWbMediaStoreDetailComponent } from '../detail/media-store-detail.comp
 // import { MoWbFileApiService } from 'src/app/api/media/fileApiService';
 import { ToastTranslateService } from 'src/app/api/common/toast-translate.service';
 import { AddComponentToBodyService } from 'src/app/api/common/add-component-to-body.service';
+import { MoWbManagerImagesApiService } from 'src/app/api/files/filesApi';
 
 const DISPLAY_MODE = 'MO_MEDIA_STORE_DISPLAY_MODE_FILE';
 const SELECTED_SORT = 'MO_MEDIA_STORE_SELECTED_SORT_FILE';
@@ -71,6 +72,7 @@ export class MoWbMediaStoreFileComponent implements OnInit {
     private _domService: AddComponentToBodyService,
     private injector: Injector,
     private _toast: ToastTranslateService,
+    private _fileApiService: MoWbManagerImagesApiService,
   ) {
   }
   ngOnInit() {
@@ -92,6 +94,7 @@ export class MoWbMediaStoreFileComponent implements OnInit {
     this.initMimeTypes();
     this.initSortItems();
     this.fetchInputTotalFileSize();
+    this.fetchFileList();
   }
 
   initMimeTypes() {
@@ -184,7 +187,7 @@ export class MoWbMediaStoreFileComponent implements OnInit {
     // for (let i = 0; i < response.length; i++) {
     //   this.addNewFileItem(response[i]);
     // }
-    this.loaded = true;
+    // this.loaded = true;
     // this.fileList = [...response];
     this.changeDetection.detectChanges();
   }
@@ -195,12 +198,25 @@ export class MoWbMediaStoreFileComponent implements OnInit {
     this.changeDetection.detectChanges();
     // console.log('fetchFileList ', this.groupId, page);
     // const response = await this._fileApiService.fetchFileList(this.groupId, searchValue, page, this.sortItems[this.selectedSortIndex], this.mode);
+    const response = await this._fileApiService.fetchListImage();
     this.loading = false;
-    // if (!response || response.code !== 200) {
-    //   return [];
-    // }
-    // return response.data;
+    this.changeDetection.detectChanges();
+    if (!response || response.code !== 200) {
+      return [];
+    }
+    this.fileList = response.data;
+    this.convertDataFile();
+    this.changeDetection.detectChanges();
+    console.log('file list==', this.fileList);
+    return response.data;
+  }
 
+  convertDataFile(){
+    const data = this.fileList.map(item =>{
+      item['data'] = JSON.parse(item.data);
+      return item;
+    });
+    return data;
   }
 
   handleOnFileItemClick = (e: any, fileItem: any) => {

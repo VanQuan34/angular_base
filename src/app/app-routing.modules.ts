@@ -9,6 +9,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MoWbManagerComponent } from './manager/manager.component';
 import { MoWbManagerNoteComponent } from './manager/note/note.component';
+import { ResetPasswordComponent } from './login/reset-password/reset.component';
+import { NewPasswordComponent } from './login/new-password/new-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, //TestComponent
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'manager', component: MoWbManagerComponent, canActivate: [AuthGuard]},
   { path: 'manager/note', component: MoWbManagerNoteComponent, canActivate: [AuthGuard]},
+  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'new-password', component: NewPasswordComponent},
   { path: '**', component: NotFoundComponent }, // Wildcard route for 404 page
 ];
 

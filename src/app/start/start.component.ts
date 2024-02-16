@@ -114,4 +114,10 @@ export class StartComponent {
     this.register();
   }
 
+  handleOnClickLogin(e: MouseEvent){
+    setTimeout(()=>{
+      this._router.navigate(['/login']);
+    }, 200);
+  }
+
 }

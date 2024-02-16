@@ -70,4 +70,16 @@ export class FileManagerAuthApiService {
     });
     return response;
   }
+
+  public async resetPassword(email: string) {
+    const response = await this._baseService.fetch({
+      path: PATH_AUTH+'/reset-password',
+      method: 'POST',
+      body: {
+        email: email
+      }
+    });
+    return response;
+  }
+  
 }

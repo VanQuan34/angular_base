@@ -49,7 +49,7 @@
           classIconLeft="mo-icn-add-new mo-wb-font-size-10px" 
           [classInclude]="'mo-wb-mr-12px'"
           [disable]="loading"
-          label="i18n_new_file"
+          label="Thêm file mới"
           (onClick)="handleOnAddNewFile();">
         </mo-wb-components-button>
 
@@ -129,8 +129,7 @@
 
         <div class="media-store-item-container" *ngFor="let item of fileList; let i=index;"
           [ngClass]="{'w-100' :  displayMode === 'list'}">
-          <div class="media-store-file-item" 
-            *ngIf="!item.isOverSize || type === 'CMS'"
+          <div class="media-store-file-item" *ngIf="!item.isOverSize || type === 'CMS'"
             [ngClass]="{'mo-media-store-item-selected': checkIfItemIsSelected(item) >= 0, 
             'mo-media-store-item-list': displayMode === 'list' && type === 'POPUP', 
             'mo-media-store-item-cms-list': displayMode === 'list' && type === 'CMS',

@@ -27,6 +27,8 @@ import { MoWbClickOutsideModule } from './directives/click-outside.directive';
 import { FileManagerChatApiServiceModule } from './api/chat/chatApi.module';
 import { MoWbFileManagerTopbarModule } from './topbar/topbar.modules';
 import { MoWbManagerModule } from './manager/manager.modules';
+import { ResetPasswordComponent } from './login/reset-password/reset.component';
+import { NewPasswordComponent } from './login/new-password/new-password.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -42,6 +44,8 @@ const config: SocketIoConfig = { url: 'https://socket-chat-zw5t.onrender.com', o
     StartComponent,
     ChatComponent,
     LoginComponent,
+    ResetPasswordComponent,
+    NewPasswordComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,25 +1,4 @@
-<!-- <div 	*ngIf="!isChat" class="position-fixed login text-center">
-	<div class="d-flex align-items-center mo-wb-w-600px justify-content-center">
-		<mo-wb-components-input
-			#input
-			[placeholder]="'Nhập tên tham gia chat'"
-			[classInclude]="'mo-wb-w-400px'"
-			[value]="''">
-		</mo-wb-components-input>
-	</div>
-	<div class="d-flex align-items-center mo-wb-w-600px justify-content-center">
-	<mo-wb-components-button 
-      [label]="'Xác nhận'"
-      [classIconLeft]="'mo-icn-add'"
-      [classInclude]="'mo-wb-mt-12px'"
-      [isPending]="false"
-      [disable]="false"
-			(onClick)="handleOnClickChat($event)">
-    </mo-wb-components-button>
-		</div>
-</div> -->
-
-<div 	*ngIf="!isChat" class="d-flex w-100 justify-content-center mo-wb-mt-30px overflow-auto">
+<div *ngIf="!isChat" class="d-flex w-100 justify-content-center mo-wb-mt-30px overflow-auto">
 	<div class="login-box-right-item mo-wb-bg-w mo-wb-border-radius-32px d-flex flex-column align-items-center mo-wb-px-15px mo-wb-py-60px">
 		<div class="d-flex flex-column justify-content-center w-90">
 			<div class="heading w-100 d-flex justify-content-center mo-wb-font-weight-600">Đăng kí tài khoản</div>
@@ -92,7 +71,9 @@
 					(onClick)="handleOnClickRegister($event)">		
 				</mo-wb-components-button>
 			</div>
-
+			<div class="d-flex justify-content-end mo-wb-mt-12px">
+				<div class="mo-wb-f-b2 mo-wb-color-pri mo-wb-cursor-pointer" (click)="handleOnClickLogin($event)">Có tài khoản. Đăng nhập ngay</div>
+			</div>
 			</div>
 	</div>
 </div>

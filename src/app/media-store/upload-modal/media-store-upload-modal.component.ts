@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, ViewChild,
   Output, Input, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy} from '@angular/core';
 // import { MoWbDropdownComponent } from 'src/app/components';
 import { ToastTranslateService } from 'src/app/api/common/toast-translate.service';
+import { MoWbManagerImagesApiService } from 'src/app/api/files/filesApi';
 import { MoWbV4ModalComponent } from 'src/app/components/modal/v4/modal/modal.component';
 import { MoWbSelectComponent } from 'src/app/components/select/select.component';
 import { MoWbFileUploadV4Component } from 'src/app/components/upload/file-upload-v4/file-upload.component';
@@ -41,7 +42,7 @@ export class MoWbMediaStoreUploadModalComponent extends MoWbV4ModalComponent {
 
   constructor(
     public override _changeDetection: ChangeDetectorRef,
-    // private _fileApiService: MoWbFileApiService,
+    private _fileApiService: MoWbManagerImagesApiService,
     private _toast: ToastTranslateService,
   ) {
     super(_changeDetection);
@@ -79,9 +80,9 @@ export class MoWbMediaStoreUploadModalComponent extends MoWbV4ModalComponent {
 
   validate() {
     let isValid = true;
-    if (!this.folderRef?.validate()) {
-      isValid = false;
-    }
+    // if (!this.folderRef?.validate()) {
+    //   isValid = false;
+    // }
 
     if (!this.validFiles || !this.validFiles.length) {
       isValid = false;

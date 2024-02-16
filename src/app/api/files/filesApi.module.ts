@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MoWbBaseApiService } from '../base';
-import { FileManagerFilesApiService } from './filesApi';
+import { MoWbManagerImagesApiService } from './filesApi';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import { FileManagerFilesApiService } from './filesApi';
   ],
   providers: [
     MoWbBaseApiService,
-    FileManagerFilesApiService,
+    MoWbManagerImagesApiService,
     
   ],
   exports: [

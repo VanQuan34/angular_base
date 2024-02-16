@@ -12,29 +12,9 @@
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="mo-wb-w-12px mo-wb-h-12px"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.1018 1.51674C10.8384 1.42255 11.5731 1.72626 12.3056 2.41548L12.3066 2.41642C13.0414 3.11132 13.3892 3.82946 13.3373 4.57188C13.2874 5.28584 12.8743 5.8828 12.418 6.36481C12.418 6.36487 12.4181 6.36476 12.418 6.36481L11.6615 7.16551C11.626 7.22 11.581 7.26742 11.5291 7.30569L7.48889 11.5821C7.34079 11.7432 7.1445 11.8769 6.96194 11.9745C6.77665 12.0736 6.55969 12.1599 6.35258 12.1967L6.34898 12.1974L4.41537 12.5276C4.41523 12.5277 4.41551 12.5276 4.41537 12.5276C3.92249 12.6125 3.44272 12.49 3.09913 12.1641C2.75598 11.8387 2.60769 11.367 2.66272 10.8718L2.6629 10.8701L2.88634 8.91357C2.91385 8.70725 2.9897 8.48777 3.07729 8.29994C3.16451 8.11291 3.28507 7.9109 3.4308 7.75576L3.43186 7.75464L8.36407 2.53407C8.82055 2.05187 9.39352 1.60731 10.1018 1.51674ZM10.9969 6.29438L11.6322 5.62196C12.0289 5.20286 12.2349 4.83527 12.2586 4.49648C12.2803 4.18615 12.1565 3.76298 11.564 3.2025C10.9752 2.64863 10.5476 2.54991 10.2389 2.58937C9.90194 2.63247 9.54642 2.85809 9.14988 3.27693C9.14983 3.27698 9.14993 3.27688 9.14988 3.27693L8.51831 3.94543C8.80741 5.14769 9.77902 6.06704 10.9969 6.29438ZM7.67563 4.83737C8.13365 5.9335 9.03692 6.78643 10.156 7.18443L6.69997 10.8425L6.69345 10.8496C6.65573 10.8909 6.57139 10.9571 6.45208 11.0209C6.33485 11.0836 6.22813 11.1203 6.16472 11.1318C6.16424 11.1319 6.16377 11.132 6.1633 11.1321L4.23247 11.4619C4.02862 11.497 3.90656 11.4395 3.84323 11.3795C3.77944 11.319 3.71454 11.1991 3.73739 10.9919C3.73736 10.9921 3.73741 10.9917 3.73739 10.9919L3.95885 9.05257C3.96816 8.988 4.0004 8.87904 4.05732 8.75698C4.11559 8.63203 4.17804 8.53986 4.21856 8.49657C4.21842 8.49671 4.21869 8.49643 4.21856 8.49657L7.67563 4.83737ZM2.05273 13.9593C2.05273 13.6607 2.29481 13.4186 2.59342 13.4186H13.407C13.7056 13.4186 13.9477 13.6607 13.9477 13.9593C13.9477 14.2579 13.7056 14.5 13.407 14.5H2.59342C2.29481 14.5 2.05273 14.2579 2.05273 13.9593Z" fill="#071631"></path></svg>
         </div>
       </div>
-      <mo-wb-components-button
-        [label]="'Lưu'"
-        [classInclude]="'mo-wb-px-30px mo-wb-py-10px h-100'"
-        [type]="'pri'"
-        [disable]="isLoaded"
-        [isPending]="isLoaded"
-        (onClick)="handleOnClickSave($event)">
-      </mo-wb-components-button>
+      <div></div>
     </div>
-		<editor apiKey="gzoe31w7xekwa9zmcxi1ik6y2i84g58rl4ki1m0ilonmtsnh" [(ngModel)]="contentEditor" [inline]="false"
-			[init]="{
-        height: 500,
-        branding: false,
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-        tinycomments_mode: 'embedded',
-        tinycomments_author: 'Author name',
-        mergetags_list: [
-          { value: 'First.Name', title: 'First Name' },
-          { value: 'Email', title: 'Email' },
-        ],
-      }" (ngModelChange)="handleOnChangeContent($event)">
-		</editor>
+		<div class="w-100 mo-wb-calc-h-70px mo-wb-px-20px mo-wb-py-5px overflow-auto" [innerHTML]="this.contentEditor"></div>
 	</div>
   <mo-wb-components-spinner
     *ngIf="loading"

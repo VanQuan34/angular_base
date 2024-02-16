@@ -27,8 +27,10 @@
 				[maxLength]="25"
 				(onValueChanged)="handleChangeText($event)">
 			</mo-wb-components-input>
-
-			<div class="w-100 mo-wb-mt-30px">
+			<div class="d-flex justify-content-end mo-wb-mt-12px">
+				<div class="mo-wb-f-b2 mo-wb-color-main-txt mo-wb-cursor-pointer text-underline" (click)="handleOnClickRedirect($event, 'RESET')">Quên mật khẩu</div>
+			</div>
+			<div class="w-100 mo-wb-mt-20px">
 				<mo-wb-components-button
 					[label]="'Đăng nhập'"
 					[disable]="isPending"
@@ -38,7 +40,7 @@
 					(onClick)="handleOnClickLogin($event)">		
 				</mo-wb-components-button>
 				<div class="d-flex justify-content-end mo-wb-mt-12px">
-					<div class="mo-wb-f-b2 mo-wb-color-pri mo-wb-cursor-pointer" (click)="handleOnClickRedirect($event)">Đăng kí tài khoản ngay</div>
+					<div class="mo-wb-f-b2 mo-wb-color-pri mo-wb-cursor-pointer" (click)="handleOnClickRedirect($event, 'REGISTER')">Đăng kí tài khoản ngay</div>
 				</div>
 			</div>
 

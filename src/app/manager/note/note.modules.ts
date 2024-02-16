@@ -22,6 +22,7 @@ import { MoWbManagerNoteListEditComponent } from './list/edit/edit.component';
 import { MoWbManagerNoteListPipeModule } from './list/list.pipe';
 import { MoWbManagerNoteListDuplicateComponent } from './list/duplicate/duplicate.component';
 import { MoWbManagerNoteListAddComponent } from './list/add/add.component';
+import { MoWbManagerNoteListPreviewComponent } from './list/preview/preview.component';
 @NgModule({
     declarations: [
         MoWbManagerNoteComponent,
@@ -35,6 +36,7 @@ import { MoWbManagerNoteListAddComponent } from './list/add/add.component';
         MoWbManagerNoteListEditComponent,
         MoWbManagerNoteListDuplicateComponent,
         MoWbManagerNoteListAddComponent,
+        MoWbManagerNoteListPreviewComponent,
     ],
     exports: [
         MoWbManagerNoteComponent,
@@ -47,7 +49,8 @@ import { MoWbManagerNoteListAddComponent } from './list/add/add.component';
         MoWbManagerNoteEditorComponent,
         MoWbManagerNoteListEditComponent,
         MoWbManagerNoteListDuplicateComponent,
-        MoWbManagerNoteListAddComponent
+        MoWbManagerNoteListAddComponent,
+        MoWbManagerNoteListPreviewComponent
     ],
     providers: [
         ToastTranslateService

@@ -2,17 +2,12 @@
 import { ChangeDetectorRef, Component, ComponentFactoryResolver, EventEmitter, Injector, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FileManagerAuthApiService } from 'src/app/api/auth/authApi';
 import { ToastTranslateService } from 'src/app/api/common/toast-translate.service';
-import { GLOBAL } from 'src/app/common/types/global/global';
 import { MoWbDetectionComponent } from 'src/app/components/detection.component';
 import { MoWbTableComponent } from 'src/app/components/table/table.component';
-// import { FileManagerListDetailsPreviewComponents } from './preview/preview.component';
 import { AddComponentToBodyService } from 'src/app/api/common/add-component-to-body.service';
 import { ManagerNoteApiService } from 'src/app/api/note/noteApi';
-import { ICategoryItem } from '../category/category.component';
-import { INoteInfo } from '../list/list.component';
-import { MoWbManagerNoteListEditComponent } from '../list/edit/edit.component';
-// import { FileManagerListEditComponents } from './edit/edit.component';
-// import { FileManagerListRemoveComponents } from './remove/remove.component';
+import { INoteInfo } from '../list.component';
+import { MoWbManagerNoteListEditComponent } from '../edit/edit.component';
 
 interface ITableColumnSetting {
   type: 'CHECKBOX' | 'TEXT';
@@ -24,11 +19,11 @@ interface ITableColumnSetting {
 }
 
 @Component({
-  selector: 'mo-wb-manager-note-editor',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss'],
+  selector: 'mo-wb-manager-note-edit-preview',
+  templateUrl: './preview.component.html',
+  styleUrls: ['./preview.component.scss'],
 })
-export class MoWbManagerNoteEditorComponent extends MoWbDetectionComponent {
+export class MoWbManagerNoteListPreviewComponent extends MoWbDetectionComponent {
 
   loading: boolean;
   isLoaded: boolean;

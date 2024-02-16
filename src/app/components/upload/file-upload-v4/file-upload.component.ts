@@ -10,6 +10,7 @@ import { AddComponentToBodyService } from "src/app/api/common/add-component-to-b
 import { MoWbDetectionComponent } from "../../detection.component";
 // import { IWrapFile } from "src/app/common/types/media/wrap-file";
 import { uid } from "uid";
+import { MoWbManagerImagesApiService } from "src/app/api/files/filesApi";
 // import { settings } from "cluster";
 
 export interface IValidRequired {
@@ -33,6 +34,8 @@ export class MoWbFileUploadV4Component extends MoWbDetectionComponent {
   isEmptyError: boolean;
   fileListHeight: string = 'auto';
   accessFiles: string = '';
+
+  fileUpload: any;
 
   @Input() multiple: boolean = true;
   @Input() limitFile: number = 10;
@@ -98,7 +101,7 @@ export class MoWbFileUploadV4Component extends MoWbDetectionComponent {
     private componentFactoryResolver: ComponentFactoryResolver,
     private _domService: AddComponentToBodyService,
     private injector: Injector,
-    // private _fileApiService: MoWbFileApiService,
+    private _fileApiService: MoWbManagerImagesApiService,
     public override _changeDetection: ChangeDetectorRef,
     private _toast: ToastTranslateService,
     private _translate: TranslateService
@@ -339,6 +342,7 @@ export class MoWbFileUploadV4Component extends MoWbDetectionComponent {
     
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
+      this.fileUpload = files[0];
       this.onChangeFile.emit(files);
       // fix svg file is not edit
       const isImage = file.type.match(/image.*/) && !file.type.includes('svg') ? true : false;
@@ -735,6 +739,7 @@ export class MoWbFileUploadV4Component extends MoWbDetectionComponent {
    */
   async uploadFiles(folderId: string = null) {
     // console.log('upload file folderId=', folderId);
+    console.log('this.fileList=', this.fileList);
     const uploadFiles = this.fileList.filter((file: any) => {
       return file.isError || file.uploaded ? false : true;
     });
@@ -744,27 +749,26 @@ export class MoWbFileUploadV4Component extends MoWbDetectionComponent {
 
     this.loading = true;
     this.detectChanges();
-
     for(let i=0; i < uploadFiles.length; i++) {
-      // const wrapFile = uploadFiles[i];
-      // wrapFile.uploading = true;
-      // this.detectChanges();
-      // const response = await this._fileApiService.uploadFile(wrapFile.file, folderId, wrapFile.name, false, wrapFile.imageSize); 
-      // // console.log('wrapFile response =', response);
-      // if (!response || response.code !== 200) {
-      //   this._toast.show('error', response && response.message);
-      //   wrapFile.uploading = false;
-      //   this.detectChanges();
-      //   continue;
-      // }
-      // wrapFile.uploaded = true;
+      const wrapFile = uploadFiles[i];
+      wrapFile.uploading = true;
+      this.detectChanges();
+      const response = await this._fileApiService.uploadImages(this.fileUpload); //this._fileApiService.uploadFile(wrapFile.file, folderId, wrapFile.name, false, wrapFile.imageSize); 
+      // console.log('wrapFile response =', response);
+      if (!response || response.code !== 200) {
+        this._toast.show('error', response && response.message);
+        wrapFile.uploading = false;
+        this.detectChanges();
+        continue;
+      }
+      wrapFile.uploaded = true;
       // wrapFile.url = response.data.url;
-      // setTimeout(() => {
-      //   wrapFile.uploading = false;
-      //   this.detectChanges();
-      // }, 150);
+      setTimeout(() => {
+        wrapFile.uploading = false;
+        this.detectChanges();
+      }, 150);
       
-      // this.detectChanges();
+      this.detectChanges();
     }    
 
     setTimeout(() => {
