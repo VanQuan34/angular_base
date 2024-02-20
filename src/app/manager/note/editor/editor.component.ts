@@ -32,6 +32,7 @@ export class MoWbManagerNoteEditorComponent extends MoWbDetectionComponent {
 
   loading: boolean;
   isLoaded: boolean;
+  loadedEditor: boolean;
 
   @Input() noteInfo: INoteInfo;
   @Output() onClose = new EventEmitter<any>;
@@ -57,6 +58,10 @@ export class MoWbManagerNoteEditorComponent extends MoWbDetectionComponent {
     this.getContent();
   }
 
+  /**
+   * change content
+   * @param value 
+   */
   handleOnChangeContent(value: string) {
     this.contentEditor = value;
   }
@@ -65,6 +70,10 @@ export class MoWbManagerNoteEditorComponent extends MoWbDetectionComponent {
     this.onClose.emit();
   }
 
+  /**
+   * get content editor
+   * @returns 
+   */
   async getContent(){
     const response = await this._noteApiService.fetchDetailNote(this.noteInfo.note_id);
     if(!response || response.code !== 200){
@@ -76,6 +85,10 @@ export class MoWbManagerNoteEditorComponent extends MoWbDetectionComponent {
     this.contentEditor = response.data.content;
   }
 
+  /**
+   * call api save
+   * @returns 
+   */
   async saveContent(){
     const param = {
       content: this.contentEditor
@@ -98,6 +111,9 @@ export class MoWbManagerNoteEditorComponent extends MoWbDetectionComponent {
     this.saveContent();
   }
 
+  /**
+   * edit name, description
+   */
   editNoteName(){
     const modalRef = this._componentFactoryResolver.resolveComponentFactory(MoWbManagerNoteListEditComponent).create(this._injector);
     modalRef.instance.noteInfo = this.noteInfo;
@@ -114,6 +130,14 @@ export class MoWbManagerNoteEditorComponent extends MoWbDetectionComponent {
       }, 500);
     });
     this._domService.addDomToBody(modalRef);
+  }
+
+  /**
+   * editor init done
+   * @param event 
+   */
+  handleOnInitEditor(event: any){
+    this.loadedEditor = true;
   }
 
 }

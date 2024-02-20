@@ -8,6 +8,7 @@ import { MoWbManagerNoteListAddComponent } from '../list/add/add.component';
 import { ICategoryItem } from '../category/category.component';
 import { INoteInfo } from '../list/list.component';
 import { MoWbMediaStoreModalComponent } from 'src/app/media-store/store-modal/media-store-modal.component';
+import { MoWbManagerNoteToolbarUploadComponent } from './upload/upload.component';
 
 interface IItemStatus{
   id: string,
@@ -72,10 +73,10 @@ export class MoWbManagerNoteToolbarComponent extends MoWbDetectionComponent {
         sub: 'File tải lên được lưu trữ nội bộ'
       },
       {
-        id: 'add-template',
+        id: 'add-from-file',
         svg: 'template-page.svg',
-        title: 'Sử dụng giao diện mẫu',
-        sub: 'Sử dụng các giao diện đã có trong thư viện của chúng tôi'
+        title: 'Tải lên file .txt có sẵn',
+        sub: 'Sử dụng file .txt có sẵn từ máy tính'
       },
       {
         id: 'upload',
@@ -159,23 +160,21 @@ export class MoWbManagerNoteToolbarComponent extends MoWbDetectionComponent {
   /**
    * add site from template
    */
-  addSiteFromTemplate() {
-    // const modalRef =  this._componentFactoryResolver.resolveComponentFactory(FileManagerListToolbarUploadComponents).create(this._injector);
-    // modalRef.instance.zIndex = this.zIndex + 50;
-    // modalRef.instance.categoryList = this.categoryList;
-    // modalRef.instance.isTemplateModal = false;
-    // modalRef.instance.isCreate = true;
-    // modalRef.instance.onClose.subscribe((event: any) => { 
-    //   this._domService.removeComponentFromBody(modalRef);
-    //   this.detectChanges();
-    // });
-    // if(modalRef.instance.listRef){
-    //   modalRef.instance.listRef.onClose.subscribe((event: any) => { 
-    //     this._domService.removeComponentFromBody(modalRef);
-    //     this.detectChanges();
-    //   });
-    // }
-    // this._domService.addDomToBody(modalRef);
+  addNoteFromFileTxt() {
+    const modalRef =  this._componentFactoryResolver.resolveComponentFactory(MoWbManagerNoteToolbarUploadComponent).create(this._injector);
+    modalRef.instance.title = 'Tải lên file *.txt có sẵn';
+    modalRef.instance.zIndex = this.zIndex + 50;
+    modalRef.instance.categoryList = this.categoryList;
+    modalRef.instance.onClose.subscribe((event: any) => { 
+      this._domService.removeComponentFromBody(modalRef);
+      this.detectChanges();
+    });
+    modalRef.instance.onCreateNote.subscribe((note: INoteInfo) => {
+      this.onAddNewNote.emit(note);
+      this._domService.removeComponentFromBody(modalRef);
+      this.detectChanges();
+    });
+    this._domService.addDomToBody(modalRef);
   }
 
   /**
@@ -194,8 +193,8 @@ export class MoWbManagerNoteToolbarComponent extends MoWbDetectionComponent {
       case 'add-blank':
         this.addPageBlank();
         break;
-      case 'add-template':
-        this.addSiteFromTemplate();
+      case 'add-from-file':
+        this.addNoteFromFileTxt();
         break;
       case 'upload':
         this.uploadSite();

@@ -23,6 +23,7 @@ import { MoWbManagerNoteListPipeModule } from './list/list.pipe';
 import { MoWbManagerNoteListDuplicateComponent } from './list/duplicate/duplicate.component';
 import { MoWbManagerNoteListAddComponent } from './list/add/add.component';
 import { MoWbManagerNoteListPreviewComponent } from './list/preview/preview.component';
+import { MoWbManagerNoteToolbarUploadComponent } from './toolbar/upload/upload.component';
 @NgModule({
     declarations: [
         MoWbManagerNoteComponent,
@@ -37,6 +38,7 @@ import { MoWbManagerNoteListPreviewComponent } from './list/preview/preview.comp
         MoWbManagerNoteListDuplicateComponent,
         MoWbManagerNoteListAddComponent,
         MoWbManagerNoteListPreviewComponent,
+        MoWbManagerNoteToolbarUploadComponent,
     ],
     exports: [
         MoWbManagerNoteComponent,
@@ -50,7 +52,8 @@ import { MoWbManagerNoteListPreviewComponent } from './list/preview/preview.comp
         MoWbManagerNoteListEditComponent,
         MoWbManagerNoteListDuplicateComponent,
         MoWbManagerNoteListAddComponent,
-        MoWbManagerNoteListPreviewComponent
+        MoWbManagerNoteListPreviewComponent,
+        MoWbManagerNoteToolbarUploadComponent,
     ],
     providers: [
         ToastTranslateService

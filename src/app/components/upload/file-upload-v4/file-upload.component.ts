@@ -46,7 +46,7 @@ export class MoWbFileUploadV4Component extends MoWbDetectionComponent {
   @Input() folderName: string = 'i18n_default';
   @Input() expiredDays: number = 30; // so ngay het han
   @Input() doNotDelete: boolean = false; // Khong xoa file
-  @Input() fileExtList: string[] = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf'];
+  @Input() fileExtList: string[] = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'txt'];
   @Input() imgExtList: string[] = ['gif', 'jpg', 'jpeg', 'png'];
   @Input() displayType: 'IMAGE' | 'LIST' = 'LIST';
   @Input() originFiles: any = []; //IWrapFile[]

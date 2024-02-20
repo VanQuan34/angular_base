@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FileManagerAuthApiService } from 'src/app/api/auth/authApi';
 import { ICategoryItem, MoWbManagerNoteCategoryComponent } from './category/category.component';
 import { INoteInfo, MoWbManagerNoteListComponent } from './list/list.component';
+import { MoWbManagerNoteToolbarComponent } from './toolbar/toolbar.component';
 
 @Component({
   selector: 'mo-wb-manager-note',
@@ -17,6 +18,7 @@ export class MoWbManagerNoteComponent {
   valueSearch: string;
 
   @ViewChild('list') listRef: MoWbManagerNoteListComponent;
+  @ViewChild('toolbar') toolbarRef: MoWbManagerNoteToolbarComponent;
   @ViewChild('category') categoryRef: MoWbManagerNoteCategoryComponent;
 
   constructor(
@@ -79,6 +81,12 @@ export class MoWbManagerNoteComponent {
   handleOnAddNewNote(note: INoteInfo){
     this.listRef.tableRef.items.unshift(note);
     this.listRef.tableRef.detectChanges();
+    this.categoryRef.cateItems.forEach(cate => {
+      if(cate.category_id === note.category_id){
+        cate.note_amount = cate.note_amount + 1;
+      }
+      return cate;
+    });
   }
 
 }

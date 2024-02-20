@@ -143,6 +143,7 @@ export class ChatComponent implements OnInit{
     }
     this.loadedMessage = false;
     this.socket.emit('message', {user: GLOBAL.userInfo, message: this.valueMess, createdAt: new Date().getTime()});
+    this.scrollToBottom();
     this._input.setValue('');
     this._input.focus();
     this.showEmojiPicker = false;
@@ -262,10 +263,12 @@ export class ChatComponent implements OnInit{
   }
 
   scrollToBottom(){
-    this.chatEl.nativeElement.scrollTo({
-      top:  this.chatEl.nativeElement.scrollHeight,
-      behavior: 'smooth'
-    });
+    const scrollHeight = this.chatEl.nativeElement.scrollHeight
+    // this.chatEl.nativeElement.scrollTo({
+    //   top: scrollHeight + 30,
+    //   behavior: 'smooth'
+    // });
+    $(this.chatEl.nativeElement).animate({scrollTop: $(this.chatEl.nativeElement).prop("scrollHeight")}, 500);
   }
 
   handleOnClickOutSide(e: MouseEvent){

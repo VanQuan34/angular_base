@@ -33,11 +33,13 @@
           { value: 'First.Name', title: 'First Name' },
           { value: 'Email', title: 'Email' },
         ],
-      }" (ngModelChange)="handleOnChangeContent($event)">
+      }" 
+      (ngModelChange)="handleOnChangeContent($event)"
+      (onInit)="handleOnInitEditor($event)">
 		</editor>
 	</div>
   <mo-wb-components-spinner
-    *ngIf="loading"
+    *ngIf="loading || !loadedEditor"
     [size]="'l'">
   </mo-wb-components-spinner>
 </div>

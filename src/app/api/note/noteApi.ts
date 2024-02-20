@@ -16,6 +16,7 @@ export interface ICreateNote {
  category_id: string,
  description: string,
  title: string,
+ content?: string, 
 }
 
 export interface IDuplicateNote{
